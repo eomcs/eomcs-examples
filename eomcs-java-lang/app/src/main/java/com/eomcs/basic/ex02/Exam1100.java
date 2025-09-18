@@ -60,7 +60,7 @@ public class Exam1100 {
 //   - 4번 ~ 13번(U+40000 ~ U+DFFFF)
 //     - 미지정 평면
 //   - 14번(U+E0000 ~ U+EFFFF)
-//     - 보조 특수목적 평명(SSP; Supplementary Special-purpose Plane)
+//     - 보조 특수목적 평면(SSP; Supplementary Special-purpose Plane)
 //     - 약간의 제어용 문자
 //   - 15번 ~ 16번(U+F0000 ~ U+10FFFF)
 //     - 사용자 영역. 특정 업체나 사용자 별로 할당하는 영역.
