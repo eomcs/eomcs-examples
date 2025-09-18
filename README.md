@@ -1,2 +1,3 @@
-# eomcs-java
-자바 강의 예제 모음
+# eomcs-examples
+
+프로그래밍 강의 예제 코드 모음
