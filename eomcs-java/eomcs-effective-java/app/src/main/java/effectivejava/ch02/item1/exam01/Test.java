@@ -17,34 +17,24 @@
 //       `create` | `newInstance`, `getType`, `newType`,  `type`
 //       등의 이름을 사용한다.
 
-package effectivejava.ch02.item1;
+package effectivejava.ch02.item1.exam01;
 
 import java.math.BigInteger;
 import java.util.Random;
 
-public class Exam01 {
+public class Test {
   public static void main(String[] args) {
     // 장점1: 이름을 가질 수 있다.
 
-    before();
-
-    after();
-
-    // [상황]
-    // - 시그니처(signature)가 같은 생성자가 여러 개 필요할 때 고려하라.
-  }
-
-  static void before() {
+    // Before
+    // - 반환될 객체의 특성을 제대로 설명하지 못한다.
     BigInteger value = new BigInteger(128, new Random());
     System.out.println(value);
 
-    // - 반환될 객체의 특성을 제대로 설명하지 못한다.
-  }
-
-  static void after() {
-    BigInteger value = BigInteger.probablePrime(128, new Random());
-    System.out.println(value);
-
+    // After
     // - 반환될 객체의 특성을 쉽게 묘사할 수 있다.
+    // - 시그니처(signature)가 같은 생성자가 여러 개 필요할 때 고려하라.
+    BigInteger value2 = BigInteger.probablePrime(128, new Random());
+    System.out.println(value2);
   }
 }

@@ -16,14 +16,14 @@
 //   예) `from`, `valueOf`, `of`, `instance` | `getInstance`,
 //       `create` | `newInstance`, `getType`, `newType`,  `type`
 //       등의 이름을 사용한다.
-package effectivejava.ch02.item1;
+package effectivejava.ch02.item1.exam05;
 
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Exam05 {
+public class Test {
   public static void main(String[] args) throws Exception {
     // 장점5: 정적 팩터리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.
     // - 서비스 제공자 프레임워크를 만들 때 유용하다.

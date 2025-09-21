@@ -17,40 +17,28 @@
 //       `create` | `newInstance`, `getType`, `newType`,  `type`
 //       등의 이름을 사용한다.
 
-package effectivejava.ch02.item1;
+package effectivejava.ch02.item1.exam02;
 
-public class Exam02 {
+public class Test {
   public static void main(String[] args) {
     // 장점2: 호출될 때마다 인스턴스를 새로 생성하지 않아도 된다.
 
-    before();
-
-    after();
-
-    // [상황]
-    // - 불변 클래스(immutable class)에서 유용하다.
-    // - 객체 생성 비용이 클 때 고려하라.
-
-    // [관련 기법]
-    // - GoF: Flyweight 패턴, Singleton 패턴
-  }
-
-  static void before() {
+    // Before
+    // - 매번 새로운 인스턴스를 생성한다.
+    // - 불필요한 객체 생성이 많아진다.
     Boolean b1 = new Boolean(true);
     Boolean b2 = new Boolean(true);
     System.out.println(b1 == b2); // false
 
-    // - 매번 새로운 인스턴스를 생성한다.
-    // - 불필요한 객체 생성이 많아진다.
-  }
-
-  static void after() {
-    Boolean b3 = Boolean.valueOf(true);
-    Boolean b4 = Boolean.valueOf(true);
-    System.out.println(b3 == b4); // true
-
+    // After
     // - 생성한 인스턴스를 cache 해놓고 재활용 할 수 있다.
     // - 불필요한 객체 생성을 피할 수 있다.
     // - 메모리 절약, 성능 향상시킬 수 있다.
+    // - 불변 클래스(immutable class)에서 유용하다.
+    // - 객체 생성 비용이 클 때 고려하라.
+    // - GoF: Flyweight 패턴, Singleton 패턴
+    Boolean b3 = Boolean.valueOf(true);
+    Boolean b4 = Boolean.valueOf(true);
+    System.out.println(b3 == b4); // true
   }
 }
