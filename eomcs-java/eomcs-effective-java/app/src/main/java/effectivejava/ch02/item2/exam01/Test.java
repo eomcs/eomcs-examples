@@ -4,6 +4,9 @@
 package effectivejava.ch02.item2.exam01;
 
 // 기존 방식: 점층적 생성자 패턴(telescoping constructor pattern)을 사용
+// - 필수 필드 값만 받는 생성자,
+// - 필수 필드와 선택 필드값 1개를 받는 생성자,
+// - 필수 필드와 선택 필드값 2개를 받는 생성자, ...
 class NutritionFacts {
   private final int servingSize; // (ml, 1회 제공량)         필수
   private final int servings; // (회, 총 n회 제공량)      필수
@@ -44,7 +47,7 @@ public class Test {
 
     // 클래스의 인스턴스를 만들 때 원하는 파라미터를 모두 포함한 생성자 중에서 가장 짧은 것을 호출한다.
     NutritionFacts cocaCola = new NutritionFacts(240, 8, 100, 0, 35, 27);
-    // [문제]
+    // [문제] 확장하기 어렵다.
     // - 사용자가 설정하고 싶지 않은 파라미터의 값도 모두 넣어줘야 한다.
     // - 파라미터가 많아지면, 클라이언트 코드를 작성하기 어렵고, 읽기도 어렵다.
     // - 코드를 읽을 때 각 파라미터가 무엇을 의미하는지 알기 어렵다.

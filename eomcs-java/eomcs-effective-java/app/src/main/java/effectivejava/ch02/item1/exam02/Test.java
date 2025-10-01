@@ -16,7 +16,6 @@
 //   예) `from`, `valueOf`, `of`, `instance` | `getInstance`,
 //       `create` | `newInstance`, `getType`, `newType`,  `type`
 //       등의 이름을 사용한다.
-
 package effectivejava.ch02.item1.exam02;
 
 public class Test {

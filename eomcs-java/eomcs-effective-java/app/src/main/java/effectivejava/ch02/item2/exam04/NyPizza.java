@@ -26,6 +26,10 @@ public class NyPizza extends Pizza {
 
     @Override
     protected Builder self() {
+      // 하위 클래스의 메서드가 상위 클래스의 메서드가 정의한 반환 타입이 아닌,
+      // 그 하위 타입을 반환하는 것을 공변 반환 타입(covariant return type)이라 한다.
+      // 이 기능을 이용하면 상위 클래스의 메서드를 오버라이드하는 하위 클래스의 메서드가
+      // 정확히 그 하위 타입을 반환하도록 할 수 있다.
       return this;
     }
   }
