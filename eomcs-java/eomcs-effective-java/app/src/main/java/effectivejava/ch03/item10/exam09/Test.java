@@ -23,22 +23,56 @@
 //    - null 이 아닌 모든 참조 값 x에 대해,
 //      x.equals(null)는 false여야 한다.
 
-package effectivejava.ch03.item10.exam01;
+package effectivejava.ch03.item10.exam09;
 
-// equals()를 호출하지 못하도록 막는 방법
+// equals()의 null-아님 원칙
+
 class MyObject {
+  private final int value;
+
+  public MyObject(int value) {
+    this.value = value;
+  }
+
   @Override
-  public boolean equals(Object obj) {
-    throw new AssertionError();
+  public boolean equals(Object o) {
+    // 비교하려는 객체가 null 인지 여부를 검사한다.
+    if (o == null) return false;
+    if (!(o instanceof MyObject)) return false;
+    MyObject that = (MyObject) o;
+    return this.value == that.value;
+  }
+}
+
+// 다음은 개선된 MyObject 클래스이다.
+class MyObject2 {
+  private final int value;
+
+  public MyObject2(int value) {
+    this.value = value;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    // 굳이 null 검사를 할 필요가 없다. instanceof가 null 검사를 대신해 주기 때문이다.
+    if (!(o instanceof MyObject2)) return false;
+    MyObject2 that = (MyObject2) o;
+    return this.value == that.value;
   }
 }
 
 public class Test {
   public static void main(String[] args) throws Exception {
-    MyObject obj1 = new MyObject();
-    MyObject obj2 = new MyObject();
+    MyObject obj1 = new MyObject(100);
+    MyObject obj2 = new MyObject(100);
 
-    // equals()를 호출하면 예외가 발생한다.
-    obj1.equals(obj2);
+    System.out.println(obj1.equals(obj2)); // true
+    System.out.println(obj1.equals(null)); // false
+
+    MyObject2 obj3 = new MyObject2(200);
+    MyObject2 obj4 = new MyObject2(200);
+
+    System.out.println(obj3.equals(obj4)); // true
+    System.out.println(obj3.equals(null)); // false
   }
 }

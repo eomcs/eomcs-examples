@@ -1,14 +1,12 @@
 // # 아이템 10. equals() 는 일반 규약을 지켜 재정의하라
-// 재정의하지 말아야 할 상황
+// [재정의하지 말아야 할 상황]
 // - 각 인스턴스가 본질적으로 고유하다.
 //   - 값을 표현하는 게 아니라 동작하는 객체를 표현하는 클래스인 경우
 // - 인스턴스의 '논리적 동치성(logical equality)'을 검사할 일이 없다.
 // - 상위 클래스에서 재정의한 equals()가 하위 클래스에도 딱 들어 맞는다.
 // - 클래스가 private이거나, package-private이고 equals() 메서드를 호출할 일이 없다.
-
-package effectivejava.ch03.item10.exam02;
-
-// equals() 메서드는 동치관계(equivalence relation)를 구현하며, 다음을 만족한다.
+//
+// [equals() 메서드는 동치관계(equivalence relation)를 구현하며, 다음을 만족한다.]
 // 1. 반사성(reflexive):
 //    - null 이 아닌 모든 참조 값 x에 대해,
 //      x.equals(x)는 true여야 한다.
@@ -25,8 +23,11 @@ package effectivejava.ch03.item10.exam02;
 //    - null 이 아닌 모든 참조 값 x에 대해,
 //      x.equals(null)는 false여야 한다.
 
+package effectivejava.ch03.item10.exam02;
+
 import java.util.Objects;
 
+// 대칭성 위배의 예:
 final class CaseInsensitiveString {
   private final String s;
 
@@ -34,7 +35,7 @@ final class CaseInsensitiveString {
     this.s = Objects.requireNonNull(s);
   }
 
-  // 대칭성 위배
+  // 대칭성 위배!
   @Override
   public boolean equals(Object o) {
     if (o instanceof CaseInsensitiveString)
