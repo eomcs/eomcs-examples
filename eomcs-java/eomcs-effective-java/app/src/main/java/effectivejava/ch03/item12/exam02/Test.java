@@ -85,9 +85,6 @@ final class UtilityClass {
 
 public class Test {
 
-  // 정적 유틸리티 클래스는 toString()을 제공할 이유가 없다.
-  static class MyObject {}
-
   public static void main(String[] args) throws Exception {
     PhoneNumber pn = new PhoneNumber(123, 456, 7890);
     System.out.println(pn); // Lombok이 생성한 toString() 자동 호출
