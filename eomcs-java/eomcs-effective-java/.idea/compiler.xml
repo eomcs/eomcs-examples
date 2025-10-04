@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.40/398c6d2d7c42c96b65e78d2ddc9be0058c163453/lombok-1.18.40.jar" />
+        </processorPath>
+        <module name="eomcs-effective-java.app.main" />
+        <module name="eomcs-effective-java.app.test" />
+      </profile>
+    </annotationProcessing>
     <bytecodeTargetLevel target="21" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="eomcs-effective-java.app" options="-Xlint:-processing" />
+      <module name="eomcs-effective-java.app.main" options="-Xlint:-processing" />
+      <module name="eomcs-effective-java.app.test" options="-Xlint:-processing" />
+    </option>
   </component>
 </project>
