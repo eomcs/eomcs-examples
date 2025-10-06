@@ -14,7 +14,7 @@
 //      클래스를 final로 선언하거나 생성자를 private으로 선언한다.
 //   3. 모든 필드를 final로 선언한다.
 //      시스템이 강제하는 수단을 이용해 설계자의 의도를 명확히 드러내는 방법이다.
-//      새로 생성된 인스턴스를 동기화 없이 다른 스레드로 건테도 문제없이 동작하게끔 보장한다.
+//      새로 생성된 인스턴스를 동기화 없이 다른 스레드로 건네도 문제없이 동작하게끔 보장한다.
 //      (Java Language Spec. 17.5절 참조)
 //   4. 모든 필드를 private으로 선언한다.
 //      필드가 참조하는 가변 객체를 클라이언트에서 직접 접근해 변경하는 것을 막아준다.
@@ -31,56 +31,101 @@
 package effectivejava.ch04.item17.exam01;
 
 // [주제]
-// 불변 클래스를 만들기: 클라이언트가 제공한 객체 레퍼런스를 안전하게 저장하기
+// 불변 클래스 만들 때 필드를 final 로 선언하는 이유
+// - 공개된 객체를 사용할 때 값이 초기화 되었다는 것을 보장한다.
 
-import java.util.Date;
+class MyObject {
+  private final int x;
+  private int y;
 
-final class Period {
-  private final Date start;
-  private final Date end;
-
-  // 생성자에서 클라이언트가 제공한 객체 레퍼런스를 안전하게 저장하는 방법
-  public Period(Date start, Date end) {
-    // 먼저 복사한 뒤 (외부 참조 차단)
-    Date s = new Date(start.getTime());
-    Date e = new Date(end.getTime());
-
-    // 복사본으로 불변식 검증 (TOCTOU 회피)
-    // - TOCTOU: Time Of Check To Time Of Use
-    // - 검사할 때의 상태와 실제로 사용할 때의 상태가 달라져 버리는 경쟁 조건(race)이다.
-    //   즉 검사 결과가 유효하다고 믿고 사용했는데, 사용 바로 전에 상태가 바뀌어 안전/정합성이 깨지는 상황을 말한다.
-    //   ex) 파일 접근 권한 검사 후 파일에 접근하는 사이에 권한이 바뀌는 경우
-    if (s.after(e)) throw new IllegalArgumentException();
-
-    // 복사본 저장
-    this.start = s;
-    this.end = e;
+  public MyObject() {
+    this.x = 3;
+    this.y = 4;
   }
 
-  // 접근자도 내부 가변 상태를 그대로 내주지 말고 복사본을 반환
-  public Date start() {
-    return new Date(start.getTime());
+  private static MyObject obj;
+
+  public static void write() {
+    obj = new MyObject();
   }
 
-  public Date end() {
-    return new Date(end.getTime());
+  public static void read() {
+    if (obj != null) {
+      int i = obj.x; // x는 final 필드이므로, obj를 통해 이 필드에 접근할 때 항상 초기화가 완료된 값을 읽는다.
+      int j = obj.y; // y는 변경 가능 필드이므로, obj를 통해 이 필드에 접근할 때 초기화가 완료되기 전의 값을 읽을 수도 있다.
+    }
   }
 }
 
 public class Test {
   public static void main(String[] args) throws Exception {
-    Date start = Date.from(java.time.Instant.parse("2025-10-03T00:00:00Z"));
-    Date end = Date.from(java.time.Instant.parse("2025-10-09T00:00:00Z"));
-    Period period = new Period(start, end);
+    Thread t1 = new Thread(() -> MyObject.write());
+    Thread t2 = new Thread(() -> MyObject.read());
 
-    // 클라이언트가 제공한 객체 레퍼런스를 변경해도
-    // Period 객체의 불변식이 깨지지 않는다.
-    end.setYear(124); // 2024년으로 변경
-    System.out.println(period.end()); // 2025년 출력
+    t1.start();
+    t2.start();
+    // t1 스레드가 write() 메서드를 실행하여 인스턴스를 생성하는 동안
+    // t2 스레드가 read() 메서드를 실행하여 obj 필드를 읽을 때,
+    // obj 필드가 null이 아닌 상태가 되었다고 하더라도
+    // MyObject 인스턴스의 x 필드 값은 완전히 초기화된 상태이지만
+    // y 필드는 아직 초기화되지 않은 상태일 수 있다.
+    // 생성자 호출을 완료했는데 어떻게 y 필드가 초기화되지 않을 수 있을까?
+    // 그 이유는 CPU 캐시, 레지스터, 명령어 재배치 때문이다.
 
-    // 접근자가 반환한 객체 레퍼런스를 변경해도
-    // Period 객체의 불변식이 깨지지 않는다.
-    period.end().setYear(126); // 2026년으로 변경
-    System.out.println(period.end()); // 2025년 출력
+    // [final 필드 초기화 규정(JLS, 17.5. final Field Semantics)]
+    // - final 필드의 값은 생성자 호출이 끝나기 전에 반드시 초기화가 완료된다.
+    // - 다른 스레드가 레퍼런스를 획득한 후에 final 필드의 값을 읽을 때, 그 값이 초기화된 상태임이 보장된다.
+    // - 일반 필드는 생성자 호출이 끝난 후에도 초기화 되어 있지 않을 수 있다.
+    //   왜? CPU 캐시, 레지스터, 명령어 재배치 때문이다.
+
+    // [final 필드 초기화 과정]
+    // 1. 인스턴스 메모리 할당
+    // 2. 모든 final 필드에 대해 생성자의 초기화 문장이 실행된다.
+    // 3. 생성자 끝 --> 메모리 장벽
+    //    메모리 장벽? 객체가 공개된 후 "다른 스레드에도 반드시 보이도록" 가시성을 보장한다는 의미
+    // 4. 참조 발행 (예: f = new Foo(...);)
+    // - 일반 필드는 1번 이후에 생성자의 초기화 문장이 실행된다.
+    //   명령어 재배치에 따라 그 순서가 결정된다.
+    //   즉 참조가 발생되기 전에 초기화 된다는 것을 보장하지 않는다.
+
+    // [명령어 재배치]
+    // - 컴파일러, JVM, CPU가 프로그램 실행 효율을 높이기 위해 명령어의 실행 순서를 바꾸는 것
+    // - 명령어 재배치가 일어나더라도, 단일 스레드 환경에서는 프로그램의 실행 결과가 바뀌지 않는다.
+    // - 하지만, 멀티 스레드 환경에서는 문제가 될 수 있다.
+
+    // [명령어 재배치 예시]
+    // 소스 코드:
+    // public static void write() {
+    //    obj = new MyObject();
+    // }
+    //
+    // 컴파일러가 재배치한 코드:
+    // - 시나리오 1: 이 경우 다른 스레드가 obj를 읽으면 x는 3이고, y는 0이 된다.
+    // public static void write() {
+    //    STORE x, 3         // final 필드
+    //    <메모리 장벽>       // 생성자 끝
+    //    STORE obj, 객체주소
+    //    --> 다른 스레드가 obj를 읽을 때
+    //    STORE y, 4         // 일반 필드
+    // }
+    //
+    // - 시나리오 2: 이 경우 다른 스레드가 obj를 읽으면 x는 3이고, y는 4가 된다.
+    // public static void write() {
+    //    STORE y, 4         // 일반 필드
+    //    STORE x, 3         // final 필드
+    //    <메모리 장벽>       // 생성자 끝
+    //    STORE obj, 객체주소
+    //    --> 다른 스레드가 obj를 읽을 때
+    // }
+    //
+    // - 시나리오 3: 이 경우 다른 스레드가 obj를 읽으면 x는 3이고, y는 4가 된다.
+    // public static void write() {
+    //    STORE x, 3         // final 필드
+    //    <메모리 장벽>       // 생성자 끝
+    //    STORE y, 4         // 일반 필드
+    //    STORE obj, 객체주소
+    //    --> 다른 스레드가 obj를 읽을 때
+    // }
+
   }
 }
