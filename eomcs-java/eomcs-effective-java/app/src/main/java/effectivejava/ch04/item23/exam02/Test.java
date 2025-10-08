@@ -34,6 +34,7 @@ abstract class Figure {
 class Circle extends Figure {
 
   // - 각 하위 클래스에는 각자의 의미에 해당하는 데이터 필드를 넣는다.
+  // - 예제 코드의 테스트 편의를 위해 필드를 package-private로 노출했다.
   final double radius;
 
   Circle(double radius) {
@@ -50,6 +51,7 @@ class Circle extends Figure {
 class Rectangle extends Figure {
 
   // - 각 하위 클래스에는 각자의 의미에 해당하는 데이터 필드를 넣는다.
+  // - 예제 코드의 테스트 편의를 위해 필드를 package-private로 노출했다.
   final double length;
   final double width;
 
