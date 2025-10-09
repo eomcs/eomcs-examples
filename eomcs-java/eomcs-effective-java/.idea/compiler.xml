@@ -16,7 +16,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eomcs-effective-java.app" options="-Xlint:-processing" />
-      <module name="eomcs-effective-java.app.main" options="-Xlint:-processing" />
+      <module name="eomcs-effective-java.app.main" options="-Xlint:-processing -Xlint:unchecked" />
       <module name="eomcs-effective-java.app.test" options="-Xlint:-processing" />
     </option>
   </component>

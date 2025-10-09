@@ -24,3 +24,7 @@ java {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.named('compileJava') {
+    options.compilerArgs << '-Xlint:unchecked'
+}
