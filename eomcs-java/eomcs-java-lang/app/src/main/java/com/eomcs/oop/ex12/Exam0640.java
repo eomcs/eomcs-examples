@@ -11,7 +11,6 @@ public class Exam0640 {
     }
   }
 
-
   public static void main(String[] args) {
 
     //    interface Predicate<T> {
@@ -19,34 +18,35 @@ public class Exam0640 {
     //      ...
     //    }
 
-    //    Predicate<String> p1 = My::m; // 컴파일 오류!
-    // 1) My의 test()는 스태틱 메서드가 아니다.
-    // 2) My의 test()는 String 파라미터를 못받는다.
+    // 기존의 My의 m()을 Predicate<T>의 test() 메서드를 구현하는데 사용하기
 
+    // 1) 람다 표현식으로 구현하기
+    Predicate<My> obj =
+        (My value) -> {
+          return value.m();
+        };
 
-    //    My obj = new My();
-    //    Predicate<String> p2 = obj::m;  // 컴파일 오류!
-    // 1) My의 test()는 String 파라미터를 못받는다.
-
-    // 기존의 My의 m()을 test() 메서드를 구현하는데 사용하기
-    //
-    Predicate<My> obj = (My value) -> {return value.m();};
-
-    // 코드를 좀 더 줄이기
+    // 2) 람다 표현식에서 파라미터 타입과 return 문 생략하기
     Predicate<My> obj2 = value -> value.m();
 
-    // 코드를 더 줄이기 - 바로 위의 코드를 작성하는 경우가 많다 보니 다음과 같은 단축 문법이 등장!
+    // 3) 메서드 레퍼런스 사용하기 - 바로 위의 코드를 작성하는 경우가 많다 보니 다음과 같은 단축 문법이 등장!
+    // - T 타입과 클래스가 같다면, 인스턴스 메서드를 메서드 레퍼런스로 사용할 수 있다.
     Predicate<My> obj3 = My::m; // OK!
+    // 위 코드는 다음의 람다 표현식과 같다.
+    //   Predicate<My> obj3 = (My value) -> { return value.m(); };
 
-    // 위와 같이 단축 문법을 사용하려면,
-    // => 타입 파라미터의 클래스가 인스턴스 메서드의 클래스랑 같아야 한다.
-    // => 즉 다음과 같이 람다 문법으로 변경될 수 있어야 한다.
-    //
-    // => Predicate<My> obj3 = (My value) -> { return value.m(); };
+    // 4) T 타입과 클래스가 다르면, 인스턴스 메서드를 메서드 레퍼런스로 사용할 수 없다.
+    //    Predicate<String> obj4 = My::m; // 컴파일 오류!
+    // 위 코드는 다음의 람다 표현식과 같다.
+    //    Predicate<String> obj4 = (String value) -> { return My.m(value); };
+    // - m()은 static 메서드가 아니기 때문에, My.m()처럼 호출할 수 없다.
 
-    obj3.test(new My());
+    // 5) T 타입과 클래스가 다르면, 인스턴스 메서드 레퍼런스의 시그너처가 유효해야 한다.
+    //    My obj5 = new My();
+    //    Predicate<String> p2 = obj::m; // 컴파일 오류!
+    // 위 코드는 다음의 람다 표현식과 같다.
+    //    Predicate<String> p2 = (String value) -> { return obj.m(value); };
+    // - My 클래스의 인스턴스로 m()을 호출하는 것은 가능하다.
+    // - 하지만, m()은 String 파라미터를 못받는다.
   }
-
 }
-
-
