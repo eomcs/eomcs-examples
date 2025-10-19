@@ -33,5 +33,16 @@ public class Test {
 
     String s2 = sort(null); // NullPointerException 발생
     System.out.println(s2);
+
+    // [Objects의 범위 검사 메서드들]
+    // checkIndex(int index, int size):
+    //   - index가 0 이상 size 미만인지 검사
+    // checkFromToIndex(int fromIndex, int toIndex, int size):
+    //   - fromIndex가 0 이상 size 이하인지,
+    //   - toIndex가 fromIndex 이상 size 이하인지 검사
+    // checkFromIndexSize(int fromIndex, int size, int arraySize):
+    //   - fromIndex가 0 이상 arraySize 이하인지,
+    //   - size가 음수가 아닌지,
+    //   - fromIndex + size가 arraySize 이하인지 검사
   }
 }
