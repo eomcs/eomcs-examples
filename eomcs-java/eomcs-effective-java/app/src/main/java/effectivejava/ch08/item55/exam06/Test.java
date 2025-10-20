@@ -23,12 +23,10 @@ package effectivejava.ch08.item55.exam06;
 //    예를 들어 맵에 해당 key가 존재하는지 확인하려면 두 번 검사해야 한다.
 //    key가 없는 경우와 key는 있지만 빈 옵셔널인 경우다.
 //    쓸데없이 복잡성만 높여서 혼란과 오류 가능성을 키울 뿐이다.
-// 
 //
-
+//
 
 public class Test {
 
-  public static void main(String[] args) {
-  }
+  public static void main(String[] args) {}
 }
