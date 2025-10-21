@@ -3,7 +3,7 @@
 //   정상적인 제어 흐름에서 사용해서는 안되며, 이를 프로그래머에게 강요하는 API를 만들어서는 안된다.
 //
 
-package effectivejava.ch10.exam01;
+package effectivejava.ch10.item69.exam01;
 
 // [주제] 예외를 잘못 사용한 예
 
