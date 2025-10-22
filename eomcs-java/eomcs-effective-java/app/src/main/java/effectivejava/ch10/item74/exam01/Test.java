@@ -10,7 +10,7 @@
 //
 package effectivejava.ch10.item74.exam01;
 
-// [주제] 예외를 문서화하는 방법 I
+// [주제] 예외를 문서화하는 방법
 //
 
 public class Test {
