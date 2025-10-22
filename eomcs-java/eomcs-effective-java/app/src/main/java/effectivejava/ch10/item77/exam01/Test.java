@@ -11,7 +11,7 @@
 //
 package effectivejava.ch10.item77.exam01;
 
-// [주제] 예외를 무시한 예
+// [주제] 예외 무시하기 - ignored(변수명) + 무시한 이유(주석)
 
 import java.io.File;
 import java.io.FileInputStream;
