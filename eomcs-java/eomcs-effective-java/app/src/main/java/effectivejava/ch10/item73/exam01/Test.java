@@ -9,7 +9,7 @@
 //
 package effectivejava.ch10.item73.exam01;
 
-// [주제] 추상화 수준에 맞는 예외 던지기
+// [주제] 추상화 수준에 맞는 예외 던지기 - 예외 번역과 예외 연쇄
 //
 
 import java.util.AbstractSequentialList;
