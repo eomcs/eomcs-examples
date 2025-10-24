@@ -70,17 +70,27 @@ public class Test8 {
     // 3개 스레드가 작업을 시작하도록 잠시 기다린다.
     Thread.sleep(3000);
 
-    // 1) 새 작업 거부
+    List<Runnable> canceledTasks = executorService.shutdownNow();
+    // shutdownNow(): Forceful Shutdown
+    // 1) 새 작업 제출
     //    - 호출 순간부터 새로운 submit() / execute() 요청은
     //      모두 RejectedExecutionException 으로 거부한다.
-    // 2) 현재 실행 중인 스레드에 interrupt() 시도
+    // 2) 큐에 있는 작업
+    //    - 실행 대기 중 작업을 취소한다.
+    //    - 즉, “대기열에 있던 작업들”은 실행되지 않는다.
+    // 3) 실행 중 작업
     //    - 풀 안의 모든 실행 중인 스레드에 Thread.interrupt() 를 보낸다.
     //    - 각 작업은 InterruptedException 을 받거나, 인터럽트 플래그를 보고 중단할 수 있다.
     //    - 단, 작업 코드가 인터럽트를 무시하면 즉시 중단되지 않습니다.
-    // 3) 대기 중(아직 시작하지 않은) 작업 제거 및 반환
-    //    - 큐에 남아 있던 아직 실행되지 않은 작업들을 꺼내서 List<Runnable> 형태로 반환한다.
-    //    - 즉, “대기열에 있던 작업들”은 실행되지 않는다.
-    List<Runnable> canceledTasks = executorService.shutdownNow();
+    // 4) 반환 시점
+    //    - 즉시 반환
+    //    - List<Runnable> 형태로 반환한다.
+    // 5) 보장
+    //    - "가능한 빨리" 종료 시도
+    // 6) 상태 플래스
+    //    - isShutdown() : true(즉시)
+    //    - isTerminated() : 작업이 모두 끝나야 true
+
     for (Runnable task : canceledTasks) {
       System.out.println("취소된 작업: " + ((MyTask) task).name);
     }

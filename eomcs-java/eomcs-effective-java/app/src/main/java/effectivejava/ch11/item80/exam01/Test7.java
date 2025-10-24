@@ -33,6 +33,7 @@ public class Test7 {
         try {
           Thread.sleep(millisec);
         } catch (InterruptedException e) {
+          System.out.println("인터럽트 발생!");
         }
         System.out.printf("[%s] - 작업 종료 후 스레드 대기!\n", Thread.currentThread().getName());
       }
@@ -47,9 +48,23 @@ public class Test7 {
     executorService.execute(new MyTask(2000));
 
     executorService.shutdown();
+    // shutdown(): Graceful Shutdown
+    // 1) 새 작업 제출
+    //    - 호출 순간부터 새로운 submit() / execute() 요청은
+    //      모두 RejectedExecutionException 으로 거부한다.
+    // 2) 큐에 있는 작업
+    //    - 모두 실행 된다.
+    //    - 이미 제출된 것은 끝까지 처리한다.
+    // 3) 실행 중 작업
+    //    - 완료될 때까지 기다린다. 인터럽트를 걸지 않는다.
+    // 4) 반환 시점
+    //    - 즉시 반환
+    // 5) 보장
+    //    - "언젠가 정상 종료"로 수렴
+    // 6) 상태 플래스
+    //    - isShutdown() : true(즉시)
+    //    - isTerminated() : 작업이 모두 끝나야 true
 
-    // shutdown() 호출 후에는 작업 요청을 거절한다.
-    // - 새 작업을 큐에 등록하면 예외가 발생한다.
     try {
       executorService.execute(new MyTask(4000));
     } catch (Exception e) {
