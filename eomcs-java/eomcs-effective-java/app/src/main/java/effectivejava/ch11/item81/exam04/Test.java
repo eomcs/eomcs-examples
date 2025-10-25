@@ -61,6 +61,7 @@ public class Test {
     try {
       // 메인 스레드도 파티로 참여: 출발 동기화
       startBarrier.await();
+
       // 메인 스레드도 파티로 참여: 종료 동기화
       endBarrier.await();
     } catch (BrokenBarrierException e) {
