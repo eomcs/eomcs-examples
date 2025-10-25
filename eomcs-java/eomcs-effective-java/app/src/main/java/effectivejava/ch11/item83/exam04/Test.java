@@ -55,9 +55,5 @@ public class Test {
     return List.of("A", "B", "C");
   }
 
-  public static void main(String[] args) {
-    // [정리]
-    // - 지연 초기화 기법은 기본 타입 필드와 객체 참조 필드 모두에 적용할 수 있다.
-
-  }
+  public static void main(String[] args) {}
 }
