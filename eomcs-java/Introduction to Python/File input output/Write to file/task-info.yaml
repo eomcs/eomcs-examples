@@ -1,0 +1,50 @@
+type: edu
+files:
+  - name: output.txt
+    visible: true
+    learner_created: false
+  - name: write_to_file.py
+    visible: true
+    placeholders:
+      - offset: 74
+        length: 8
+        placeholder_text: modifier
+        initial_state:
+          length: 8
+          offset: 74
+        initialized_from_dependency: false
+        encrypted_possible_answer: uBwPgdmXCSa+XJi5v3PN1A==
+        selected: false
+        status: Unchecked
+      - offset: 94
+        length: 99
+        placeholder_text: "# Write a new line symbol into a file, along with all elements\
+      \ from the zoo list, joined by \" and \""
+        initial_state:
+          length: 99
+          offset: 94
+        initialized_from_dependency: false
+        encrypted_possible_answer: OLzakA8QjOP1EWk0vEogGlWGwV+nhlha4jUWFJQv84uv12t5XCCaevGVQN+HuR3A
+        selected: false
+        status: Unchecked
+      - offset: 198
+        length: 74
+        placeholder_text: "# Write a new line symbol and the value of the number variable\
+      \ into a file"
+        initial_state:
+          length: 74
+          offset: 198
+        initialized_from_dependency: false
+        encrypted_possible_answer: 5cFKv2KKBLK+gKgQkdZiIRMyhPgA7wlilxddQl95UL8=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=File+Input+Output+/+Write+to+file
+status: Unchecked
+record: -1

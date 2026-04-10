@@ -1,0 +1,42 @@
+type: edu
+files:
+  - name: boolean_operators.py
+    visible: true
+    placeholders:
+      - offset: 34
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 34
+        initialized_from_dependency: false
+        encrypted_possible_answer: 7fwRgGhI1XP/fa9HQT0KaQ==
+        selected: false
+        status: Unchecked
+      - offset: 100
+        length: 41
+        placeholder_text: "# a boolean value for truthful statements"
+        initial_state:
+          length: 41
+          offset: 100
+        initialized_from_dependency: false
+        encrypted_possible_answer: pOFxq+VTymWmt5O+IDuWdQ==
+        selected: false
+        status: Unchecked
+      - offset: 197
+        length: 48
+        placeholder_text: "# a boolean value for not so truthful statements"
+        initial_state:
+          length: 48
+          offset: 197
+        initialized_from_dependency: false
+        encrypted_possible_answer: 5mQdfUytsGrA4YsWOYVtcA==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Variables+/+Boolean+Operators
+status: Unchecked
+record: -1

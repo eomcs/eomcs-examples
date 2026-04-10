@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: self_parameter.py
+    visible: true
+    placeholders:
+      - offset: 507
+        length: 58
+        placeholder_text: "# Update the current attribute by adding the amount to it."
+        initial_state:
+          length: 58
+          offset: 507
+        initialized_from_dependency: false
+        encrypted_possible_answer: JxK8razy9yT1YJrzXyRnkMijd3NAiSGLdZ1BscZ16N4=
+        selected: false
+        status: Unchecked
+      - offset: 609
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 609
+        initialized_from_dependency: false
+        encrypted_possible_answer: jqLCfDFztuS5w/E471PR8A==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Classes+and+Objects+/+The+self+parameter
+status: Unchecked
+record: -1

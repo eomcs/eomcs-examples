@@ -1,0 +1,41 @@
+type: edu
+files:
+  - name: from_import.py
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 45
+        placeholder_text: "# Import class Calculator from another module"
+        initial_state:
+          length: 45
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: AXDlPSmbw+enY4/4rg8k8afhlOtdLLYYuWBK3Z+Vabt1JLg60DF0flGc36jvbXJH
+        selected: false
+        status: Unchecked
+      - offset: 109
+        length: 26
+        placeholder_text: '''Instantiate a calculator'''
+        initial_state:
+          length: 26
+          offset: 109
+        initialized_from_dependency: false
+        encrypted_possible_answer: ni3PM/AmFMT8NObzlGrXEg==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: my_module.py
+    visible: true
+    learner_created: false
+  - name: calculator.py
+    visible: true
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Modules+and+Packages+/+From+import
+status: Unchecked
+record: -1

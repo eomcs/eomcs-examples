@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: nested_loop.py
+    visible: true
+    placeholders:
+      - offset: 61
+        length: 31
+        placeholder_text: "# TODO: use a nested loop here."
+        initial_state:
+          length: 31
+          offset: 61
+        initialized_from_dependency: false
+        encrypted_possible_answer: V3V3n0HqAkWOIm6tp2L3eLAECl9btk5i5tXoCR+SikU=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+Nested+For+Loop
+status: Unchecked
+record: -1

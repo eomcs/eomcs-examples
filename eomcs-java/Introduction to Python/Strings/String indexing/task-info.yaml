@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: string_indexing.py
+    visible: true
+    placeholders:
+      - offset: 101
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 101
+        initialized_from_dependency: false
+        encrypted_possible_answer: Uc0Guk5XEIejdtPx5dZnvA==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Strings+/+String+Indexing
+status: Unchecked
+record: -1

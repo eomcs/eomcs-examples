@@ -1,0 +1,82 @@
+type: edu
+files:
+  - name: arithmetic_operators.py
+    visible: true
+    placeholders:
+      - offset: 59
+        length: 29
+        placeholder_text: "# divide the init_number by 2"
+        initial_state:
+          length: 29
+          offset: 59
+        initialized_from_dependency: false
+        encrypted_possible_answer: u+cFAeZzK9OC2mZB/JllGg==
+        selected: false
+        status: Unchecked
+      - offset: 111
+        length: 59
+        placeholder_text: "# get the remainder of the division of the init_number by 2"
+        initial_state:
+          length: 59
+          offset: 111
+        initialized_from_dependency: false
+        encrypted_possible_answer: iDJWooVYTLag9F1TLh3M8g==
+        selected: false
+        status: Unchecked
+      - offset: 196
+        length: 35
+        placeholder_text: "# multiply the division_result by 2"
+        initial_state:
+          length: 35
+          offset: 196
+        initialized_from_dependency: false
+        encrypted_possible_answer: t43UqH5laWQWGEg+EbiH0s1XBCP9lvVooppvpg50Qgk=
+        selected: false
+        status: Unchecked
+      - offset: 251
+        length: 57
+        placeholder_text: "# add the division_remainder to the multiplication_result"
+        initial_state:
+          length: 57
+          offset: 251
+        initialized_from_dependency: false
+        encrypted_possible_answer: AWxCOVsmJb5hC+guvuNyoB3C4oNTysI9JnY5OXx84Z8h2ek9AdLzrOSTabWbOsx9
+        selected: false
+        status: Unchecked
+      - offset: 331
+        length: 57
+        placeholder_text: "# subtract the multiplication_result from the init_number"
+        initial_state:
+          length: 57
+          offset: 331
+        initialized_from_dependency: false
+        encrypted_possible_answer: 8lzx8Qxx79426hLnCcJf0avCoKvied5QAWK0lth01cJAP+crCnJFolwOCjJoFfgX
+        selected: false
+        status: Unchecked
+      - offset: 405
+        length: 46
+        placeholder_text: "# perform a floor division of init_number by 2"
+        initial_state:
+          length: 46
+          offset: 405
+        initialized_from_dependency: false
+        encrypted_possible_answer: iIQhURWxIqFGgqxXdmjr93r99o7gg4HQfUtgVocUcvA=
+        selected: false
+        status: Unchecked
+      - offset: 468
+        length: 51
+        placeholder_text: "# raise the multiplication_result to the power of 3"
+        initial_state:
+          length: 51
+          offset: 468
+        initialized_from_dependency: false
+        encrypted_possible_answer: AWxCOVsmJb5hC+guvuNyoAKsWZtufe9HFqDxWqFaIhI=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Variables+/+Arithmetic+Operators
+status: Unchecked
+record: -1

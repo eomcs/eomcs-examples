@@ -1,0 +1,22 @@
+type: edu
+files:
+  - name: recursion.py
+    visible: true
+    placeholders:
+      - offset: 134
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 134
+        initialized_from_dependency: false
+        encrypted_possible_answer: PxMooqCiv+6vxfP1UZ6IyAPECtVj6DLY/6g1GM5ILls=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Functions+/+Recursion
+status: Unchecked
+record: -1

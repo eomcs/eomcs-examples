@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: dict_keys.py
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 135
+        placeholder_text: |-
+          ages_dict = {
+              "Alice": 21,
+              "Bob": 39,
+              "George": 30,
+              "Susanne": 27,
+              "Bob": 19,
+              ["Ashley", "Alex", "Nancy"]: 35
+          }
+        initial_state:
+          length: 135
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: YFFhztOcvIJzwwaTEYArwJBVv9uTHDRA2pZ+YuVS6U8qv1iKBRFfKDXwbbrNr/sBb+A+lbjJ+DtmfbQwBMUPaMYu+ay9T/cxNicUnX8MorW5pEogIb4TN2mWDu5m6qRQqioAKaSK4SWLEFrsLN4CwUrrSSBMEEF1k7XJKtU7kAOl43QRQRYMG7dJ9k5z6Jre+ZtOsVaoXx0FHiK3MjPUUQ==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

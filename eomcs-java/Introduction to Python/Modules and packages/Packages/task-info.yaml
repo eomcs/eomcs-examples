@@ -1,0 +1,56 @@
+type: edu
+files:
+  - name: packages.py
+    visible: true
+    placeholders:
+      - offset: 95
+        length: 35
+        placeholder_text: "# Import the `official` module here"
+        initial_state:
+          length: 35
+          offset: 95
+        initialized_from_dependency: false
+        encrypted_possible_answer: BdfI5n9eNpE/PpMVcNRX34G0359qrjPEpkdEElk1j0AnApYq/agY5umcZ79HEK32
+        selected: false
+        status: Unchecked
+      - offset: 186
+        length: 21
+        placeholder_text: '''Say goodbye to Alex'''
+        initial_state:
+          length: 21
+          offset: 186
+        initialized_from_dependency: false
+        encrypted_possible_answer: 3U9oQy1tKznM2HnuQRPkogzRi2LBisoY2CAB2xAiTdc=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: functions/greeting/hello.py
+    visible: true
+    learner_created: false
+  - name: functions/goodbye.py
+    visible: true
+    learner_created: false
+  - name: classes/calculator.py
+    visible: true
+    learner_created: false
+  - name: classes/__init__.py
+    visible: true
+    learner_created: false
+  - name: functions/__init__.py
+    visible: true
+    learner_created: false
+  - name: functions/greeting/__init__.py
+    visible: true
+    learner_created: false
+  - name: functions/greeting/official.py
+    visible: true
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Modules+and+Packages+/+Packages
+status: Unchecked
+record: -1

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TermsProjectSettings">
+    <currentTermsLanguage>en</currentTermsLanguage>
+    <terms>
+      <map>
+        <entry key="en">
+          <value>
+            <map>
+              <entry key="186011">
+                <value>
+                  <list>
+                    <Term value="Comments" definition="In Python, comments start with the hash character (#) followed by a single space and extend to the end of the physical line. They are used to provide explanatory notes for the code." />
+                    <Term value="comment" definition="In Python, comments start with the hash character (#) followed by a single space and extend to the end of the physical line. They are used to provide explanatory notes for the code." />
+                    <Term value="comments" definition="In Python, comments start with the hash character (#) followed by a single space and extend to the end of the physical line. They are used to provide explanatory notes for the code." />
+                    <Term value="commenting" definition="In Python, comments start with the hash character (#) followed by a single space and extend to the end of the physical line. They are used to provide explanatory notes for the code." />
+                    <Term value="Block Comments" definition="Block comments in Python apply to some or all of the code that follows them and are indented to the same level as that code." />
+                    <Term value="Block comments" definition="Block comments in Python apply to some or all of the code that follows them and are indented to the same level as that code." />
+                    <Term value="Inline Comments" definition="An inline comment in Python is a comment on the same line as a statement. It should be separated by at least two spaces from the statement and be used sparingly." />
+                    <Term value="inline comments" definition="An inline comment in Python is a comment on the same line as a statement. It should be separated by at least two spaces from the statement and be used sparingly." />
+                    <Term value="inline comment" definition="An inline comment in Python is a comment on the same line as a statement. It should be separated by at least two spaces from the statement and be used sparingly." />
+                    <Term value="Inline comments" definition="An inline comment in Python is a comment on the same line as a statement. It should be separated by at least two spaces from the statement and be used sparingly." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186012">
+                <value>
+                  <list>
+                    <Term value="Variable" definition="In programming, a variable is used to store values so they can be referred to later. In Python, the '=' symbol, known as the assignment operator, is used to assign a value to a variable." />
+                    <Term value="Variables" definition="In programming, a variable is used to store values so they can be referred to later. In Python, the '=' symbol, known as the assignment operator, is used to assign a value to a variable." />
+                    <Term value="variable" definition="In programming, a variable is used to store values so they can be referred to later. In Python, the '=' symbol, known as the assignment operator, is used to assign a value to a variable." />
+                    <Term value="chain assignment" definition="Chained assignment occurs when a single value is assigned to multiple variables simultaneously, e.g., `a = b = 2`." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186013">
+                <value>
+                  <list>
+                    <Term value="Undefined variable" definition="An undefined variable in Python is a variable that has been referenced in the code but has not been assigned a value." />
+                    <Term value="undefined variable" definition="An undefined variable in Python is a variable that has been referenced in the code but has not been assigned a value." />
+                    <Term value="NameError" definition="A NameError in Python occurs when a local or global variable is referenced that has not yet been defined." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186014">
+                <value>
+                  <list>
+                    <Term value="floats" definition="A 'float' in Python is a number that has a decimal point." />
+                    <Term value="float" definition="A 'float' in Python is a number that has a decimal point." />
+                    <Term value="int" definition="An 'int' in Python is a number without a decimal point." />
+                    <Term value="mutable" definition="Objects whose value can change in Python are called 'mutable'." />
+                    <Term value="immutable" definition="Objects whose value is unchangeable once they are created in Python are called 'immutable'." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186015">
+                <value>
+                  <list>
+                    <Term value="int(x)" definition="int(x) converts x into an integer." />
+                    <Term value="float(x)" definition="float(x) converts x into a floating-point number." />
+                    <Term value="str(x)" definition="str(x) converts object x into a string representation." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186017">
+                <value>
+                  <list>
+                    <Term value="augmented assignment" definition="An augmented assignment is a single statement combining a binary operation and an assignment statement, such as +=, -=, etc." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186018">
+                <value>
+                  <list>
+                    <Term value="Boolean" definition="Boolean is a type of value that can only be True or False." />
+                    <Term value="boolean" definition="Boolean is a type of value that can only be True or False." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186019">
+                <value>
+                  <list>
+                    <Term value="Comparison operators" definition="In Python, comparison operators compare the values of two objects. They include: &lt; (less than), &gt; (greater than), == (equal), &gt;= (greater or equal), &lt;= (less or equal), and != (not equal)." />
+                    <Term value="comparison operators" definition="In Python, comparison operators compare the values of two objects. They include: &lt; (less than), &gt; (greater than), == (equal), &gt;= (greater or equal), &lt;= (less or equal), and != (not equal)." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186020">
+                <value>
+                  <list>
+                    <Term value="Concatenation" definition="Combining two strings using the `+` symbol is called concatenation." />
+                    <Term value="concatenation" definition="Combining two strings using the `+` symbol is called concatenation." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186021">
+                <value>
+                  <list>
+                    <Term value="String multiplication" definition="In Python, string multiplication is the operation of repeating a string a certain number of times by multiplying it with an integer." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186023">
+                <value>
+                  <list>
+                    <Term value="negative indices" definition="Negative indexing in strings allows counting characters backwards starting from the end of a string." />
+                    <Term value="negative index" definition="Negative indexing in strings allows counting characters backwards starting from the end of a string." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186024">
+                <value>
+                  <list>
+                    <Term value="Slicing" definition="Slicing is used to extract multiple characters (a substring) from a string using two indices separated by a colon, where the first index represents the start (inclusive) and the second index represents the end (exclusive)." />
+                    <Term value="slicing" definition="Slicing is used to extract multiple characters (a substring) from a string using two indices separated by a colon, where the first index represents the start (inclusive) and the second index represents the end (exclusive)." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186025">
+                <value>
+                  <list>
+                    <Term value="In operator" definition="The 'in' operator in programming is used to determine whether a string contains a specific letter or substring." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186026">
+                <value>
+                  <list>
+                    <Term value="String length" definition="The `len()` method is used to count how many characters a string contains." />
+                    <Term value="string length" definition="The `len()` method is used to count how many characters a string contains." />
+                    <Term value="division operation" definition="The result of the `/` division operation is of type float." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186027">
+                <value>
+                  <list>
+                    <Term value="Backslash" definition="Backslash is used to escape special symbols in strings, such as single or double quotation marks." />
+                    <Term value="backslash" definition="Backslash is used to escape special symbols in strings, such as single or double quotation marks." />
+                    <Term value="'\n'" definition="The special symbol '\n' is used to add a line break to a string." />
+                    <Term value="'\t'" definition="The special symbol '\t' is used to add tabulation to a string." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186028">
+                <value>
+                  <list>
+                    <Term value="CodeCompletion" definition="CodeCompletion is a shortcut in PyCharm that allows you to explore all available methods or properties of an object." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186029">
+                <value>
+                  <list>
+                    <Term value="formatted string literals" definition="Formatted string literals, also known as f-strings, provide a newer and more flexible way to format strings in Python." />
+                    <Term value="str.format()" definition="The str.format() method in Python is an alternative to formatting strings that offers flexibility and extensibility." />
+                    <Term value="template strings" definition="Template strings in Python are a form of string formatting that allows for customization and simplicity, avoiding common errors in traditional string formatting." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186033">
+                <value>
+                  <list>
+                    <Term value="tuple" definition="A tuple is a standard sequence data type in Python that is immutable, meaning its elements cannot be added, replaced, or deleted. It is constructed with comma-separated elements enclosed in parentheses." />
+                    <Term value="immutable" definition="In Python, an object is described as immutable if its state (such as content) cannot be changed after it is created. Tuples are an example of immutable objects." />
+                    <Term value="tuple packing" definition="Tuple packing is the process of packing multiple values into a single tuple, as demonstrated by the statement `t = 12345, 54321, 'hello!'`." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186034">
+                <value>
+                  <list>
+                    <Term value="Dictionaries" definition="A collection of key-value pairs in Python, where each key must be unique and immutable, and can be used to access its corresponding value." />
+                    <Term value="dictionary" definition="A collection of key-value pairs in Python, where each key must be unique and immutable, and can be used to access its corresponding value." />
+                    <Term value="key" definition="An immutable identifier used in a dictionary to access a corresponding value." />
+                    <Term value="keys" definition="An immutable identifier used in a dictionary to access a corresponding value." />
+                    <Term value="values" definition="The data or object stored in a dictionary that is associated with a unique key." />
+                    <Term value="value" definition="The data or object stored in a dictionary that is associated with a unique key." />
+                    <Term value="curly braces" definition="Symbols `{}` used in Python to define a dictionary or create an empty dictionary." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186035">
+                <value>
+                  <list>
+                    <Term value="keys()" definition="The keys() method returns a view object that displays a list of all the keys in the dictionary in order of insertion." />
+                    <Term value="values()" definition="The values() method returns a new view of the dictionary’s values." />
+                    <Term value="items()" definition="The items() method returns a new view of the dictionary’s items as tuples in a list (key, value pairs)." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186036">
+                <value>
+                  <list>
+                    <Term value="In keyword" definition="The `in` keyword is used to check if a list or a dictionary contains a specific item. It can be applied to lists, dictionaries, and strings." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186037">
+                <value>
+                  <list>
+                    <Term value="Boolean operators" definition="Boolean operators compare statements and return results in boolean values, such as `and`, `or`, and `not`." />
+                    <Term value="boolean operator" definition="Boolean operators compare statements and return results in boolean values, such as `and`, `or`, and `not`." />
+                    <Term value="and" definition="The boolean operator `and` returns `True` when the expressions on both sides are `True`." />
+                    <Term value="or" definition="The boolean operator `or` returns `True` when at least one expression on either side is `True`." />
+                    <Term value="not" definition="The boolean operator `not` inverts the boolean expression it precedes." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186038">
+                <value>
+                  <list>
+                    <Term value="Boolean operators order" definition="Boolean operators in Python are not evaluated from left to right; instead, they follow an order of operations where 'not' is evaluated first, 'and' is evaluated next, and 'or' is evaluated last." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186039">
+                <value>
+                  <list>
+                    <Term value="If statement" definition="The `if` statement in Python is used to execute some specified code after checking if its condition evaluates to `True`." />
+                    <Term value="Compound statements" definition="A compound statement in Python contains groups of other statements and affects their execution in some way." />
+                    <Term value="IndentationError" definition="An `IndentationError` occurs when the indentation in a Python code block is incorrect or inconsistent." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186040">
+                <value>
+                  <list>
+                    <Term value="elif" definition="The keyword `elif` is short for 'else if', and is useful to avoid excessive indentation in conditional statements." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186041">
+                <value>
+                  <list>
+                    <Term value="for loop" definition="The for statement is used to iterate over the elements of a sequence (such as a string, tuple, or list) or another iterable object. The sequence is evaluated once, and the code following the for statement is executed once for each item until the items are exhausted." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186043">
+                <value>
+                  <list>
+                    <Term value="while loop" definition="A `while` loop executes code repeatedly as long as a specified condition evaluates to `True`, and it terminates when the condition becomes `False`." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186044">
+                <value>
+                  <list>
+                    <Term value="Break keyword" definition="The `break` keyword is used to escape a loop in programming when a specific condition is met." />
+                    <Term value="infinite loop" definition="An infinite loop is a loop that never exits because the loop condition always evaluates to `True`." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186045">
+                <value>
+                  <list>
+                    <Term value="Continue keyword" definition="The 'continue' keyword is used to skip the rest of the code inside the loop for the current iteration only and proceed right to the next one. The loop returns to the 'for' or 'while' statement and evaluates the condition again." />
+                    <Term value="%" definition="The '%' operator, also known as the modulo operator, is used to check if 'x' is even or to get the remainder of a division." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186046">
+                <value>
+                  <list>
+                    <Term value="Functions" definition="A function is a block of code that is used for dividing code into sections, making it more readable and reusable. Functions are defined using the `def` keyword, followed by the function name and a parenthesized list of formal parameters." />
+                    <Term value="function" definition="A function is a block of code that is used for dividing code into sections, making it more readable and reusable. Functions are defined using the `def` keyword, followed by the function name and a parenthesized list of formal parameters." />
+                    <Term value="functions" definition="A function is a block of code that is used for dividing code into sections, making it more readable and reusable. Functions are defined using the `def` keyword, followed by the function name and a parenthesized list of formal parameters." />
+                    <Term value="formal parameters" definition="Formal parameters are variables defined in the function definition, enclosed in parentheses, which receive values when the function is called. If no input values are required, the parentheses remain empty." />
+                    <Term value="Formal parameters" definition="Formal parameters are variables defined in the function definition, enclosed in parentheses, which receive values when the function is called. If no input values are required, the parentheses remain empty." />
+                    <Term value="formal parameter" definition="Formal parameters are variables defined in the function definition, enclosed in parentheses, which receive values when the function is called. If no input values are required, the parentheses remain empty." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186047">
+                <value>
+                  <list>
+                    <Term value="Parameters" definition="A parameter is the variable listed inside the parentheses in a function definition, acting as a placeholder to accept arguments." />
+                    <Term value="parameters" definition="A parameter is the variable listed inside the parentheses in a function definition, acting as a placeholder to accept arguments." />
+                    <Term value="parameter" definition="A parameter is the variable listed inside the parentheses in a function definition, acting as a placeholder to accept arguments." />
+                    <Term value="arguments" definition="An argument is the actual value that is passed to the function when it is called." />
+                    <Term value="argument" definition="An argument is the actual value that is passed to the function when it is called." />
+                    <Term value="TypeError" definition="TypeError is an error raised when a function is called with an incorrect type or a mismatched number of arguments." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186048">
+                <value>
+                  <list>
+                    <Term value="Return" definition="The `return` keyword in Python allows a function to return a value to the caller." />
+                    <Term value="return" definition="The `return` keyword in Python allows a function to return a value to the caller." />
+                    <Term value="returned" definition="The `return` keyword in Python allows a function to return a value to the caller." />
+                    <Term value="returns" definition="The `return` keyword in Python allows a function to return a value to the caller." />
+                    <Term value="None" definition="`None` is a built-in name in Python representing the absence of a value or a null value. Functions without an explicit `return` statement return `None` by default." />
+                    <Term value="docstring" definition="A docstring is the first statement in a function body that is optionally a string literal, serving as the function's documentation." />
+                    <Term value="Fibonacci sequence" definition="The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, often starting with `1` and `1`." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186049">
+                <value>
+                  <list>
+                    <Term value="Default parameters" definition="Default parameters allow a function to be called with fewer arguments than it is defined with by specifying default values for certain arguments." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186050">
+                <value>
+                  <list>
+                    <Term value="class" definition="A class provides a means of bundling data and functionality together, acting as a template for creating objects." />
+                    <Term value="Class" definition="A class provides a means of bundling data and functionality together, acting as a template for creating objects." />
+                    <Term value="attributes" definition="Attributes are properties attached to each class instance (object) for maintaining its state." />
+                    <Term value="attribute" definition="Attributes are properties attached to each class instance (object) for maintaining its state." />
+                    <Term value="Attribute" definition="Attributes are properties attached to each class instance (object) for maintaining its state." />
+                    <Term value="methods" definition="Functions of objects defined by the object's class, which can modify the state of the object." />
+                    <Term value="Methods" definition="Functions of objects defined by the object's class, which can modify the state of the object." />
+                    <Term value="Class instantiation" definition="The process of using the class as a parameterless function to create a new instance of the class." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186051">
+                <value>
+                  <list>
+                    <Term value="attribute references" definition="In Python, attribute references use the syntax 'obj.name' to access variables or methods inside an object." />
+                    <Term value="Attribute references" definition="In Python, attribute references use the syntax 'obj.name' to access variables or methods inside an object." />
+                    <Term value="Class attributes" definition="Class attributes are variables defined within a class that can be accessed and modified using the class name, such as 'MyClass.year'." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186053">
+                <value>
+                  <list>
+                    <Term value="self parameter" definition="In Python classes, the 'self' parameter is a convention for the first argument of a class method, used to refer to the object that is created or modified." />
+                    <Term value="method attributes" definition="In Python, methods may call other methods of the same object using method attributes of the 'self' argument." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186055">
+                <value>
+                  <list>
+                    <Term value="module" definition="In Python, a Module is a Python file with the .py extension containing Python definitions and statements which can be used in other scripts by importing." />
+                    <Term value="Modules" definition="In Python, a Module is a Python file with the .py extension containing Python definitions and statements which can be used in other scripts by importing." />
+                    <Term value="modules" definition="In Python, a Module is a Python file with the .py extension containing Python definitions and statements which can be used in other scripts by importing." />
+                    <Term value="Import" definition="The 'import' keyword in Python is used to bring in a module and its accessible objects such as functions, classes, or variables, into the current script." />
+                    <Term value="imported" definition="The 'import' keyword in Python is used to bring in a module and its accessible objects such as functions, classes, or variables, into the current script." />
+                    <Term value="import" definition="The 'import' keyword in Python is used to bring in a module and its accessible objects such as functions, classes, or variables, into the current script." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186056">
+                <value>
+                  <list>
+                    <Term value="sys.path" definition="A variable in the sys module that is a list of strings determining the interpreter's search path for modules." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186057">
+                <value>
+                  <list>
+                    <Term value="from import" definition="A Python import statement that allows direct import of specific names from a module, avoiding the need for the `module_name` prefix." />
+                    <Term value="import *" definition="Allows importing all names from a Python module except those that begin with an underscore ('_')." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186058">
+                <value>
+                  <list>
+                    <Term value="f.read(size)" definition="A method in Python to read a specified quantity of data from a file and return it as a string. If size is omitted or negative, the entire file’s contents will be read." />
+                    <Term value="f.readline()" definition="A method in Python to read a single line from a file. A newline character ('\n') is included at the end of the string unless it is the last line and lacks a newline character." />
+                    <Term value="list(f)" definition="A built-in Python method to read all lines from a file and store them in a list." />
+                    <Term value="f.readlines()" definition="A method in Python to read all lines in a file and return them as a list of strings." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="186059">
+                <value>
+                  <list>
+                    <Term value="open()" definition="The open() function is used to open files in Python with the given mode, such as 'w' for writing or 'a' for appending." />
+                    <Term value="f.write(string)" definition="The write() method writes the contents of a string to the opened file and returns the number of characters written." />
+                    <Term value="' and '.join(lst)" definition="The join() method joins elements of a list into a single string with ' and ' as a separator." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="135577691">
+                <value>
+                  <list>
+                    <Term value="while loop" definition="A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition evaluates to True." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="382196872">
+                <value>
+                  <list>
+                    <Term value="class variable" definition="A variable that is shared among all instances of a class. It is defined within the class but outside of any instance methods." />
+                    <Term value="Instance Variables" definition="A variable that is bound to a specific instance of a class. It is defined inside the `__init__` method or other instance-specific methods." />
+                    <Term value="mutable" definition="An object that can be modified after it is created, such as a list or a dictionary in Python." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="457025947">
+                <value>
+                  <list>
+                    <Term value="Keyword Arguments" definition="A keyword argument is specified in a function call with a key-value pairing, allowing you to explicitly assign values to function parameters by name, such as `kwarg=value`." />
+                    <Term value="keyword arguments" definition="A keyword argument is specified in a function call with a key-value pairing, allowing you to explicitly assign values to function parameters by name, such as `kwarg=value`." />
+                    <Term value="keyword argument" definition="A keyword argument is specified in a function call with a key-value pairing, allowing you to explicitly assign values to function parameters by name, such as `kwarg=value`." />
+                    <Term value="positional argument" definition="A positional argument is an argument passed to a function based solely on its position in the function call." />
+                    <Term value="positional arguments" definition="A positional argument is an argument passed to a function based solely on its position in the function call." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="491469180">
+                <value>
+                  <list>
+                    <Term value="Packages" definition="Packages are a way of structuring Python’s module namespace by using dotted module names." />
+                    <Term value="package" definition="Packages are a way of structuring Python’s module namespace by using dotted module names." />
+                    <Term value="packages" definition="Packages are a way of structuring Python’s module namespace by using dotted module names." />
+                    <Term value="__init__.py" definition="The __init__.py files are required to make Python treat directories containing the file as packages." />
+                    <Term value="import" definition="In Python, 'import' is used to include the functionality of Python modules or packages into current code." />
+                    <Term value="importing" definition="In Python, 'import' is used to include the functionality of Python modules or packages into current code." />
+                    <Term value="imports" definition="In Python, 'import' is used to include the functionality of Python modules or packages into current code." />
+                    <Term value="imported" definition="In Python, 'import' is used to include the functionality of Python modules or packages into current code." />
+                    <Term value="submodule" definition="A submodule in Python refers to a module that is part of a parent package." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="544073308">
+                <value>
+                  <list>
+                    <Term value="Nested List Comprehension" definition="A nested list comprehension is a list comprehension inside another list comprehension, enabling the creation of multidimensional lists in a concise manner." />
+                    <Term value="Nested list comprehensions" definition="A nested list comprehension is a list comprehension inside another list comprehension, enabling the creation of multidimensional lists in a concise manner." />
+                    <Term value="nested list comprehension" definition="A nested list comprehension is a list comprehension inside another list comprehension, enabling the creation of multidimensional lists in a concise manner." />
+                    <Term value="nested loops" definition="A nested loop is a loop placed within another loop, often used to iterate over multiple levels of data or structures." />
+                    <Term value="nested loop" definition="A nested loop is a loop placed within another loop, often used to iterate over multiple levels of data or structures." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="551046839">
+                <value>
+                  <list>
+                    <Term value="List Comprehension" definition="List comprehension offers a compact syntax to create a new list based on values of an existing iterable, written typically in a single line of code, and is more efficient computationally than a `for` loop." />
+                    <Term value="List comprehension" definition="List comprehension offers a compact syntax to create a new list based on values of an existing iterable, written typically in a single line of code, and is more efficient computationally than a `for` loop." />
+                    <Term value="list comprehensions" definition="List comprehension offers a compact syntax to create a new list based on values of an existing iterable, written typically in a single line of code, and is more efficient computationally than a `for` loop." />
+                    <Term value="List comprehensions" definition="List comprehension offers a compact syntax to create a new list based on values of an existing iterable, written typically in a single line of code, and is more efficient computationally than a `for` loop." />
+                    <Term value="list comprehension" definition="List comprehension offers a compact syntax to create a new list based on values of an existing iterable, written typically in a single line of code, and is more efficient computationally than a `for` loop." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="719264027">
+                <value>
+                  <list>
+                    <Term value="join() method" definition="The join() method is a string method in Python that creates a string by joining each element of an iterable (e.g., list, string, or tuple) with a string separator, which is the string on which the join() method is called. It raises a TypeError if the iterable contains any non-string values." />
+                    <Term value="TypeError" definition="A TypeError in Python is raised when an operation or function is applied to an object of an inappropriate type, such as attempting to join non-string values using the join() method." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="838741241">
+                <value>
+                  <list>
+                    <Term value="Formatted string literals" definition="Formatted string literals, or f-strings, are string literals prefixed with 'f' or 'F'. They can contain replacement fields with expressions enclosed in curly braces `{}`, which are evaluated in the context where the f-string appears." />
+                    <Term value="formatted string literal" definition="Formatted string literals, or f-strings, are string literals prefixed with 'f' or 'F'. They can contain replacement fields with expressions enclosed in curly braces `{}`, which are evaluated in the context where the f-string appears." />
+                    <Term value="formatted string literals" definition="Formatted string literals, or f-strings, are string literals prefixed with 'f' or 'F'. They can contain replacement fields with expressions enclosed in curly braces `{}`, which are evaluated in the context where the f-string appears." />
+                    <Term value="replacement fields" definition="Replacement fields are expressions within curly braces `{}` inside f-strings, and their contents are evaluated as part of the formatted string." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="920823769">
+                <value>
+                  <list>
+                    <Term value="Recursion" definition="In programming, recursion refers to a coding technique in which a function calls itself." />
+                    <Term value="recursion" definition="In programming, recursion refers to a coding technique in which a function calls itself." />
+                    <Term value="RecursionError" definition="RecursionError is an exception that occurs when the maximum recursion depth is exceeded while calling a Python object." />
+                    <Term value="getrecursionlimit()" definition="The getrecursionlimit() function from Python's sys module retrieves the current recursion limit." />
+                    <Term value="setrecursionlimit()" definition="The setrecursionlimit() function from Python's sys module sets a new limit for the recursion depth." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="958245751">
+                <value>
+                  <list>
+                    <Term value="immutable types" definition="Immutable types are data types in Python whose values cannot be changed after they are created. Examples include int, float, str, and tuple." />
+                    <Term value="Dictionary keys" definition="In Python, dictionary keys must be unique and of an immutable type, such as a string, number, or tuple." />
+                    <Term value="dictionary keys" definition="In Python, dictionary keys must be unique and of an immutable type, such as a string, number, or tuple." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1052019043">
+                <value>
+                  <list>
+                    <Term value="Python module" definition="A Python module is a file containing executable statements as well as function or class definitions. The file name is the module name with the suffix .py appended." />
+                    <Term value="__name__" definition="In Python, __name__ is a global variable within a module that holds the name of the module as a string." />
+                    <Term value="__main__" definition="__main__ is the value of the __name__ variable when a Python script is run directly, not through import in another module." />
+                    <Term value="if __name__ == &quot;__main__&quot;:" definition="A Python conditional that checks if the module is being run directly, executing the enclosed statements only in this case." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1359580422">
+                <value>
+                  <list>
+                    <Term value="open()" definition="The open() function in Python returns a file object and is used for reading, writing, or appending to a file." />
+                    <Term value="f.close()" definition="The f.close() method in Python closes a file and frees up any system resources tied to it. It ensures that the file cannot be used after it is closed." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1396640314">
+                <value>
+                  <list>
+                    <Term value="import statements" definition="In Python, the import statement is used to include modules in your script, allowing access to their functions, classes, or variables." />
+                    <Term value="module" definition="In Python, a module is a file containing Python code that defines functions, classes, or variables, which can be imported and reused in other scripts." />
+                    <Term value="modules" definition="In Python, a module is a file containing Python code that defines functions, classes, or variables, which can be imported and reused in other scripts." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1434231638">
+                <value>
+                  <list>
+                    <Term value="docstring" definition="A docstring is a string used to document a function, method, class, or module in Python, summarizing its behavior and other relevant details." />
+                    <Term value="PEP Guide" definition="The Python PEP Guide provides conventions and standards for writing Python code, including docstrings, as outlined in PEP-0257." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1619083194">
+                <value>
+                  <list>
+                    <Term value="Nested Loops" definition="A nested loop is a loop inside another loop where the inner loop is executed once for each iteration of the outer loop." />
+                    <Term value="nested loop" definition="A nested loop is a loop inside another loop where the inner loop is executed once for each iteration of the outer loop." />
+                    <Term value="While loop" definition="A while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1891339475">
+                <value>
+                  <list>
+                    <Term value="Else with loops" definition="The 'else' statement is executed only if the associated loop completes all its iterations without a 'break' being executed." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1916682617">
+                <value>
+                  <list>
+                    <Term value="Nested Lists" definition="A data structure where a list can contain other lists (sublists), allowing hierarchical organization of data." />
+                    <Term value="nested list" definition="A data structure where a list can contain other lists (sublists), allowing hierarchical organization of data." />
+                    <Term value="nested lists" definition="A data structure where a list can contain other lists (sublists), allowing hierarchical organization of data." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="1943683491">
+                <value>
+                  <list>
+                    <Term value="class variables" definition="Class variables are for attributes and methods shared by all instances of a class." />
+                    <Term value="class variable" definition="Class variables are for attributes and methods shared by all instances of a class." />
+                    <Term value="Instance Variables" definition="Instance variables are for data unique to each instance of a class." />
+                    <Term value="instance variables" definition="Instance variables are for data unique to each instance of a class." />
+                    <Term value="instance variable" definition="Instance variables are for data unique to each instance of a class." />
+                    <Term value="Instance variables" definition="Instance variables are for data unique to each instance of a class." />
+                  </list>
+                </value>
+              </entry>
+              <entry key="2045964733">
+                <value>
+                  <list>
+                    <Term value="Args" definition="Args refers to the use of *args in function definitions in Python, allowing a function to accept an arbitrary number of positional arguments and gather them into a tuple." />
+                    <Term value="args" definition="Args refers to the use of *args in function definitions in Python, allowing a function to accept an arbitrary number of positional arguments and gather them into a tuple." />
+                    <Term value="kwargs" definition="Kwargs refers to the use of **kwargs in Python function definitions, allowing a function to accept an arbitrary number of keyword arguments and gather them into a dictionary." />
+                  </list>
+                </value>
+              </entry>
+            </map>
+          </value>
+        </entry>
+      </map>
+    </terms>
+    <termsVersions>
+      <map>
+        <entry key="en" value="121" />
+      </map>
+    </termsVersions>
+  </component>
+</project>

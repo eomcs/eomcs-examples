@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: boolean_order.py
+    visible: true
+    placeholders:
+      - offset: 110
+        length: 5
+        placeholder_text: '''???'''
+        initial_state:
+          length: 5
+          offset: 110
+        initialized_from_dependency: false
+        encrypted_possible_answer: 05tWlSAlFhaVB5FZCo0IMo95WpHcIQOglFoPFQRDrsmROt921JLB0kSqJui0hCtTePZo7/hg27VIxF9fxPhYxQ==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Condition+Expressions+/+Boolean+Operators+Order
+status: Unchecked
+record: -1

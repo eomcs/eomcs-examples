@@ -1,0 +1,27 @@
+type: marketplace
+title: Introduction to Python
+language: English
+summary: "Master Python fundamentals with no prior experience. Learn by coding in\
+  \ a professional IDE—stress-free, hands-on, and broken into well-structured lessons\
+  \ for smooth, beginner-friendly progress."
+programming_language: Python
+environment: unittest
+content:
+  - Introduction
+  - Variables
+  - Strings
+  - Data structures
+  - Condition expressions
+  - Loops
+  - Functions
+  - Classes and objects
+  - Modules and packages
+  - File input output
+additional_files:
+  - name: LICENSE
+  - name: README.md
+  - name: contributing.md
+  - name: requirements.txt
+mode: Study
+feedback_link: https://plugins.jetbrains.com/plugin/16630-introduction-to-python/reviews
+yaml_version: 5

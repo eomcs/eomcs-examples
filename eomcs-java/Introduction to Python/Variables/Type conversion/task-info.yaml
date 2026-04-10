@@ -1,0 +1,22 @@
+type: edu
+files:
+  - name: type_cast.py
+    visible: true
+    placeholders:
+      - offset: 223
+        length: 24
+        placeholder_text: '"convert it to int here"'
+        initial_state:
+          length: 24
+          offset: 223
+        initialized_from_dependency: false
+        encrypted_possible_answer: UsHwocaSwLaBLhXjmtt7+UIqvg3hjN0XLVtAefSSHSQ=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Variables+/+Type+Conversion
+status: Unchecked
+record: -1

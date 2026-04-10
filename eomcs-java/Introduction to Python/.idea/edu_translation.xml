@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TranslationProjectSettings">
+    <option name="currentTranslationLanguage" value="Korean" />
+    <option name="structureTranslation">
+      <map>
+        <entry key="Korean">
+          <value>
+            <map>
+              <entry key="1052019043" value="스크립트로 모듈 실행하기  " />
+              <entry key="13416" value="소개" />
+              <entry key="13417" value="변수" />
+              <entry key="13419" value="문자열" />
+              <entry key="13420" value="자료 구조" />
+              <entry key="13422" value="조건식" />
+              <entry key="13423" value="반복문" />
+              <entry key="13424" value="함수" />
+              <entry key="13425" value="클래스와 객체" />
+              <entry key="13427" value="모듈과 패키지" />
+              <entry key="13428" value="파일 입출력" />
+              <entry key="135577691" value="무한 실행 수정  " />
+              <entry key="1359580422" value="파일 열기  " />
+              <entry key="1396640314" value="모듈 가져오기 2  " />
+              <entry key="1434231638" value="독스트링  " />
+              <entry key="1437026389" value="소개" />
+              <entry key="1512947900" value="과제 설명" />
+              <entry key="1569744377" value="모든 줄 읽기  " />
+              <entry key="1619083194" value="중첩 for 반복문  " />
+              <entry key="1763985182" value="들여쓰기  " />
+              <entry key="186010" value="우리의 첫 번째 프로그램" />
+              <entry key="186011" value="주석" />
+              <entry key="186012" value="변수 정의" />
+              <entry key="186013" value="정의되지 않은 변수" />
+              <entry key="186014" value="변수 타입" />
+              <entry key="186015" value="타입 변환" />
+              <entry key="186016" value="산술 연산자" />
+              <entry key="186017" value="할당" />
+              <entry key="186018" value="불리언 연산자" />
+              <entry key="186019" value="비교 연산자" />
+              <entry key="186020" value="문자열 연결" />
+              <entry key="186021" value="문자열 곱셈" />
+              <entry key="186022" value="문자열 인덱싱" />
+              <entry key="186023" value="문자열 음수 인덱싱" />
+              <entry key="186024" value="문자열 슬라이싱" />
+              <entry key="186025" value="In 연산자" />
+              <entry key="186026" value="문자열 길이" />
+              <entry key="186027" value="문자 이스케이프" />
+              <entry key="186028" value="기본 문자열 메서드" />
+              <entry key="186029" value="문자열 서식 지정" />
+              <entry key="186030" value="리스트 소개" />
+              <entry key="186031" value="리스트 연산" />
+              <entry key="186032" value="리스트 항목" />
+              <entry key="186033" value="튜플  " />
+              <entry key="186034" value="딕셔너리  " />
+              <entry key="186035" value="딕셔너리 keys()와 values()  " />
+              <entry key="186036" value="in 키워드  " />
+              <entry key="186037" value="불리언 연산자  " />
+              <entry key="186038" value="불리언 연산자의 순서  " />
+              <entry key="186039" value="if 문  " />
+              <entry key="186040" value="if 문에서 else와 elif  " />
+              <entry key="186041" value="for 반복문  " />
+              <entry key="186042" value="문자열 반복  " />
+              <entry key="186043" value="while 반복문  " />
+              <entry key="186044" value="break 키워드  " />
+              <entry key="186045" value="continue 키워드  " />
+              <entry key="186046" value="정의  " />
+              <entry key="186047" value="매개변수와 호출 인자  " />
+              <entry key="186048" value="반환값  " />
+              <entry key="186049" value="기본 매개변수" />
+              <entry key="186050" value="정의  " />
+              <entry key="186051" value="변수 접근  " />
+              <entry key="186052" value="변수 업데이트  " />
+              <entry key="186053" value="self 매개변수  " />
+              <entry key="186054" value="특수 __init__ 메서드  " />
+              <entry key="186055" value="모듈 가져오기  " />
+              <entry key="186056" value="내장 모듈  " />
+              <entry key="186057" value="From import  " />
+              <entry key="186058" value="파일 읽기  " />
+              <entry key="186059" value="파일에 쓰기  " />
+              <entry key="1891339475" value="반복문에서 else 2  " />
+              <entry key="1915237515" value="반복문에서 else  " />
+              <entry key="1916682617" value="중첩 리스트  " />
+              <entry key="1943683491" value="클래스 변수와 인스턴스 변수  " />
+              <entry key="2045964733" value="Args와 kwargs  " />
+              <entry key="382196872" value="클래스 변수와 인스턴스 변수 2  " />
+              <entry key="417821566" value="당신에 대해 알아보기" />
+              <entry key="457025947" value="키워드 인자  " />
+              <entry key="491469180" value="패키지  " />
+              <entry key="544073308" value="중첩 리스트 컴프리헨션  " />
+              <entry key="550150392" value="탐색 방법" />
+              <entry key="551046839" value="리스트 컴프리헨션  " />
+              <entry key="615106464" value="다른 메서드에서 메서드 호출  " />
+              <entry key="625444905" value="리스트에서 항목 추가  " />
+              <entry key="719264027" value="join 메소드  " />
+              <entry key="725820398" value="한 줄 if-else 문  " />
+              <entry key="798324321" value="다음에는" />
+              <entry key="838741241" value="F-strings" />
+              <entry key="891798445" value="에디터" />
+              <entry key="89997794" value="__str__ vs __repr__  " />
+              <entry key="920823769" value="재귀  " />
+              <entry key="925039926" value="인자 순서  " />
+              <entry key="958245751" value="딕셔너리 키  " />
+              <entry key="986155019" value="강의 보기" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="translationVersions">
+      <map>
+        <entry key="Korean" value="2453" />
+      </map>
+    </option>
+  </component>
+</project>

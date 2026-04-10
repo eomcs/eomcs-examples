@@ -1,0 +1,31 @@
+type: edu
+files:
+  - name: indentation.py
+    visible: true
+    placeholders:
+      - offset: 89
+        length: 144
+        placeholder_text: |-
+          if datetime.date.today().day < 15:
+          print("It's the beginning of the month still!")
+          else:
+          print("It's not the beginning of the month anymore :(")
+        initial_state:
+          length: 144
+          offset: 89
+        initialized_from_dependency: false
+        encrypted_possible_answer: mUtN6liRxI44WT4ovVOl+NeMpQXX1BYcjP9hF0k3IUc8vqwwWtLh1CgQfVqgQsyShLfJW/lrOs/Gr5ClezZ7pdp6eBCmxXWjAC2ueeNlUhLe1X5NIvXWcC0Yo3AuIA1x8GACnPEZ1CZmGZ3aRId8W1UOjmgw7wFQ1JGeQd2l4tJrVaTdDMVHlXuffpTGskuO3qtddrpyQpP5h/zqVXHdSQ==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

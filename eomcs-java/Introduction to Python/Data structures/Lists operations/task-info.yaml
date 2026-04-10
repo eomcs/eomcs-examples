@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: list_operations.py
+    visible: true
+    placeholders:
+      - offset: 259
+        length: 37
+        placeholder_text: "# Replace \"dino\" with \"dinosaur\" here"
+        initial_state:
+          length: 37
+          offset: 259
+        initialized_from_dependency: false
+        encrypted_possible_answer: 6s1q3zweMokI8vfVCQu+6zZptV4kTa9L+NQZRDdG1QI=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Data+Structures+/+List+Operations
+status: Unchecked
+record: -1

@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: for_loop.py
+    visible: true
+    placeholders:
+      - offset: 238
+        length: 41
+        placeholder_text: "# Loop over primes to print each of them."
+        initial_state:
+          length: 41
+          offset: 238
+        initialized_from_dependency: false
+        encrypted_possible_answer: rhTvtX8pfdP6Ctyh0V1ggmZI258JlklDk88aBD6qY34=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+For+Loop
+status: Unchecked
+record: -1

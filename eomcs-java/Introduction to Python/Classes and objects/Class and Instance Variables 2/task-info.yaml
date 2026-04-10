@@ -1,0 +1,51 @@
+type: edu
+files:
+  - name: class_instance2.py
+    visible: true
+    placeholders:
+      - offset: 16
+        length: 84
+        placeholder_text: "# TODO: add a mutable class variable (all_cities list) to store\
+      \ all added city names"
+        initial_state:
+          length: 84
+          offset: 16
+        initialized_from_dependency: false
+        encrypted_possible_answer: ua/M2+iWZm7WCvwVYQp1VQ==
+        selected: false
+        status: Unchecked
+      - offset: 254
+        length: 88
+        placeholder_text: "# TODO: call add_city method to add the city name to the list\
+      \ upon object initialization"
+        initial_state:
+          length: 88
+          offset: 254
+        initialized_from_dependency: false
+        encrypted_possible_answer: lKQycAlH5Ryo8+FH/IOIxw==
+        selected: false
+        status: Unchecked
+      - offset: 376
+        length: 119
+        placeholder_text: |-
+          pass
+                  # TODO: implement a method that will append a city name to the all_cities list. Delete the pass statement!
+        initial_state:
+          length: 119
+          offset: 376
+        initialized_from_dependency: false
+        encrypted_possible_answer: nukI0rEjTOPML4K9e+6aReZVWZTIrsYu6gdN3UOx0i1CqFy4iAglx4wtXftfknuW
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

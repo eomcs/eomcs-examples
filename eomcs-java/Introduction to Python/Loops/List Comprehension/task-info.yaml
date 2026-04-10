@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: list_comprehension.py
+    visible: true
+    placeholders:
+      - offset: 194
+        length: 44
+        placeholder_text: '''Use list comprehension to build a new list'''
+        initial_state:
+          length: 44
+          offset: 194
+        initialized_from_dependency: false
+        encrypted_possible_answer: Enurdi8KeCpnVRpF37yBmV4QwWBxwsdL6PJudebBPe2WeA5RxW3TFxdHsCMuu4cR
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+List+Comprehension
+status: Unchecked
+record: -1

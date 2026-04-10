@@ -1,0 +1,72 @@
+type: edu
+files:
+  - name: comparison_operators.py
+    visible: true
+    placeholders:
+      - offset: 213
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 213
+        initialized_from_dependency: false
+        encrypted_possible_answer: WDXBZttNfAVbbyebeCpJoA==
+        selected: false
+        status: Unchecked
+      - offset: 367
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 367
+        initialized_from_dependency: false
+        encrypted_possible_answer: 8H1MCk2SdPPp0ZNJUIcSaw==
+        selected: false
+        status: Unchecked
+      - offset: 519
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 519
+        initialized_from_dependency: false
+        encrypted_possible_answer: 8H1MCk2SdPPp0ZNJUIcSaw==
+        selected: false
+        status: Unchecked
+      - offset: 527
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 527
+        initialized_from_dependency: false
+        encrypted_possible_answer: WDXBZttNfAVbbyebeCpJoA==
+        selected: false
+        status: Unchecked
+      - offset: 708
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 708
+        initialized_from_dependency: false
+        encrypted_possible_answer: 7Wv+S0/gr4/qhsKnO1S70Q==
+        selected: false
+        status: Unchecked
+      - offset: 859
+        length: 1
+        placeholder_text: '?'
+        initial_state:
+          length: 1
+          offset: 859
+        initialized_from_dependency: false
+        encrypted_possible_answer: 7fwRgGhI1XP/fa9HQT0KaQ==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Variables+/+Comparison+Operators
+status: Unchecked
+record: -1

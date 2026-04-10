@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: docstrings.py
+    visible: true
+    placeholders:
+      - offset: 32
+        length: 28
+        placeholder_text: "# TODO: add a docstring here"
+        initial_state:
+          length: 28
+          offset: 32
+        initialized_from_dependency: false
+        encrypted_possible_answer: t5ig5LBHcd3PD8BB2fPRe0vG0faFzvg5fVcoM5j0e/7dgSOVV3UO8xWy9mbvx+AYIg+Rao/YJrFpclLmj5Y4fw==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Functions+/+Docstrings
+status: Unchecked
+record: -1

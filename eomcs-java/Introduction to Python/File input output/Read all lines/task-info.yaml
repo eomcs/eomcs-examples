@@ -1,0 +1,31 @@
+type: edu
+files:
+  - name: read_all_lines.py
+    visible: true
+    placeholders:
+      - offset: 43
+        length: 69
+        placeholder_text: "# TODO: read all lines from input.txt into the list called\
+      \ lines_list"
+        initial_state:
+          length: 69
+          offset: 43
+        initialized_from_dependency: false
+        encrypted_possible_answer: wbhX2Ha7O1/X0iVchBHKRjyA4hAX7qv4ZQvwfTB45qM=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: input.txt
+    visible: true
+    learner_created: false
+status: Unchecked
+record: -1

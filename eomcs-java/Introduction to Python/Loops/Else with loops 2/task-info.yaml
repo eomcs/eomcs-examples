@@ -1,0 +1,27 @@
+type: edu
+files:
+  - name: else_with_loops2.py
+    visible: true
+    placeholders:
+      - offset: 35
+        length: 4
+        placeholder_text: pass
+        initial_state:
+          length: 4
+          offset: 35
+        initialized_from_dependency: false
+        encrypted_possible_answer: PA47iaprAtjH28P19iTEGp294GP73oBOIA4KZKMhIdunyCyynliLy8HLryDEm+clF/bOmW9D/3X4XI4n0AioY3HG8gHedXnySAzIfgj6Y4gkdYEtLh5Nqn6fjSBYLFo8FkwNFgMAQebbkP/UxnOD+UeNIDgpPV6/n83SPsllPMklEit5o/Xq76/1u6LmHmRdL9flJJ3ifiz70+9AXkQ3Gp/lUEz+Uqtm+lJU/pV8+/NWTrM+c15IE47IhfQXpVY6
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

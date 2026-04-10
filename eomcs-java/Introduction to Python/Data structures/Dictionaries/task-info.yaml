@@ -1,0 +1,45 @@
+type: edu
+files:
+  - name: dicts.py
+    visible: true
+    placeholders:
+      - offset: 317
+        length: 38
+        placeholder_text: "# Add Jared's number to the phone book"
+        initial_state:
+          length: 38
+          offset: 317
+        initialized_from_dependency: false
+        encrypted_possible_answer: 3kfSkWpsWeLHAbaLKvu8Ok8WEU6eY/kijWuvRz5XD84=
+        selected: false
+        status: Unchecked
+      - offset: 357
+        length: 44
+        placeholder_text: "# Remove Gerard's number from the phone book"
+        initial_state:
+          length: 44
+          offset: 357
+        initialized_from_dependency: false
+        encrypted_possible_answer: uu6FW1F16pWcrGhiyEWBsjgGemuLhdSxGAmgOEbzfSs=
+        selected: false
+        status: Unchecked
+      - offset: 427
+        length: 47
+        placeholder_text: '"Print Jane''s phone number from the phone_book"'
+        initial_state:
+          length: 47
+          offset: 427
+        initialized_from_dependency: false
+        encrypted_possible_answer: xbtk/88SKjUBTI5/N3MAoilbRXl2EK61C444T4o+haU=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Data+Structures+/+Dictionaries
+status: Unchecked
+record: -1

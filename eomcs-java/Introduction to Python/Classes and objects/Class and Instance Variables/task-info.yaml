@@ -1,0 +1,45 @@
+type: edu
+files:
+  - name: class_instance_variables.py
+    visible: true
+    placeholders:
+      - offset: 983
+        length: 63
+        placeholder_text: "# Add a class variable `kind` and assign it the required value."
+        initial_state:
+          length: 63
+          offset: 983
+        initialized_from_dependency: false
+        encrypted_possible_answer: wUUa6BWXkVQLR/h+s72fpA==
+        selected: false
+        status: Unchecked
+      - offset: 1138
+        length: 4
+        placeholder_text: pass
+        initial_state:
+          length: 4
+          offset: 1138
+        initialized_from_dependency: false
+        encrypted_possible_answer: sHIJfayUfEXKS0NJ7j2RdZxDp3B/y7zS2wNWzbbvFYg=
+        selected: false
+        status: Unchecked
+      - offset: 1151
+        length: 37
+        placeholder_text: "# Add an instance variable `species`."
+        initial_state:
+          length: 37
+          offset: 1151
+        initialized_from_dependency: false
+        encrypted_possible_answer: KQomOCDL3FN/e84QgPIlfKIuA+Z1AphWxo6r0fashGA=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Classes+and+Objects+/+Class+and+Instance+Variables
+status: Unchecked
+record: -1

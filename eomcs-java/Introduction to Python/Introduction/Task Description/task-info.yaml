@@ -1,0 +1,49 @@
+type: theory
+files:
+  - name: main.py
+    visible: true
+    learner_created: false
+  - name: images/back.svg
+    visible: false
+    learner_created: false
+  - name: images/commentTask.svg
+    visible: false
+    learner_created: false
+  - name: images/edu_next_button.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: images/edu_peek_solution.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: images/reset.svg
+    visible: false
+    learner_created: false
+  - name: images/forward.svg
+    visible: false
+    learner_created: false
+  - name: images/gear.svg
+    visible: false
+    learner_created: false
+  - name: images/hideToolWindow.svg
+    visible: false
+    learner_created: false
+  - name: images/edu_task_description_window_settings_dark.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: images/edu_task_description_window_settings.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: images/moreVertical.svg
+    visible: false
+    learner_created: false
+  - name: images/moreVertical_dark.svg
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Introduction+/+Task+Description
+status: Unchecked
+record: -1
+post_submission_on_open: true

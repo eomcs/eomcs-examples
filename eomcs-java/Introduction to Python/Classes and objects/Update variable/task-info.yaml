@@ -1,0 +1,56 @@
+type: edu
+custom_name: Update variable
+files:
+  - name: update_variable.py
+    visible: true
+    placeholders:
+      - offset: 212
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 212
+        initialized_from_dependency: false
+        encrypted_possible_answer: IsNVGe1Yg8mDRMZK7T9DpQ==
+        selected: false
+        status: Unchecked
+      - offset: 250
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 250
+        initialized_from_dependency: false
+        encrypted_possible_answer: jCBKeqMOzL5KiCsrBDlPIA==
+        selected: false
+        status: Unchecked
+      - offset: 261
+        length: 35
+        placeholder_text: '''Call description() method of car1'''
+        initial_state:
+          length: 35
+          offset: 261
+        initialized_from_dependency: false
+        encrypted_possible_answer: 6bV/zTwKhe96QzBanOjHnIbEnF30ySJRDwHhSflP9Ks=
+        selected: false
+        status: Unchecked
+      - offset: 304
+        length: 35
+        placeholder_text: '''Call description() method of car2'''
+        initial_state:
+          length: 35
+          offset: 304
+        initialized_from_dependency: false
+        encrypted_possible_answer: 2ksgboGnFDgD7ru3/1wq5AX4sKMHgIFD3yQ294I23sM=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Classes+and+Objects+/+Update+variable
+status: Unchecked
+record: -1

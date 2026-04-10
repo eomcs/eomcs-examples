@@ -1,0 +1,51 @@
+type: edu
+files:
+  - name: input.txt
+    visible: true
+    learner_created: false
+  - name: input1.txt
+    visible: true
+    learner_created: false
+  - name: read_file.py
+    visible: true
+    placeholders:
+      - offset: 38
+        length: 24
+        placeholder_text: "# Iterate over the lines"
+        initial_state:
+          length: 24
+          offset: 38
+        initialized_from_dependency: false
+        encrypted_possible_answer: qldKCgYVF2l+jSyWRt1TGg==
+        selected: false
+        status: Unchecked
+      - offset: 71
+        length: 17
+        placeholder_text: "# print each line"
+        initial_state:
+          length: 17
+          offset: 71
+        initialized_from_dependency: false
+        encrypted_possible_answer: qkOfPSZqO8qfMrjBkZtmHQ==
+        selected: false
+        status: Unchecked
+      - offset: 131
+        length: 29
+        placeholder_text: "# print only first line of f1"
+        initial_state:
+          length: 29
+          offset: 131
+        initialized_from_dependency: false
+        encrypted_possible_answer: PKm5pW7PfvD7hXfl++tL+Q7BYpgSVqidhQpC4vP5XqQ=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=File+Input+Output+/+Read+file
+status: Unchecked
+record: -1

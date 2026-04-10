@@ -1,0 +1,52 @@
+type: edu
+files:
+  - name: task.py
+    visible: true
+    placeholders:
+      - offset: 65
+        length: 38
+        placeholder_text: "# Call func() from the imported module"
+        initial_state:
+          length: 38
+          offset: 65
+        initialized_from_dependency: false
+        encrypted_possible_answer: kIrCcjkicVvy4nL54Zkghk145IGEuBrv8xmPrCH/jMI=
+        selected: false
+        status: Unchecked
+      - offset: 145
+        length: 69
+        placeholder_text: print('This should be printed ONLY when task.py is called directly.')
+        initial_state:
+          length: 69
+          offset: 145
+        initialized_from_dependency: false
+        encrypted_possible_answer: eferBCJRUpIZ4ayufvWxuSzxvyxK+MoYXDHuKgRndPwfSFXYG8XfTQ3z89hPXXSG4ZEm6Xb4EAJM27GtakJ1RyozLCTKg4acSl4cpS9k/0X9YRB4KygqfBagbGeBeJMwyNCHAGZYjd5JnjwSRpNyCQ==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: some_module.py
+    visible: true
+    placeholders:
+      - offset: 173
+        length: 62
+        placeholder_text: print('This should not be printed when this file is imported')
+        initial_state:
+          length: 62
+          offset: 173
+        initialized_from_dependency: false
+        encrypted_possible_answer: eferBCJRUpIZ4ayufvWxuSzxvyxK+MoYXDHuKgRndPwfSFXYG8XfTQ3z89hPXXSGRhTbUNUG35ABRGQlmW7IurfLnYBvEwRV5ijGOLOFcdQ=
+        selected: false
+        status: Unchecked
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Modules+and+Packages+/+Executing+modules+as+scripts
+status: Unchecked
+record: -1

@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: continue_keyword.py
+    visible: true
+    placeholders:
+      - offset: 151
+        length: 17
+        placeholder_text: "# Add a condition"
+        initial_state:
+          length: 17
+          offset: 151
+        initialized_from_dependency: false
+        encrypted_possible_answer: tamdY/7MMO3e0n595JRvHA==
+        selected: false
+        status: Unchecked
+      - offset: 177
+        length: 46
+        placeholder_text: "# Add a keyword to skip print(x) for this loop"
+        initial_state:
+          length: 46
+          offset: 177
+        initialized_from_dependency: false
+        encrypted_possible_answer: rj2Ff1u65ER/ux3MWFmixg==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+Continue+keyword
+status: Unchecked
+record: -1

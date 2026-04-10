@@ -1,0 +1,39 @@
+type: edu
+files:
+  - name: call_method.py
+    visible: true
+    placeholders:
+      - offset: 208
+        length: 79
+        placeholder_text: "# TODO: set the exponentiation `base`, it should be equal to\
+      \ the current value."
+        initial_state:
+          length: 79
+          offset: 208
+        initialized_from_dependency: false
+        encrypted_possible_answer: jqLCfDFztuS5w/E471PR8A==
+        selected: false
+        status: Unchecked
+      - offset: 335
+        length: 84
+        placeholder_text: "# TODO: use the `multiply` method with the parameter `base`\
+      \ to calculate the result."
+        initial_state:
+          length: 84
+          offset: 335
+        initialized_from_dependency: false
+        encrypted_possible_answer: wv1iQ5Lt5x7EI6bC1RZ/Hm5oglfrF6IHqMJR4dbY5j8=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

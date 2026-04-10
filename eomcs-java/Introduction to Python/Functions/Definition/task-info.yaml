@@ -1,0 +1,32 @@
+type: edu
+files:
+  - name: functions.py
+    visible: true
+    placeholders:
+      - offset: 101
+        length: 23
+        placeholder_text: "# Call my_function here"
+        initial_state:
+          length: 23
+          offset: 101
+        initialized_from_dependency: false
+        encrypted_possible_answer: 9juGvgvuYLka0TC1OiolUQ==
+        selected: false
+        status: Unchecked
+      - offset: 267
+        length: 60
+        placeholder_text: "# Define a function named \"fun\" to replace three lines above"
+        initial_state:
+          length: 60
+          offset: 267
+        initialized_from_dependency: false
+        encrypted_possible_answer: Sq6e3XwEUlSArfQofqPQdg==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Functions+/+Definition
+status: Unchecked
+record: -1

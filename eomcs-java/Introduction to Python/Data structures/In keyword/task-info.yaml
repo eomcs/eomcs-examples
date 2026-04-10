@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: in_keyword.py
+    visible: true
+    placeholders:
+      - offset: 236
+        length: 5
+        placeholder_text: '''???'''
+        initial_state:
+          length: 5
+          offset: 236
+        initialized_from_dependency: false
+        encrypted_possible_answer: b/HiOb8sHH/wKluMBgEJIJYQmjfxL0orymYbXlMpaoY=
+        selected: false
+        status: Unchecked
+      - offset: 249
+        length: 5
+        placeholder_text: '''???'''
+        initial_state:
+          length: 5
+          offset: 249
+        initialized_from_dependency: false
+        encrypted_possible_answer: tnuJqjYBc6ZZy9FHC1NzlWcq46t6h3qZ6o6OHgfPqF4=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Data+Structures+/+In+keyword
+status: Unchecked
+record: -1

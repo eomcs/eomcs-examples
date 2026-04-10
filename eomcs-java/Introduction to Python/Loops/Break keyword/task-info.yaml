@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: break_keyword.py
+    visible: true
+    placeholders:
+      - offset: 402
+        length: 36
+        placeholder_text: "# Add the condition to exit the loop"
+        initial_state:
+          length: 36
+          offset: 402
+        initialized_from_dependency: false
+        encrypted_possible_answer: ggPOR9nPTT8e4PFpmhJVHkoB8Z9M89z9rNlae8YRo0g=
+        selected: false
+        status: Unchecked
+      - offset: 447
+        length: 15
+        placeholder_text: "# Exit the loop"
+        initial_state:
+          length: 15
+          offset: 447
+        initialized_from_dependency: false
+        encrypted_possible_answer: +rreWeLZ2/PtWdFPxkaAAA==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+Break+keyword
+status: Unchecked
+record: -1

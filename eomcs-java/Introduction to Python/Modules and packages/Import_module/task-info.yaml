@@ -1,0 +1,29 @@
+type: edu
+custom_name: Import module
+files:
+  - name: imports.py
+    visible: true
+    placeholders:
+      - offset: 26
+        length: 56
+        placeholder_text: "# call the hello_world function from the my_funcs module"
+        initial_state:
+          length: 56
+          offset: 26
+        initialized_from_dependency: false
+        encrypted_possible_answer: sJ80GvKLybE4meR4A/pUYXpTb+Ck/jp8pod89/VXrNA=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: my_funcs.py
+    visible: true
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Modules+and+Packages+/+Import+module
+status: Unchecked
+record: -1

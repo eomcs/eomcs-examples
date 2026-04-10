@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: lists_to_dict.py
+    visible: true
+    placeholders:
+      - offset: 126
+        length: 67
+        placeholder_text: "# TODO: populate the dictionary with key:value pairs from the\
+      \ lists"
+        initial_state:
+          length: 67
+          offset: 126
+        initialized_from_dependency: false
+        encrypted_possible_answer: 0BQpJAHgW1Xrsm9PrvOfW50Bg9JBDzCSZDa7r8Mjf5RrCNowVeBRHEQ63N4VPnzt
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

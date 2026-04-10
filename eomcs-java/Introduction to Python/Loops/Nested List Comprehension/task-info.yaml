@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: nested_list_comprehension.py
+    visible: true
+    placeholders:
+      - offset: 33
+        length: 6
+        placeholder_text: '''TODO'''
+        initial_state:
+          length: 6
+          offset: 33
+        initialized_from_dependency: false
+        encrypted_possible_answer: o0aoaUkDTEjccc94olPs54JYZOWbwwHA9WLYKSd3r8TVeX1AEsFYoWazDPAhJD21
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Loops+/+Nested+List+Comprehension
+status: Unchecked
+record: -1

@@ -1,0 +1,28 @@
+type: edu
+files:
+  - name: __init__.py
+    visible: false
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: order.py
+    visible: true
+    placeholders:
+      - offset: 185
+        length: 19
+        placeholder_text: "length=5, 5, '____'"
+        initial_state:
+          length: 19
+          offset: 185
+        initialized_from_dependency: false
+        encrypted_possible_answer: 4tNnVg2IYnyCL8qZzfMXriBjyIbiv1+xt7GuvaDF4uY=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Functions+/+Argument+Order
+status: Unchecked
+record: -1

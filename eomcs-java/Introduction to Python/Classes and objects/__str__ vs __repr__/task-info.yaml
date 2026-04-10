@@ -1,0 +1,35 @@
+type: edu
+files:
+  - name: str_and_repr.py
+    visible: true
+    placeholders:
+      - offset: 473
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 473
+        initialized_from_dependency: false
+        encrypted_possible_answer: cijuVeBcw0jsBWH1pcYfKvrRwDf9hR95EfLpLXhaw9HC86xVhV6WyEQjcxj+ogH6
+        selected: false
+        status: Unchecked
+      - offset: 516
+        length: 3
+        placeholder_text: ???
+        initial_state:
+          length: 3
+          offset: 516
+        initialized_from_dependency: false
+        encrypted_possible_answer: jYTuRJ60f0fB+p6FLr+Vo5evzopOtdNceEBhyYZ/wPaF3XhH+5tTO/ImB8xXT39f
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: tests/__init__.py
+    visible: false
+    learner_created: false
+  - name: tests/test_task.py
+    visible: false
+    learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLSfRlDlldKfuq-cHMNFfHMER61P1PRIan7KG6yp1GvaweDI7GA/viewform?usp=pp_url&entry.2103429047=Classes+and+Objects+/+str+vs+repr
+status: Unchecked
+record: -1
