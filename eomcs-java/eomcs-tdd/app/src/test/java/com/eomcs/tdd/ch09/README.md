@@ -81,7 +81,6 @@ abstract String currency();  // Money
 
 - currency 필드와 생성자를 Money로 이동
 - Dollar, Franc은 super(amount, "USD") / super(amount, "CHF") 호출
-- Money의 equals()는 amount와 currency 모두 비교하도록 변경
 
 ### step03: Refactor - times()를 동일하게 만들기
 

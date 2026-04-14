@@ -32,15 +32,10 @@ abstract class Money {
 
   @Override
   public boolean equals(Object obj) {
-    if (obj == null || !(obj instanceof Money)) {
+    if (obj == null || getClass() != obj.getClass()) {
       return false;
     }
     Money other = (Money) obj;
-
-    // before: amount만 비교
-    // return amount == other.amount;
-
-    // after: amount와 currency 모두 비교
-    return amount == other.amount && currency.equals(other.currency);
+    return amount == other.amount;
   }
 }

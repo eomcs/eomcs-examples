@@ -28,10 +28,10 @@ abstract class Money {
 
   @Override
   public boolean equals(Object obj) {
-    if (obj == null || !(obj instanceof Money)) {
+    if (obj == null || getClass() != obj.getClass()) {
       return false;
     }
     Money other = (Money) obj;
-    return amount == other.amount && currency.equals(other.currency);
+    return amount == other.amount;
   }
 }

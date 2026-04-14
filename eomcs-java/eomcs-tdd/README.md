@@ -68,3 +68,26 @@ Kent Beck은 프로그래밍 중 느끼는 막막함과 '두려움'을 관리하
 ```
 ./gradlew test --tests "com.eomcs.tdd.ch01.*" 2>&1 | tail -20
 ```
+
+오류 메시지를 보고 싶다면 `tail` 대신 `head`를 사용한다.
+```
+./gradlew test --tests "com.eomcs.tdd.ch10.step02_refactor.*" 2>&1 | head -30
+```
+
+### 빌드 스크립트 설정 
+
+`build.gradle`에 다음 설정을 추가하여 테스트 실패 시 전체 스택 트레이스 대신 오류 메시지만 출력하도록 할 수 있다.
+
+```gradle
+tasks.named('test') {
+    useJUnitPlatform()
+
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+        showExceptions true
+        showCauses true
+        showStackTraces false  // 스택트레이스 생략, 오류 메시지만 출력
+    }
+}
+```

@@ -1,20 +1,29 @@
-package com.eomcs.tdd.ch09.step0x;
+package com.eomcs.tdd.ch10.step01_refactor;
 
-// [step01] Money - ch08 step03 상태 그대로
-// 이번 단계의 변경 대상은 Dollar/Franc 의 times() 내부 구현이다.
+// [step01_refacgtor] 전진을 위한 일보 후퇴
 abstract class Money {
 
   protected int amount;
+  protected String currency;
+
+  Money(int amount, String currency) {
+    this.amount = amount;
+    this.currency = currency;
+  }
 
   static Money dollar(int amount) {
-    return new Dollar(amount);
+    return new Dollar(amount, "USD");
   }
 
   static Money franc(int amount) {
-    return new Franc(amount);
+    return new Franc(amount, "CHF");
   }
 
   abstract Money times(int multiplier);
+
+  String currency() {
+    return currency;
+  }
 
   @Override
   public boolean equals(Object obj) {

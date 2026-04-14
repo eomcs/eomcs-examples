@@ -23,4 +23,12 @@ application {
 
 tasks.named('test') {
     useJUnitPlatform()
+
+    testLogging {
+        events "failed"
+        exceptionFormat "full"
+        showExceptions true
+        showCauses true
+        showStackTraces false  // 스택트레이스 생략, 오류 메시지만 출력
+    }
 }
