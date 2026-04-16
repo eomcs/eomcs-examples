@@ -8,9 +8,9 @@
 
 ---
 
-# Exam01 - Entry Point
+## Exam01 - Entry Point
 
-## 개념
+### 개념
 
 자바 프로그램의 진입점(entry point)은 JVM이 프로그램 실행 시 가장 먼저 호출하는 메서드이다. entry point 메서드의 시그니처는 다음과 같다:
 
@@ -18,7 +18,7 @@
 public static void main(String[] args)
 ```
 
-## 클래스에서의 Entry Point
+### 클래스에서의 Entry Point
 
 `App` 클래스는 일반적인 방식으로 entry point 메서드를 정의한다.
 
@@ -35,7 +35,7 @@ public class App {
 - `void`: 반환값이 없다.
 - `String[] args`: 커맨드라인 인수를 문자열 배열로 전달받는다.
 
-## 인터페이스에서의 Entry Point
+### 인터페이스에서의 Entry Point
 
 `App2` 인터페이스는 Java 8부터 지원하는 인터페이스의 정적 메서드(`static method`) 기능을 활용하여 entry point 메서드를 정의한다.
 
@@ -51,23 +51,23 @@ public interface App2 {
 - `main` 메서드의 시그니처가 동일하므로 인터페이스에 정의된 `static main` 메서드도 JVM의 entry point로 사용할 수 있다.
 - 클래스와 달리 인터페이스의 정적 메서드는 상속되지 않는다.
 
-## 실무
+### 실무
 
 - 일반적으로 entry point 메서드는 클래스에 정의한다. 인터페이스에 entry point 메서드를 정의하는 것은 드물며, 주로 테스트나 예제 코드를 만들 때 가끔 사용된다.
 - 클래스에 entry point 메서드를 정의하면 필드나 구현 메서드를 함께 사용할 수 있어 더 유연하게 프로그램을 작성할 수 있다.
 
 ---
 
-# Exam02 - 스태틱 필드와 스태틱 메서드
+## Exam02 - 스태틱 필드와 스태틱 메서드
 
-## 개념
+### 개념
 
 클래스에 데이터(필드)와 기능(메서드)을 정의하는 방법을 학습한다.
 
 - **스태틱 필드(static field)**: 클래스에 속하는 변수로, 객체 생성 없이 사용할 수 있다.
 - **스태틱 메서드(static method)**: 클래스에 속하는 메서드로, 객체 생성 없이 호출할 수 있다.
 
-## App - main() 메서드에 모든 코드를 작성하는 방식
+### App - main() 메서드에 모든 코드를 작성하는 방식
 
 스태틱 필드와 스태틱 메서드 없이 `main()` 메서드 안에 모든 코드를 작성한다.
 
@@ -88,7 +88,7 @@ public static void main(String[] args) {
 - 국어, 영어, 수학 점수를 지역변수로 선언하고 값을 직접 초기화한다.
 - 총점과 평균을 계산하여 출력한다.
 
-## App2 - 스태틱 필드와 스태틱 메서드를 사용하는 방식
+### App2 - 스태틱 필드와 스태틱 메서드를 사용하는 방식
 
 데이터는 스태틱 필드에, 기능은 스태틱 메서드에 분리하여 정의한다.
 
@@ -109,7 +109,7 @@ static float aver() {
 - 스태틱 필드에 점수를 저장하면 클래스 내 모든 메서드에서 공유하여 사용할 수 있다.
 - `sum()`, `aver()` 스태틱 메서드로 계산 로직을 분리하면 코드 재사용성이 높아진다.
 
-## App3 - 표준 입력으로 점수를 입력받는 방식
+### App3 - 표준 입력으로 점수를 입력받는 방식
 
 `Scanner`를 사용하여 표준 입력 장치(키보드)로부터 점수를 입력받는다.
 
@@ -150,7 +150,7 @@ sc.close();
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam02.App3
   ```
 
-## App4 - 프로그램 아규먼트로 점수를 입력받는 방식
+### App4 - 프로그램 아규먼트로 점수를 입력받는 방식
 
 `main(String[] args)`의 `args` 배열을 통해 커맨드라인 인수로 점수를 전달받는다.
 
@@ -169,16 +169,16 @@ math = Integer.parseInt(args[2]);
 
 ---
 
-# Exam03 - 클래스 분리
+## Exam03 - 클래스 분리
 
-## 개념
+### 개념
 
 관련된 데이터(필드)와 기능(메서드)을 별도의 클래스로 분리한다.
 
 - 역할에 따라 클래스를 분리하면 코드의 재사용성과 유지보수성이 높아진다.
 - `App` 클래스는 프로그램의 흐름(입력/출력)을 담당하고, `Score` 클래스는 데이터와 계산 로직을 담당한다.
 
-## Score - 데이터와 계산 로직을 담당하는 클래스
+### Score - 데이터와 계산 로직을 담당하는 클래스
 
 국어, 영어, 수학 점수를 스태틱 필드로 저장하고, 총점과 평균을 계산하는 스태틱 메서드를 제공한다.
 
@@ -203,7 +203,7 @@ public class Score {
 - `App` 클래스에서 `Score.kor`, `Score.eng`, `Score.math`로 필드에 접근한다.
 - `Score.sum()`, `Score.aver()`로 메서드를 호출한다.
 
-## App - 입출력을 담당하는 클래스
+### App - 입출력을 담당하는 클래스
 
 `Scanner`로 점수를 입력받아 `Score` 클래스에 저장하고 결과를 출력한다.
 
@@ -234,9 +234,9 @@ System.out.printf("평균: %.1f%n", Score.aver());
 
 ---
 
-# Exam04 - 인스턴스와 인스턴스 필드
+## Exam04 - 인스턴스와 인스턴스 필드
 
-## 개념
+### 개념
 
 스태틱 필드를 인스턴스 필드로 변경하면 여러 명의 성적을 독립적으로 다룰 수 있다.
 
@@ -244,7 +244,7 @@ System.out.printf("평균: %.1f%n", Score.aver());
 - **인스턴스 필드**: `new` 연산자로 객체를 생성할 때마다 별도의 메모리가 할당되므로 여러 학생의 점수를 독립적으로 저장할 수 있다.
 - 스태틱 메서드는 인스턴스 필드에 직접 접근할 수 없으므로, `Score` 인스턴스를 매개변수로 전달받아 접근한다.
 
-## Score - 인스턴스 필드와 스태틱 메서드를 사용하는 클래스
+### Score - 인스턴스 필드와 스태틱 메서드를 사용하는 클래스
 
 ```java
 public class Score {
@@ -266,7 +266,7 @@ public class Score {
 - `kor`, `eng`, `math`를 인스턴스 필드로 선언하여 객체마다 독립적인 저장공간을 갖는다.
 - `sum(Score s)`, `aver(Score s)`는 스태틱 메서드를 유지하되, `Score` 인스턴스를 매개변수로 받아 인스턴스 필드에 접근한다.
 
-## App - 1명의 점수를 입력받아 출력하는 클래스
+### App - 1명의 점수를 입력받아 출력하는 클래스
 
 ```java
 Score score = new Score();
@@ -292,7 +292,7 @@ System.out.printf("평균: %.1f%n", Score.aver(score));
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam04.App
   ```
 
-## App2 - 3명의 점수를 입력받아 출력하는 클래스
+### App2 - 3명의 점수를 입력받아 출력하는 클래스
 
 ```java
 Score score1 = new Score();
@@ -315,9 +315,9 @@ System.out.printf("3번 학생 => 총점: %d, 평균: %.1f%n", Score.sum(score3)
 
 ---
 
-# Exam05 - 인스턴스 메서드와 this 빌트인 변수
+## Exam05 - 인스턴스 메서드와 this 빌트인 변수
 
-## 개념
+### 개념
 
 인스턴스 메서드는 빌트인 변수 `this`를 통해 자신에게 전달된 인스턴스의 필드에 접근할 수 있다.
 
@@ -326,7 +326,7 @@ System.out.printf("3번 학생 => 총점: %d, 평균: %.1f%n", Score.sum(score3)
 - **스태틱 메서드**: `this`가 없으므로 인스턴스를 매개변수로 전달받아야 한다.
 - **인스턴스 메서드**: 빌트인 변수 `this`에 대상 인스턴스 레퍼런스가 들어 있으므로 이 레퍼런스를 통해 인스턴스 필드에 직접 접근할 수 있다.
 
-## Score - 인스턴스 필드와 인스턴스 메서드를 사용하는 클래스
+### Score - 인스턴스 필드와 인스턴스 메서드를 사용하는 클래스
 
 ```java
 public class Score {
@@ -348,7 +348,7 @@ public class Score {
 - `sum()`, `aver()`를 인스턴스 메서드로 선언하여 매개변수 없이 빌트인 변수 `this`를 통해 인스턴스 필드에 직접 접근한다.
 - exam04의 `Score.sum(score)` 호출 방식에서 `score.sum()` 호출 방식으로 단순해진다.
 
-## App - 1명의 점수를 입력받아 출력하는 클래스
+### App - 1명의 점수를 입력받아 출력하는 클래스
 
 ```java
 Score score = new Score();
@@ -373,7 +373,7 @@ System.out.printf("평균: %.1f%n", score.aver());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam05.App
   ```
 
-## App2 - 3명의 점수를 입력받아 출력하는 클래스
+### App2 - 3명의 점수를 입력받아 출력하는 클래스
 
 ```java
 Score score1 = new Score();
@@ -395,16 +395,16 @@ System.out.printf("3번 학생 => 총점: %d, 평균: %.1f%n", score3.sum(), sco
 
 ---
 
-# Exam06 - 스태틱 메서드의 한계
+## Exam06 - 스태틱 메서드의 한계
 
-## 개념
+### 개념
 
 스태틱 메서드는 클래스 이름으로 호출하기 때문에 교체하기 힘들다.
 
 - `Sorter.sort(arr)`처럼 클래스 이름이 코드에 직접 박혀 있으므로 다른 정렬 알고리즘으로 교체하려면 호출하는 코드를 모두 수정해야 한다.
 - 반면 인스턴스 메서드로 구현하면 인스턴스 변수만 교체하여 다른 구현체로 쉽게 바꿀 수 있다.
 
-## Sorter - 버블 정렬 클래스
+### Sorter - 버블 정렬 클래스
 
 인접한 두 요소를 비교하여 교환하는 버블 정렬(Bubble Sort)을 구현한다.
 
@@ -427,7 +427,7 @@ public class Sorter {
 
 - 시간 복잡도: 평균/최악 O(n²)
 
-## QuickSorter - 퀵 정렬 클래스
+### QuickSorter - 퀵 정렬 클래스
 
 피벗을 기준으로 배열을 분할하는 퀵 정렬(Quick Sort)을 재귀로 구현한다.
 
@@ -435,7 +435,7 @@ public class Sorter {
 - `partition()`은 피벗보다 작은 요소를 왼쪽, 큰 요소를 오른쪽으로 분리하고 피벗의 최종 인덱스를 반환한다.
 - 시간 복잡도: 평균 O(n log n), 최악 O(n²)
 
-## App - Sorter(버블 정렬)를 사용하는 클래스
+### App - Sorter(버블 정렬)를 사용하는 클래스
 
 ```java
 Sorter.sort(arr);
@@ -447,7 +447,7 @@ Sorter.sort(arr);
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam06.App
   ```
 
-## App2 - QuickSorter(퀵 정렬)를 사용하는 클래스
+### App2 - QuickSorter(퀵 정렬)를 사용하는 클래스
 
 ```java
 QuickSorter.sort(arr);
@@ -461,16 +461,16 @@ QuickSorter.sort(arr);
 
 ---
 
-# Exam07 - 인스턴스 메서드 호출
+## Exam07 - 인스턴스 메서드 호출
 
-## 개념
+### 개념
 
 인스턴스 메서드는 객체를 통해 호출하기 때문에 메서드 호출에 필요한 객체를 파라미터로 전달할 수 있다.
 
 - exam06의 스태틱 메서드는 클래스 이름이 코드에 직접 박혀 있어 교체가 어렵다.
 - 인스턴스 메서드로 변경하면 `new Sorter()` 또는 `new QuickSorter()`처럼 생성할 인스턴스만 바꿔 다른 구현체를 손쉽게 전달할 수 있다. (단, 상속이나 인터페이스를 사용한다면)
 
-## App - Sorter를 내부에서 생성하여 사용하는 클래스
+### App - Sorter를 내부에서 생성하여 사용하는 클래스
 
 ```java
 static void play(int[] arr) {
@@ -485,7 +485,7 @@ static void play(int[] arr) {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam07.App
   ```
 
-## App2 - QuickSorter를 내부에서 생성하여 사용하는 클래스
+### App2 - QuickSorter를 내부에서 생성하여 사용하는 클래스
 
 ```java
 static void play(int[] arr) {
@@ -499,7 +499,7 @@ static void play(int[] arr) {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam07.App2
   ```
 
-## App3 - Sorter 인스턴스를 파라미터로 받는 클래스
+### App3 - Sorter 인스턴스를 파라미터로 받는 클래스
 
 ```java
 static void play(int[] arr, Sorter sorter) {
@@ -518,7 +518,7 @@ public static void main(String[] args) {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam07.App3
   ```
 
-## App4 - QuickSorter 인스턴스를 파라미터로 받는 클래스
+### App4 - QuickSorter 인스턴스를 파라미터로 받는 클래스
 
 ```java
 static void play(int[] arr, QuickSorter sorter) {
@@ -538,9 +538,9 @@ public static void main(String[] args) {
 
 ---
 
-# Exam08 - 인스턴스 메서드 호출 + 상속 + 다형성
+## Exam08 - 인스턴스 메서드 호출 + 상속 + 다형성
 
-## 개념
+### 개념
 
 상속을 사용하면 두 클래스를 같은 타입으로 묶어서 다룰 수 있다. 즉 자식 클래스는 부모 클래스 타입으로 다룰 수 있기 때문에, 파라미터 타입을 부모 클래스로 선언하면 자식 클래스 인스턴스도 전달할 수 있다.
 
@@ -549,7 +549,7 @@ public static void main(String[] args) {
 - `play(Sorter sorter)` 하나로 `Sorter`와 `QuickSorter` 인스턴스를 모두 받을 수 있어 코드 중복이 사라진다.
 - 메서드 호출 시 실제 인스턴스의 `sort()`가 실행된다. 이를 **다형성(Polymorphism)** 이라 한다.
 
-## App - 부모 클래스 타입 파라미터로 통합한 클래스
+### App - 부모 클래스 타입 파라미터로 통합한 클래스
 
 ```java
 static void play(int[] arr, Sorter sorter) {
@@ -574,9 +574,9 @@ public static void main(String[] args) {
 
 ---
 
-# Exam09 - 인터페이스 활용
+## Exam09 - 인터페이스 활용
 
-## 개념
+### 개념
 
 상속(`extends`) 대신 인터페이스(`implements`)를 사용하면 클래스 간의 결합도를 낮추고 더 유연한 구조를 만들 수 있다.
 
@@ -585,7 +585,7 @@ public static void main(String[] args) {
 - 자바는 단일 상속만 허용하지만, 인터페이스는 여러 개를 구현할 수 있다.
 - `play()`의 파라미터 타입을 `Sorter` 인터페이스로 선언하면 이를 구현한 모든 클래스의 인스턴스를 전달할 수 있다.
 
-## App - 인터페이스 타입 파라미터로 통합한 클래스
+### App - 인터페이스 타입 파라미터로 통합한 클래스
 
 ```java
 static void play(int[] arr, Sorter sorter) {
@@ -610,9 +610,9 @@ public static void main(String[] args) {
 
 ---
 
-# Exam10 - 추상 클래스의 용도
+## Exam10 - 추상 클래스의 용도
 
-## 개념
+### 개념
 
 추상 클래스를 사용하면 여러 구현 클래스의 공통 필드와 기능을 한 곳에 모아 코드 중복을 줄일 수 있다.
 
@@ -620,7 +620,7 @@ public static void main(String[] args) {
 - 공통 부분을 `AbstractSorter` 추상 클래스에 정의하면 각 구현 클래스는 정렬 로직(`sort()`)만 작성하면 된다.
 - `AbstractSorter`는 `Sorter` 인터페이스를 구현하므로 `BubbleSorter`와 `QuickSorter`도 `Sorter` 타입으로 다룰 수 있다.
 
-## App - AbstractSorter 타입 파라미터로 통합한 클래스
+### App - AbstractSorter 타입 파라미터로 통합한 클래스
 
 ```java
 static void play(AbstractSorter sorter) {
@@ -647,9 +647,9 @@ public static void main(String[] args) {
 
 ---
 
-# Exam11 - 스태틱/논스태틱 중첩 클래스, 로컬 클래스, 익명 클래스, 람다, 메서드 레퍼런스
+## Exam11 - 스태틱/논스태틱 중첩 클래스, 로컬 클래스, 익명 클래스, 람다, 메서드 레퍼런스
 
-## 개념
+### 개념
 
 `FileFilter` 인터페이스를 구현하는 클래스를 다양한 방식으로 정의하는 방법을 학습한다.
 
@@ -661,7 +661,7 @@ public static void main(String[] args) {
 - **람다**: `FileFilter`가 함수형 인터페이스이므로 익명 클래스를 람다로 대체할 수 있다.
 - **메서드 레퍼런스**: 람다 대신 기존 메서드를 참조하여 전달한다.
 
-## App - 톱레벨 클래스 사용
+### App - 톱레벨 클래스 사용
 
 ```java
 File[] files = dir.listFiles(new MyFileFilter());
@@ -672,7 +672,7 @@ File[] files = dir.listFiles(new MyFileFilter());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App
   ```
 
-## App2 - 스태틱 중첩 클래스 사용
+### App2 - 스태틱 중첩 클래스 사용
 
 ```java
 static class MyFileFilter implements FileFilter {
@@ -687,7 +687,7 @@ File[] files = dir.listFiles(new MyFileFilter());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App2
   ```
 
-## App3 - 논스태틱 중첩 클래스(이너 클래스) 사용
+### App3 - 논스태틱 중첩 클래스(이너 클래스) 사용
 
 ```java
 class MyFileFilter implements FileFilter {
@@ -704,7 +704,7 @@ File[] files = dir.listFiles(app.new MyFileFilter());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App3
   ```
 
-## App4 - 로컬 클래스 사용
+### App4 - 로컬 클래스 사용
 
 ```java
 class MyFileFilter implements FileFilter {
@@ -719,7 +719,7 @@ File[] files = dir.listFiles(new MyFileFilter());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App4
   ```
 
-## App5 - 익명 클래스를 변수에 저장하여 사용
+### App5 - 익명 클래스를 변수에 저장하여 사용
 
 ```java
 FileFilter filter = new FileFilter() {
@@ -734,7 +734,7 @@ File[] files = dir.listFiles(filter);
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App5
   ```
 
-## App6 - 익명 클래스를 인라인으로 사용
+### App6 - 익명 클래스를 인라인으로 사용
 
 ```java
 File[] files = dir.listFiles(new FileFilter() {
@@ -748,7 +748,7 @@ File[] files = dir.listFiles(new FileFilter() {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App6
   ```
 
-## App7 - 람다 사용
+### App7 - 람다 사용
 
 ```java
 File[] files = dir.listFiles(file -> file.isFile());
@@ -760,7 +760,7 @@ File[] files = dir.listFiles(file -> file.isFile());
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App7
   ```
 
-## App8 - 스태틱 메서드 레퍼런스 사용
+### App8 - 스태틱 메서드 레퍼런스 사용
 
 ```java
 static boolean isFile(File file) { return file.isFile(); }
@@ -773,7 +773,7 @@ File[] files = dir.listFiles(App8::isFile);
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam11.App8
   ```
 
-## App9 - 인스턴스 메서드 레퍼런스 사용
+### App9 - 인스턴스 메서드 레퍼런스 사용
 
 ```java
 boolean isFile(File file) { return file.isFile(); }
@@ -789,9 +789,9 @@ File[] files = dir.listFiles(app::isFile);
 
 ---
 
-# Exam12 - 스태틱/논스태틱 중첩 클래스, 로컬 클래스, 익명 클래스, 람다
+## Exam12 - 스태틱/논스태틱 중첩 클래스, 로컬 클래스, 익명 클래스, 람다
 
-## 개념
+### 개념
 
 `Sorter` 인터페이스를 구현하는 클래스를 다양한 방식으로 정의하는 방법을 학습한다.
 
@@ -802,7 +802,7 @@ File[] files = dir.listFiles(app::isFile);
 - **익명 클래스**: 로컬 클래스와 마찬가지로 동작한다.
 - **람다**: 로컬 클래스와 마찬가지로 동작한다.
 
-## App - 톱레벨 클래스 사용
+### App - 톱레벨 클래스 사용
 
 ```java
 BubbleSorter sorter = new BubbleSorter(numbers);
@@ -814,7 +814,7 @@ sorter.sort();
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam12.App
   ```
 
-## App2 - 스태틱 중첩 클래스 사용
+### App2 - 스태틱 중첩 클래스 사용
 
 ```java
 static class BubbleSorter implements Sorter { ... }
@@ -827,7 +827,7 @@ sorter.sort();
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam12.App2
   ```
 
-## App3 - 논스태틱 중첩 클래스(이너 클래스) 사용
+### App3 - 논스태틱 중첩 클래스(이너 클래스) 사용
 
 ```java
 class BubbleSorter implements Sorter {
@@ -846,7 +846,7 @@ sorter.sort();
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam12.App3
   ```
 
-## App4 - 로컬 클래스 사용
+### App4 - 로컬 클래스 사용
 
 ```java
 class BubbleSorter implements Sorter {
@@ -864,7 +864,7 @@ sorter.sort();
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam12.App4
   ```
 
-## App5 - 익명 클래스 사용
+### App5 - 익명 클래스 사용
 
 ```java
 new Sorter() {
@@ -880,7 +880,7 @@ new Sorter() {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam12.App5
   ```
 
-## App6 - 람다 사용
+### App6 - 람다 사용
 
 ```java
 Sorter sorter = () -> {
@@ -897,9 +897,9 @@ sorter.sort();
 
 ---
 
-# Exam13 - 제네릭
+## Exam13 - 제네릭
 
-## 개념
+### 개념
 
 타입별로 별도의 클래스를 만들지 않고 다양한 타입을 처리하는 방법을 학습한다.
 
@@ -907,7 +907,7 @@ sorter.sort();
 - **Object 타입 사용**: 필드를 `Object` 타입으로 선언하면 모든 타입을 저장할 수 있다. 단, 꺼낼 때 형변환이 필요하며 잘못된 형변환은 런타임 오류를 발생시킨다.
 - **제네릭(Generic)**: 타입 파라미터(`<T>`)를 사용하여 클래스 정의 시 타입을 지정하지 않고, 인스턴스 생성 시 타입을 지정한다. 형변환이 필요 없고 타입 오류를 컴파일 시점에 잡을 수 있다.
 
-## App - 타입별 클래스 사용
+### App - 타입별 클래스 사용
 
 ```java
 StringBox strBox = new StringBox(); strBox.set("Hello"); String strValue = strBox.get();
@@ -920,7 +920,7 @@ FloatBox floatBox = new FloatBox(); floatBox.set(3.14f); float floatValue = floa
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam13.App
   ```
 
-## App2 - Object 타입 사용
+### App2 - Object 타입 사용
 
 ```java
 ObjectBox strBox = new ObjectBox();
@@ -934,7 +934,7 @@ String strValue = (String) strBox.get(); // 형변환 필요
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam13.App2
   ```
 
-## App3 - 제네릭 사용
+### App3 - 제네릭 사용
 
 ```java
 GenericBox<String> strBox = new GenericBox<>();
@@ -951,9 +951,9 @@ String strValue = strBox.get(); // 형변환 불필요
 
 ---
 
-# Exam14 - 자주 사용하는 함수형 인터페이스(functional interface)와 람다(lambda)
+## Exam14 - 자주 사용하는 함수형 인터페이스(functional interface)와 람다(lambda)
 
-## 개념
+### 개념
 
 `java.util.function` 패키지는 자주 사용하는 함수형 인터페이스를 제공한다.
 함수형 인터페이스는 추상 메서드가 하나뿐이므로 람다로 대체할 수 있다.
@@ -965,7 +965,7 @@ String strValue = strBox.get(); // 형변환 불필요
 | `Function<T,R>` | `R apply(T)` | 값을 받아 **변환**하여 리턴 |
 | `Predicate<T>` | `boolean test(T)` | 값을 받아 **조건 판별** |
 
-## App - Supplier\<T\> 사용
+### App - Supplier\<T\> 사용
 
 ```java
 static <T> void print(Supplier<T> supplier) {
@@ -980,7 +980,7 @@ print(() -> random.nextInt(100) + 1);
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam14.App
   ```
 
-## App2 - Consumer\<T\> 사용
+### App2 - Consumer\<T\> 사용
 
 ```java
 static <T> void processUsers(T[] arr, Consumer<T> consumer) {
@@ -994,7 +994,7 @@ processUsers(users, user -> System.out.println(user.name));
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam14.App2
   ```
 
-## App3 - Function\<T,R\> 사용
+### App3 - Function\<T,R\> 사용
 
 ```java
 static void printScore(
@@ -1011,7 +1011,7 @@ static void printScore(
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.oop.exam14.App3
   ```
 
-## App4 - Predicate\<T\> 사용
+### App4 - Predicate\<T\> 사용
 
 ```java
 static void printMembers(Member[] members, Predicate<Member> filter) {
