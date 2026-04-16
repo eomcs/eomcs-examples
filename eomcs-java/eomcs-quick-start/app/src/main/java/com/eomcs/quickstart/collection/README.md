@@ -2,8 +2,15 @@
 
 ## 학습 목표
 
-- 자바 컬렉션 프레임워크의 특징을 이해한다.
-- 컬렉션 프레임워크를 활용하여 데이터를 효율적으로 다룰 수 있다.
+- `Iterable`과 `Iterator` 인터페이스의 역할을 이해하고, for-each 문이 동작하는 원리를 설명할 수 있다.
+- `Collection`, `List`, `Set`, `Queue` 인터페이스의 계층 구조를 이해하고, 각 특성에 맞게 구현체를 선택할 수 있다.
+- `ArrayList`와 `LinkedList`의 내부 구조 차이를 이해하고, 접근·삽입·삭제 성능을 비교하여 적합한 자료구조를 선택할 수 있다.
+- `Vector`, `Stack`, `ArrayDeque`의 특성과 사용 방법을 이해하고, `Stack` 대신 `ArrayDeque`를 권장하는 이유를 설명할 수 있다.
+- `Map` 인터페이스와 주요 구현체(`HashMap`, `Hashtable`, `Properties`, `TreeMap`, `LinkedHashMap`)의 특성과 차이를 이해하고 상황에 맞게 선택할 수 있다.
+- `Comparable`과 `Comparator`를 구현하여 객체의 정렬 기준을 정의하고, 컬렉션과 배열에 적용할 수 있다.
+- 동기화를 지원하는 컬렉션(`ConcurrentHashMap`, `CopyOnWriteArrayList` 등)의 필요성을 이해하고, 멀티스레드 환경에서 안전하게 활용할 수 있다.
+- 수정 불가 컬렉션(Unmodifiable Collection)을 생성하는 방법을 이해하고, 방어적 프로그래밍에 적용할 수 있다.
+- Java 21에서 도입된 `SequencedCollection` 인터페이스를 이해하고, 순서가 있는 컬렉션을 일관된 방식으로 다룰 수 있다.
 
 ---
 

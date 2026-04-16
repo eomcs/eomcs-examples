@@ -1,4 +1,19 @@
-#  Concurrency - 병행 프로그래밍
+# Concurrency - 병행 프로그래밍
+
+## 학습 목표
+
+- 스레드의 생명주기와 상태 전환을 이해하고, 스레드를 생성·제어할 수 있다.
+- 경쟁 조건(Race Condition)이 발생하는 원인을 이해하고, `synchronized`로 임계 구역을 보호할 수 있다.
+- `volatile`의 가시성(Visibility) 보장 원리를 이해하고, 적절한 상황에 활용할 수 있다.
+- `ReentrantLock`, `ReadWriteLock`을 사용하여 `synchronized`보다 유연한 동기화를 구현할 수 있다.
+- `Semaphore`로 동시 접근 스레드 수를 제한하고, 신호(Signal) 패턴으로 스레드 실행 순서를 제어할 수 있다.
+- `ExecutorService`와 스레드 풀을 사용하여 작업을 효율적으로 병렬 처리할 수 있다.
+- `ForkJoinPool`과 분할 정복(Divide and Conquer) 방식으로 대용량 데이터를 병렬 처리할 수 있다.
+- `CompletableFuture`로 비동기 작업을 체인으로 연결하고 결과를 조합할 수 있다.
+- Spring WebFlux의 리액티브 파이프라인에서 예외를 처리하고 복구할 수 있다.
+- 가상 스레드(Virtual Thread)의 동작 원리를 이해하고, I/O 집약적 작업에 적용할 수 있다.
+
+---
 
 ## Exam01 - Thread 생성과 제어
 
@@ -265,6 +280,8 @@ alive.isAlive(); // false (종료 후)
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam01.App3
   ```
 
+---
+
 ## Exam02 - 동기화(synchronized)
 
 ### 개념
@@ -493,6 +510,8 @@ new Thread(() -> {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam02.App4
   ```
 
+---
+
 ## Exam03 - volatile
 
 ### 개념
@@ -689,6 +708,8 @@ atomicCounter.incrementAndGet(); // CAS(Compare-And-Swap): 원자적, 락 없음
   ```
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam03.App3
   ```
+
+---
 
 ## Exam04 - Lock
 
@@ -942,6 +963,8 @@ public int take() throws InterruptedException {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam04.App4
   ```
 
+---
+
 ## Exam05 - Semaphore
 
 ### 개념
@@ -1173,6 +1196,8 @@ if (conn == null) {
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam05.App4
   ```
 
+---
+
 ## Exam06 - Executor Framework
 
 ### 개념
@@ -1329,6 +1354,8 @@ scheduler.scheduleWithFixedDelay(task, 0, 1, TimeUnit.SECONDS);
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam06.App4
   ```
 
+---
+
 ## Exam07 - ForkJoinPool
 
 ### 개념
@@ -1482,6 +1509,8 @@ int sum =
   ```
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam07.App4
   ```
+
+---
 
 ## Exam08 - CompletableFuture
 
@@ -1639,6 +1668,8 @@ CompletableFuture<String> future =
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam08.App4
   ```
 
+---
+
 ## Exam09 - Spring WebFlux 비동기 예외 처리
 
 ### 개념
@@ -1768,6 +1799,8 @@ Flux.fromIterable(orderIds)
   ```
   ./gradlew -q run -PmainClass=com.eomcs.quickstart.concurrency.exam09.App4
   ```
+
+---
 
 ## Exam10 - Virtual Thread
 
