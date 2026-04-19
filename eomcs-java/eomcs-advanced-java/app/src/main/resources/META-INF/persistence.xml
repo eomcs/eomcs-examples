@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  JPA persistence.xml - exam06 ~ exam10용 퍼시스턴스 단위 정의
+  대상 DB: Oracle 19c+
+  JPA 버전: 3.1 (Jakarta EE 10)
+  구현체: Hibernate 6.6
+
+  접속 정보(URL/username/password)는 소스 코드에서 OS 환경 변수로 읽어
+  Persistence.createEntityManagerFactory("단위명", props)의 두 번째 인수로 전달한다.
+  따라서 이 파일에는 접속 정보를 기록하지 않는다.
+-->
+<persistence version="3.1"
+    xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+        https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd">
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam06: JPA 소개 & EntityManagerFactory / EntityManager
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam06" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam06.Customer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"       value="true"/>
+            <property name="hibernate.format_sql"     value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"   value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam07: 기본 엔티티 매핑 (@Entity, @Table, @Column, @Id, @GeneratedValue)
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam07" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam07.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam07.Product</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam08: 영속성 컨텍스트 (1차 캐시, 동일성 보장, 변경 감지, 쓰기 지연)
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam08" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam08.Customer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam09: 연관관계 매핑 기초 (@ManyToOne, @OneToMany, mappedBy)
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam09" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam09.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam09.Order</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam10: 엔티티 생명주기 (persist, find, merge, remove, detach, flush)
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam10" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam10.Customer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam11: 상속 매핑 전략 (JOINED) - Product, PhysicalProduct, DigitalProduct
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam11" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam11.Product</class>
+        <class>com.eomcs.advanced.jpa.exam11.PhysicalProduct</class>
+        <class>com.eomcs.advanced.jpa.exam11.DigitalProduct</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam12: @Embeddable / @Embedded - Address 값 타입 매핑
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam12" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam12.Customer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam13: @ManyToMany & 연결 엔티티 - Product, Category, ProductCategory
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam13" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam13.Product</class>
+        <class>com.eomcs.advanced.jpa.exam13.Category</class>
+        <class>com.eomcs.advanced.jpa.exam13.ProductCategory</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam14: 자기 참조 연관관계 - Category 계층 구조
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam14" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam14.Category</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam15: 복합 키 매핑 - @IdClass(OrderItem), @EmbeddedId(OrderItemV2)
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam15" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam15.OrderItem</class>
+        <class>com.eomcs.advanced.jpa.exam15.OrderItemV2</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam16: 엔티티 이벤트 & @EntityListeners - Auditing
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam16" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam16.Customer</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam17: JPQL 기초 - 기본 쿼리, 파라미터 바인딩, 프로젝션
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam17" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam17.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam17.Product</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam18: JPQL 심화 - JOIN FETCH, 서브쿼리, Named Query
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam18" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam18.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam18.Product</class>
+        <class>com.eomcs.advanced.jpa.exam18.Order</class>
+        <class>com.eomcs.advanced.jpa.exam18.OrderItem</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam19: Criteria API - 타입 안전 동적 쿼리
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam19" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam19.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam19.Product</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+    <!-- ────────────────────────────────────────────────────────────────────
+         exam20: Native Query & @SqlResultSetMapping - 네이티브 SQL, DTO 매핑, 재귀 CTE
+         ──────────────────────────────────────────────────────────────────── -->
+    <persistence-unit name="exam20" transaction-type="RESOURCE_LOCAL">
+        <class>com.eomcs.advanced.jpa.exam20.Customer</class>
+        <class>com.eomcs.advanced.jpa.exam20.Category</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.OracleDialect"/>
+            <property name="hibernate.show_sql"         value="true"/>
+            <property name="hibernate.format_sql"       value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto"     value="none"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

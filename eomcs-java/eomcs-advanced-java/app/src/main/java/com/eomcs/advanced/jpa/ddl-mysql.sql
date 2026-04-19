@@ -91,8 +91,9 @@ CREATE TABLE shop_digital_product (
 --    - @ManyToMany 및 연결 엔티티 리팩토링 예시
 -- -----------------------------------------------------------------------------
 CREATE TABLE shop_product_category (
-    product_id  BIGINT NOT NULL,
-    category_id BIGINT NOT NULL,
+    product_id  BIGINT   NOT NULL,
+    category_id BIGINT   NOT NULL,
+    created_at  DATETIME,
     PRIMARY KEY (product_id, category_id),
     FOREIGN KEY fk_shop_pc_product  (product_id)  REFERENCES shop_product  (id),
     FOREIGN KEY fk_shop_pc_category (category_id) REFERENCES shop_category (id)

@@ -86,13 +86,13 @@ VALUES (4, 'https://www.adobe.com/creativecloud/download', 1);
 -- -----------------------------------------------------------------------------
 -- 6. shop_product_category (제품-카테고리 매핑)
 -- -----------------------------------------------------------------------------
-INSERT INTO shop_product_category (product_id, category_id) VALUES (1, 2); -- MacBook Pro    → 노트북
-INSERT INTO shop_product_category (product_id, category_id) VALUES (2, 2); -- ASUS ROG       → 노트북
-INSERT INTO shop_product_category (product_id, category_id) VALUES (2, 3); -- ASUS ROG       → 게이밍노트북
-INSERT INTO shop_product_category (product_id, category_id) VALUES (3, 1); -- Office 365     → 전자제품
-INSERT INTO shop_product_category (product_id, category_id) VALUES (4, 1); -- Adobe CC       → 전자제품
-INSERT INTO shop_product_category (product_id, category_id) VALUES (5, 4); -- 남성 울 코트   → 의류
-INSERT INTO shop_product_category (product_id, category_id) VALUES (5, 5); -- 남성 울 코트   → 남성의류
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (1, 2, TIMESTAMP '2024-01-01 09:00:00'); -- MacBook Pro    → 노트북
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (2, 2, TIMESTAMP '2024-01-01 09:00:00'); -- ASUS ROG       → 노트북
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (2, 3, TIMESTAMP '2024-01-01 09:00:00'); -- ASUS ROG       → 게이밍노트북
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (3, 1, TIMESTAMP '2024-01-01 09:00:00'); -- Office 365     → 전자제품
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (4, 1, TIMESTAMP '2024-01-01 09:00:00'); -- Adobe CC       → 전자제품
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (5, 4, TIMESTAMP '2024-01-01 09:00:00'); -- 남성 울 코트   → 의류
+INSERT INTO shop_product_category (product_id, category_id, created_at) VALUES (5, 5, TIMESTAMP '2024-01-01 09:00:00'); -- 남성 울 코트   → 남성의류
 
 -- -----------------------------------------------------------------------------
 -- 7. shop_orders (주문 3건)

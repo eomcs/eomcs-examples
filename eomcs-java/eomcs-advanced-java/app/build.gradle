@@ -8,6 +8,20 @@ repositories {
 
 dependencies {
     implementation libs.spring.webflux
+    implementation libs.oracle.jdbc
+    implementation libs.hikaricp
+    implementation libs.hibernate.core
+    // Part 5. Spring Data JPA (exam21 ~ exam25)
+    implementation libs.spring.data.jpa
+    // exam23 - Querydsl (jakarta 분류자: jakarta.persistence 네임스페이스 지원)
+    implementation("com.querydsl:querydsl-jpa:${libs.versions.querydsl.get()}:jakarta")
+    // exam28 - 2차 캐시 (Ehcache 3 + JCache)
+    implementation "org.hibernate.orm:hibernate-jcache:${libs.versions.hibernate.get()}"
+    implementation("org.ehcache:ehcache:${libs.versions.ehcache.get()}") { artifact { classifier = "jakarta" } }
+
+    // exam23 Querydsl Q-타입 자동 생성 (선택)
+    // annotationProcessor "com.querydsl:querydsl-apt:${libs.versions.querydsl.get()}:jakarta"
+    // annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.1.0"
 
     testImplementation libs.junit.jupiter
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

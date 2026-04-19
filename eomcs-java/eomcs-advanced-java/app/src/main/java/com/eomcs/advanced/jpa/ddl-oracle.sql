@@ -111,6 +111,7 @@ CREATE TABLE shop_digital_product (
 CREATE TABLE shop_product_category (
     product_id  NUMBER(19) NOT NULL,
     category_id NUMBER(19) NOT NULL,
+    created_at  TIMESTAMP,
     CONSTRAINT pk_shop_product_category PRIMARY KEY (product_id, category_id),
     CONSTRAINT fk_shop_pc_product       FOREIGN KEY (product_id)  REFERENCES shop_product  (id),
     CONSTRAINT fk_shop_pc_category      FOREIGN KEY (category_id) REFERENCES shop_category (id)
