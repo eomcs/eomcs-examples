@@ -104,6 +104,36 @@ for (Customer c : customers) {
   ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam26.App
   ```
 
+### 왜 TransactionTemplate을 사용하는가
+
+`main()` 메서드에서 `TransactionTemplate`으로 전체 작업을 감싸지 않으면 `LazyInitializationException`이 발생한다.
+
+**원인:**
+
+Spring Data JPA의 repository 메서드는 각자 독립된 트랜잭션 안에서 실행된다. `findAll()`이 리턴되는 순간 트랜잭션이 종료되고 Hibernate Session이 닫힌다. 그 상태에서 루프가 `c.getOrders()`에 접근하면 Session이 없어 LAZY 로딩을 수행할 수 없다.
+
+```
+// 오류 상황 (TransactionTemplate 없이 실행)
+List<Customer> customers = repo.findAll();  // ← 여기서 Session 종료
+for (Customer c : customers) {
+    c.getOrders().size();  // ← Session 없음 → LazyInitializationException
+}
+```
+
+**해결:**
+
+`TransactionTemplate.executeWithoutResult()`로 `findAll()`과 루프를 하나의 트랜잭션(= 하나의 Session) 안에 묶는다. Session이 열려 있는 동안 LAZY 로딩이 정상 동작하고, N+1 쿼리가 의도대로 발생한다.
+
+```java
+TransactionTemplate txTemplate = new TransactionTemplate(txManager);
+txTemplate.executeWithoutResult(status -> {
+    List<Customer> customers = repo.findAll();  // Session 열려있음
+    for (Customer c : customers) {
+        c.getOrders().size();  // LAZY 로딩 정상 동작 → N번 추가 쿼리 발생
+    }
+});  // ← 여기서 트랜잭션 종료, Session 닫힘
+```
+
 ---
 
 ## App2 - N+1 문제 해결

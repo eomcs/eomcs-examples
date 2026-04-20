@@ -19,6 +19,26 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 //    → N번의 네트워크 왕복 → N/batch_size번으로 감소
 //    → flush()와 clear()를 주기적으로 호출해 1차 캐시 메모리 관리 필수
 //
+// ★ 주의 사항
+//
+// [1] GenerationType.IDENTITY → JDBC 배치 INSERT 비활성화
+//     Hibernate는 IDENTITY 전략에서 INSERT 직후 DB가 생성한 ID를 즉시 받아야 한다.
+//     → addBatch() 불가, 건마다 즉시 executeUpdate() 호출 → batch_size 무시됨
+//     배치 INSERT를 실제로 활성화하려면 GenerationType.SEQUENCE 사용 필수.
+//     (이 예제의 Customer는 IDENTITY를 사용하므로 배치가 실제로 동작하지 않는다)
+//
+// [2] flush() + clear() 미호출 → OutOfMemoryError 위험
+//     batch_size마다 em.flush() + em.clear()를 수동 호출하지 않으면
+//     1차 캐시에 엔티티가 계속 쌓여 대량 처리 시 OOM이 발생한다.
+//
+// [3] order_inserts/updates 미설정 → 배치 중단
+//     엔티티 타입이 섞이면(A→B→A) 배치가 중간에 끊긴다.
+//     order_inserts=true로 같은 테이블끼리 정렬해야 배치가 연속으로 묶인다.
+//
+// [4] clearAutomatically 미설정 → stale 데이터
+//     Bulk UPDATE 후 1차 캐시가 초기화되지 않으면 DB 변경이 캐시에 반영되지 않아
+//     findById() 등에서 변경 전 값이 반환된다.
+//
 // 실행 방법:
 //   ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam29.App
 //

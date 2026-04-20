@@ -1,10 +1,11 @@
 package com.eomcs.advanced.jpa.exam28;
 
+import jakarta.persistence.QueryHint;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.QueryHints;
-import jakarta.persistence.QueryHint;
+import org.springframework.data.repository.query.Param;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
@@ -12,5 +13,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
   // hibernate.cache.use_query_cache=true 설정이 있어야 동작한다.
   @QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))
   @Query("SELECT c FROM Customer c WHERE c.city = :city")
-  List<Customer> findByCityWithCache(String city);
+  List<Customer> findByCityWithCache(@Param("city") String city);
 }

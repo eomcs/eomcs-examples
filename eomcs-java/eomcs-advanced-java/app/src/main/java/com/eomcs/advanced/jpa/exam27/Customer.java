@@ -52,18 +52,53 @@ public class Customer {
 
   public Customer() {}
 
-  public Long getId()                       { return id; }
-  public String getName()                   { return name; }
-  public void setName(String v)             { this.name = v; }
-  public String getEmail()                  { return email; }
-  public void setEmail(String v)            { this.email = v; }
-  public String getCity()                   { return city; }
-  public void setCity(String v)             { this.city = v; }
-  public LocalDateTime getCreatedAt()       { return createdAt; }
-  public void setCreatedAt(LocalDateTime v) { this.createdAt = v; }
-  public LocalDateTime getUpdatedAt()       { return updatedAt; }
-  public void setUpdatedAt(LocalDateTime v) { this.updatedAt = v; }
-  public List<Order> getOrders()            { return orders; }
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String v) {
+    this.name = v;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String v) {
+    this.email = v;
+  }
+
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String v) {
+    this.city = v;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(LocalDateTime v) {
+    this.createdAt = v;
+  }
+
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(LocalDateTime v) {
+    this.updatedAt = v;
+  }
+
+  public List<Order> getOrders() {
+    return orders;
+  }
 
   @Override
   public String toString() {

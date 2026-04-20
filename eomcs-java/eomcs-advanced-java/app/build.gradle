@@ -13,6 +13,8 @@ dependencies {
     implementation libs.hibernate.core
     // Part 5. Spring Data JPA (exam21 ~ exam25)
     implementation libs.spring.data.jpa
+    // exam25 - JPA Auditing (@EnableJpaAuditing)
+    implementation libs.spring.aspects
     // exam23 - Querydsl (jakarta 분류자: jakarta.persistence 네임스페이스 지원)
     implementation("com.querydsl:querydsl-jpa:${libs.versions.querydsl.get()}:jakarta")
     // exam28 - 2차 캐시 (Ehcache 3 + JCache)

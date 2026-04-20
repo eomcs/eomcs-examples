@@ -18,4 +18,5 @@ oracle-jdbc = { module = "com.oracle.database.jdbc:ojdbc11", version.ref = "orac
 hikaricp = { module = "com.zaxxer:HikariCP", version.ref = "hikaricp" }
 hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
 spring-data-jpa = { module = "org.springframework.data:spring-data-jpa", version.ref = "spring-data" }
+spring-aspects = { module = "org.springframework:spring-aspects", version.ref = "spring-framework" }
 querydsl-jpa = { module = "com.querydsl:querydsl-jpa", version.ref = "querydsl" }
