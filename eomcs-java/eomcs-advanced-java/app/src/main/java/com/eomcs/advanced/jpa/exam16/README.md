@@ -177,12 +177,12 @@ em.remove(toRemove); // ← @PreRemove 호출
 tx.commit();         // ← @PostRemove 호출
 ```
 
-> Spring Data JPA의 `@EnableJpaAuditing` / `@CreatedDate` / `@LastModifiedDate`는 이 원리(`@EntityListeners`)를 추상화한 것이다.
-
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam16.App
-```
+- `createdAt`·`updatedAt`을 `save()` 전에 직접 설정하지 않아도 `@PrePersist` 이벤트가 `AuditListener`를 호출해 자동으로 채워준다. 이 자동화를 확인하려면 `c.getCreatedAt()` 출력이 `null`이 아님을 보면 된다.
+- UPDATE 시에는 `@PreUpdate`만 발생하므로 `updatedAt`만 갱신된다. `createdAt`은 변경되지 않는다는 것을 콘솔에서 직접 확인할 수 있다.
+- `@PostLoad`는 `em.find()` 또는 JPQL 조회 완료 후 호출된다. 조회 후처리(계산 필드 초기화, 보안 마스킹 등)에 활용할 수 있다.
+- `@EntityListeners`로 등록한 리스너 클래스는 여러 엔티티에 재사용할 수 있어, 공통 Auditing 로직을 한 곳에서 관리할 수 있다.
+- Spring Data JPA의 `@EnableJpaAuditing` / `@CreatedDate` / `@LastModifiedDate`는 이 `@EntityListeners` 원리를 추상화한 것이다 (exam25 참고).
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam16.App
+  ```

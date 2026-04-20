@@ -142,10 +142,12 @@ repo.findByCityWithCache("서울");  // DB 실행, 결과 캐시
 repo.findByCityWithCache("서울");  // 캐시 히트, DB 미실행
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam28.App
-```
+- 첫 번째 `findById(1L)` 호출에서 L2C 미스가 발생하고 DB SELECT가 실행된 뒤 결과가 L2C에 저장(PUT)된다. 두 번째 호출에서는 L2C 히트가 발생해 DB 쿼리 없이 반환된다.
+- 서로 다른 트랜잭션에서도 동일한 id를 조회하면 L2C에서 데이터를 꺼내 반환한다. 1차 캐시는 트랜잭션 단위이지만, 2차 캐시는 `SessionFactory` 단위로 애플리케이션 전체에 공유된다.
+- `Hibernate Statistics`는 `sf.getStatistics()`로 얻으며, `getSecondLevelCacheHitCount()`와 `getSecondLevelCacheMissCount()`로 캐시 효과를 수치로 측정할 수 있다. `stats.clear()`로 초기화하면 구간별 통계를 비교할 수 있다.
+- 쿼리 캐시는 동일한 파라미터로 같은 메서드를 재호출할 때 DB 쿼리를 실행하지 않는다. `@QueryHints(@QueryHint(name = "org.hibernate.cacheable", value = "true"))`로 특정 쿼리를 캐시 대상으로 지정한다.
+- 자주 변경되는 데이터에 캐시를 적용하면 무효화가 빈번하게 발생해 오히려 성능이 저하될 수 있다. 읽기 빈도가 높고 변경이 드문 데이터에 적합하다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam28.App
+  ```

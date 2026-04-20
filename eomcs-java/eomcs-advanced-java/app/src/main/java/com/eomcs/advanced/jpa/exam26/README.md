@@ -95,6 +95,15 @@ for (Customer c : customers) {
 }
 ```
 
+- `findAll()`은 고객 목록을 1번의 쿼리로 가져오지만, orders 컬렉션은 `LAZY`로 선언되어 있어 이 시점에는 로드되지 않는다.
+- 루프에서 `c.getOrders()`를 최초로 접근할 때마다 `SELECT * FROM shop_orders WHERE customer_id = ?`가 실행된다. 고객이 N명이면 쿼리가 N번 추가된다.
+- 콘솔에 출력된 Hibernate SQL 로그를 통해 쿼리가 고객 수만큼 반복 실행되는 것을 직접 확인할 수 있다.
+- 고객이 100명이면 101번, 1000명이면 1001번 쿼리가 발생해 성능이 데이터 건수에 비례하여 선형으로 저하된다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam26.App
+  ```
+
 ---
 
 ## App2 - N+1 문제 해결
@@ -109,14 +118,12 @@ repo.findAllWithOrders();
 repo.findAllWithOrdersGraph();
 ```
 
----
-
-## 실행 방법
-
-```bash
-# N+1 문제 재현
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam26.App
-
-# N+1 문제 해결 확인
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam26.App2
-```
+- `JOIN FETCH`는 JPQL에 명시적으로 작성하며, `Customer`와 `orders`를 단 1번의 INNER JOIN 쿼리로 한꺼번에 로드한다. `DISTINCT`를 함께 사용해 조인으로 인한 고객 중복을 제거한다.
+- `JOIN FETCH`는 INNER JOIN이므로 주문이 없는 고객이 결과에서 제외된다. 주문 없는 고객도 포함하려면 `LEFT JOIN FETCH`를 사용해야 한다.
+- `@EntityGraph(attributePaths = {"orders"})`는 내부적으로 `LEFT OUTER JOIN FETCH`를 생성하므로 주문 없는 고객도 결과에 포함된다.
+- `@EntityGraph`는 JPQL 문자열을 수정하지 않고 어노테이션만으로 즉시 로딩 경로를 선언할 수 있어, 동일한 쿼리를 여러 메서드에서 재사용할 때 편리하다.
+- 두 해결법 모두 쿼리 횟수가 1번으로 줄어드는 것을 콘솔 SQL 로그로 직접 확인할 수 있다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam26.App2
+  ```

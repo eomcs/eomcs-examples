@@ -139,6 +139,15 @@ List<Object[]> rows = em.createNativeQuery(
     .getResultList();
 ```
 
+- `createNativeQuery(sql, Customer.class)`처럼 두 번째 인수로 엔티티 클래스를 전달하면 결과가 자동으로 엔티티 인스턴스로 매핑된다. 엔티티 클래스를 생략하면 `Object[]`가 반환된다.
+- 이름 기반 파라미터(`:city`)와 위치 기반 파라미터(`?1`) 모두 네이티브 쿼리에서 사용할 수 있다.
+- 집계 쿼리처럼 엔티티로 매핑되지 않는 결과는 `Object[]`로 받아 `row[0]`, `row[1]`로 순서대로 접근한다.
+- Oracle 고유 함수(`SYSDATE`, `ROWNUM`, `TO_DATE` 등)나 힌트(`/*+ INDEX(...) */`)처럼 JPQL로 표현할 수 없는 SQL은 네이티브 쿼리로 실행한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App1
+  ```
+
 ---
 
 ## App2 - @SqlResultSetMapping
@@ -155,6 +164,15 @@ List<CustomerSummary> summaries = em.createNativeQuery(
 // @NamedNativeQuery 호출
 em.createNamedQuery("Customer.findSummary", CustomerSummary.class).getResultList();
 ```
+
+- `@SqlResultSetMapping`은 엔티티 클래스에 선언하며, 네이티브 쿼리 결과 컬럼을 DTO 생성자 인수로 매핑한다. `@ConstructorResult`의 `columns` 순서가 DTO 생성자 파라미터 순서와 일치해야 한다.
+- 매핑 이름(`"CustomerSummaryMapping"`)을 `createNativeQuery(sql, "매핑이름")`의 두 번째 인수로 전달하면 해당 매핑이 적용된다.
+- `@NamedNativeQuery`는 매핑 이름(`resultSetMapping`)을 함께 지정해 저장한다. `createNamedQuery(이름, DTO.class)`로 호출하면 SQL 작성 없이 재사용할 수 있다.
+- `Object[]` 방식과 달리 `@ConstructorResult`는 반환 타입이 명확하고 컬럼 타입을 지정할 수 있어 타입 안전성이 높다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App2
+  ```
 
 ---
 
@@ -183,12 +201,12 @@ em.createNativeQuery(
     + " CONNECT BY PRIOR id = parent_id")
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App1
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App2
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App3
-```
+- 재귀 CTE는 `UNION ALL` 앞부분(앵커)이 루트 행을 선택하고, 뒷부분(재귀)이 앵커·이전 결과와 JOIN하며 자식 행을 반복 추가한다. `lvl + 1`로 계층 깊이를 함께 조회할 수 있다.
+- `path` 컬럼(`ct.path || ' > ' || c.name`)은 현재 행까지의 조상 경로를 문자열로 누적한다. 트리를 시각적으로 표현하거나 경로 기반 정렬에 유용하다.
+- `START WITH parent_id IS NULL`은 루트 노드를 지정하고, `CONNECT BY PRIOR id = parent_id`는 부모 id와 자식 parent_id를 연결해 계층을 탐색하는 Oracle 전용 문법이다.
+- `SYS_CONNECT_BY_PATH(name, ' > ')`는 루트부터 현재 행까지의 경로를 자동으로 생성하는 Oracle 전용 함수다.
+- 재귀 CTE(`WITH ... UNION ALL`)는 표준 SQL이므로 DB 이식성이 높고, `CONNECT BY`는 Oracle 전용이므로 DB 종속적이다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam20.App3
+  ```

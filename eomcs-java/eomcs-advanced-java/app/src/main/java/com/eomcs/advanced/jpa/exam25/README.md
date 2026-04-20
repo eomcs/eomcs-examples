@@ -135,10 +135,12 @@ Customer updated = repo.save(toUpdate);
 // createdAt == 이전 그대로, updatedAt == 갱신됨
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam25.App
-```
+- `setCreatedAt()`을 호출하지 않아도 `save()` 시 `@CreatedDate`가 현재 시각을 자동으로 채운다. `@CreatedBy`도 마찬가지로 `AuditorAware.getCurrentAuditor()` 반환값이 자동으로 설정된다.
+- UPDATE 시에는 `@LastModifiedDate`와 `@LastModifiedBy`만 갱신되고, `@CreatedDate`와 `@CreatedBy`는 `updatable = false`로 선언되어 있어 변경되지 않는다.
+- `AuditorAware`의 `getCurrentAuditor()`는 웹 환경에서 `SecurityContextHolder`로 로그인 사용자를 반환하도록 연동한다. 이 예제에서는 단순히 `"system-user"` 문자열을 반환한다.
+- `@EntityListeners(AuditingEntityListener.class)`가 `BaseEntity`에 선언되어 있어, 이를 상속한 모든 엔티티에 Auditing이 자동으로 적용된다.
+- 이 예제는 `shop_customer` 대신 `exam25_customer` 테이블을 `hbm2ddl.auto=create-drop`으로 자동 생성해 사용한다. `shop_customer`에 `created_by` / `updated_by` 컬럼이 없기 때문이다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam25.App
+  ```

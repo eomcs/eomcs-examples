@@ -135,10 +135,12 @@ stats.getFlushCount();        // → 1 (flush 실행)
 stats.getEntityUpdateCount(); // → 1 (UPDATE 감지)
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam30.App
-```
+- `readOnly=true` 트랜잭션에서는 엔티티를 로드할 때 Dirty Checking용 스냅샷(복사본)을 만들지 않는다. 엔티티 수가 많을수록 스냅샷 생략에 따른 메모리 절약 효과가 크다.
+- `readOnly=true` 트랜잭션은 종료 시 `flush()`를 실행하지 않으므로, 메서드 안에서 엔티티 필드를 변경해도 DB에 반영되지 않는다. `getFlushCount()`가 0으로 유지되는 것으로 이를 확인할 수 있다.
+- 일반 `@Transactional`에서는 로드 시 스냅샷이 생성되고, 트랜잭션 종료 시 `flush()`가 실행되면서 현재 상태와 스냅샷을 비교해 변경된 필드를 자동으로 UPDATE한다. 이것이 Dirty Checking이다.
+- `stats.clear()`를 각 케이스 실행 전에 호출하면 구간별 통계를 독립적으로 측정할 수 있다. `getFlushCount()`와 `getEntityUpdateCount()`를 비교하면 두 방식의 차이가 수치로 드러난다.
+- 권장 패턴은 서비스 클래스에 `@Transactional(readOnly = true)`를 클래스 기본값으로 선언하고, INSERT·UPDATE·DELETE가 필요한 메서드에만 `@Transactional`을 오버라이드하는 것이다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam30.App
+  ```

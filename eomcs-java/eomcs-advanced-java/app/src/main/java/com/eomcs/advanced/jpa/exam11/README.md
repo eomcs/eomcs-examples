@@ -213,7 +213,12 @@ List<PhysicalProduct> physicals = em.createQuery(
 //   JOIN shop_product p ON pp.product_id = p.id
 ```
 
+- `JOINED` 전략에서 자식 엔티티를 저장하면 부모 테이블(`shop_product`)과 자식 테이블(`shop_physical_product`) 두 곳에 각각 INSERT가 실행된다.
+- 자식 타입으로 단건 조회(`em.find(PhysicalProduct.class, id)`)하면 부모·자식 테이블을 INNER JOIN한 쿼리가 실행된다.
+- 부모 타입으로 조회(`em.find(Product.class, id)`)하면 `dtype` 값을 보고 적절한 자식 클래스 인스턴스(`PhysicalProduct` 또는 `DigitalProduct`)를 반환한다.
+- `SELECT p FROM Product p`처럼 부모 타입으로 전체 조회하면 모든 자식 테이블을 `LEFT JOIN`하여 다형성 조회가 이루어진다.
+- 특정 자식 타입만 조회(`SELECT p FROM PhysicalProduct p`)하면 해당 자식 테이블만 INNER JOIN하므로 불필요한 JOIN을 피할 수 있다.
 - 실행 명령:
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam11.App
-```
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam11.App
+  ```

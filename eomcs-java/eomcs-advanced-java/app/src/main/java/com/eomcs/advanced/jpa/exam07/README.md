@@ -109,6 +109,9 @@ em.remove(toDelete);
 tx.commit();            // → DELETE FROM shop_customer WHERE id=?
 ```
 
+- `IDENTITY` 전략(`GENERATED ALWAYS AS IDENTITY`)을 사용하면 `persist()` 호출 즉시 INSERT가 실행되고 DB가 id를 채번하여 엔티티 필드에 반영한다. 따라서 `persist()` 직후 `c.getId()`로 생성된 id를 바로 확인할 수 있다.
+- UPDATE는 별도의 `update()` 메서드가 없다. `find()`로 영속 상태가 된 엔티티의 필드를 수정하면 `commit()` 시 변경 감지(Dirty Checking)가 작동해 UPDATE SQL이 자동으로 실행된다.
+- DELETE는 `find()`로 영속 상태의 엔티티를 얻은 뒤 `remove()`로 삭제 예약을 하고, `commit()` 시 DELETE SQL이 실행된다. 준영속(detached) 상태의 엔티티는 `remove()`에 전달할 수 없다.
 - 실행 명령:
   ```
   ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam07.App

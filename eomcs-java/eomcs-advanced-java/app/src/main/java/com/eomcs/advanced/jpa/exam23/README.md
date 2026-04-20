@@ -126,6 +126,16 @@ factory.selectFrom(p)
        .fetch();
 ```
 
+- Q-타입(`QCustomer`, `QProduct`)은 `@Entity` 클래스를 기반으로 APT가 자동 생성하는 메타 클래스다. 필드를 문자열 대신 타입 안전한 객체로 참조하므로 오타가 컴파일 타임에 발견된다.
+- `selectFrom(Q타입)`은 FROM 절을 지정한다. `select()`와 `from()`을 분리해서도 사용할 수 있다.
+- `where()` 안에 `eq`, `contains`, `gt`, `lt`, `between` 등 조건 메서드를 체이닝하면 JPQL의 WHERE 절이 생성된다.
+- `.and()`와 `.or()`로 여러 조건을 조합할 수 있다. 이 조합이 메서드 체인으로 표현되므로 JPQL 문자열 연결보다 가독성이 높다.
+- `fetchOne()`은 단건을 반환하며, 결과가 없으면 `null`, 결과가 둘 이상이면 예외를 발생시킨다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam23.App
+  ```
+
 ---
 
 ## App2 - BooleanBuilder 동적 쿼리
@@ -139,11 +149,11 @@ if (keyword != null) builder.and(c.name.contains(keyword));
 factory.selectFrom(c).where(builder).fetch();
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam23.App
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam23.App2
-```
+- `BooleanBuilder`는 조건(`Predicate`)을 `.and()`/`.or()`로 동적으로 누적하는 빌더다. 조건이 하나도 없으면 WHERE 절이 생성되지 않아 전체 조회가 된다.
+- `null`인 파라미터는 `if` 분기로 건너뛰기만 하면 되므로, JPA Criteria API의 복잡한 Predicate 배열 처리보다 훨씬 간결하다.
+- 같은 `searchCustomers()` 메서드에 city만 전달하거나, 둘 다 전달하거나, 둘 다 `null`로 전달하면 각각 다른 WHERE 절이 만들어진다. 하나의 메서드로 다양한 검색 조건을 처리할 수 있다.
+- 가격 범위 조건에서 `goe()`는 `>=`, `loe()`는 `<=`를 의미한다. 최솟값이나 최댓값이 `null`이면 해당 경계 조건이 자동으로 제외된다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam23.App2
+  ```

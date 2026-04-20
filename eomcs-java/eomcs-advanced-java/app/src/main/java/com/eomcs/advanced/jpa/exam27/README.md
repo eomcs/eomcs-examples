@@ -118,10 +118,12 @@ Customer c = svc.findByIdDetached(1L);
 c.getOrders().size();  // 예외 발생!
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam27.App
-```
+- `@Transactional` 메서드 안에서는 Hibernate 세션이 열려 있으므로 `c.getOrders()`를 호출할 때 LAZY 로딩이 정상적으로 SELECT를 실행한다.
+- 트랜잭션 안에서 `getOrders().size()`를 미리 호출해 컬렉션을 초기화하면, 트랜잭션이 종료된 뒤에도 이미 메모리에 로드된 데이터로 접근할 수 있다.
+- 트랜잭션이 종료된 뒤 반환된 엔티티(detached 상태)에서 초기화되지 않은 LAZY 컬렉션에 접근하면 `LazyInitializationException`이 발생한다. 세션이 닫혀 DB에서 데이터를 가져올 수 없기 때문이다.
+- 이 예제에서 `CustomerService`는 `@Transactional` 범위를 담당한다. 비웹 환경이므로 세션 범위가 트랜잭션 범위와 동일하다.
+- 세 가지 케이스를 순서대로 실행하면 콘솔에서 정상 동작, 사전 초기화, 예외 발생을 직접 비교해볼 수 있다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam27.App
+  ```

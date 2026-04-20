@@ -100,6 +100,15 @@ repo.save(toUpdate);
 repo.deleteById(id);
 ```
 
+- `save()`는 id가 `null`이면 `em.persist()` (INSERT), id가 이미 있으면 `em.merge()` (UPDATE)를 내부적으로 호출한다.
+- `findById()`는 `Optional<T>`를 반환하므로 결과가 없을 때도 NPE 없이 `.ifPresent()` / `.orElseThrow()` 등으로 처리할 수 있다.
+- 수정(UPDATE)을 위한 별도 메서드는 없다. **조회 → 필드 변경 → `save()` 재호출** 패턴으로 UPDATE가 수행된다.
+- `existsById()`는 `SELECT COUNT(*) > 0` 쿼리를 실행해 해당 id의 레코드 존재 여부를 `boolean`으로 반환한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam21.App
+  ```
+
 ---
 
 ## App2 - 파생 쿼리 & Sort
@@ -126,11 +135,12 @@ repo.findAll(Sort.by("name").ascending());
 repo.findAll(Sort.by("city").descending().and(Sort.by("name")));
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam21.App
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam21.App2
-```
+- 파생 쿼리는 메서드 이름 규칙(`findBy{필드}`, `countBy{필드}`, `existsBy{필드}` 등)에 따라 JPQL이 자동 생성되므로 SQL을 직접 작성하지 않아도 된다.
+- `findByEmail()`처럼 결과가 0 또는 1건인 조회는 `Optional<T>`로 반환해 값이 없는 경우를 안전하게 처리한다.
+- `Containing` 키워드는 `LIKE '%?%'` 조건을 생성한다. `StartingWith`는 `LIKE '?%'`, `EndingWith`는 `LIKE '%?'`에 해당한다.
+- `findAll(Sort.by(...))`는 런타임에 정렬 기준을 동적으로 지정할 수 있어, 메서드 이름에 `OrderBy`를 고정하는 것보다 유연하다.
+- `.and(Sort.by(...))`를 체이닝하면 복합 정렬(다중 컬럼)을 간결하게 표현할 수 있다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam21.App2
+  ```

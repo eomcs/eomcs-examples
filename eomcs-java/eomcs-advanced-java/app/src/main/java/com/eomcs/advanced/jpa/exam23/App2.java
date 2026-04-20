@@ -1,7 +1,6 @@
 package com.eomcs.advanced.jpa.exam23;
 
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -53,8 +52,8 @@ public class App2 {
           System.out.println("  DIGITAL 전체:");
           p1.forEach(p -> System.out.println("    " + p));
 
-          List<Product> p2 = searchProducts(factory, null,
-              new BigDecimal("100000"), new BigDecimal("2000000"));
+          List<Product> p2 =
+              searchProducts(factory, null, new BigDecimal("100000"), new BigDecimal("2000000"));
           System.out.println("  가격 10만~200만:");
           p2.forEach(p -> System.out.println("    " + p));
 
@@ -88,8 +87,8 @@ public class App2 {
   }
 
   // BooleanBuilder로 dtype, 가격 범위 조건을 동적 조합
-  static List<Product> searchProducts(JPAQueryFactory factory,
-      String dtype, BigDecimal minPrice, BigDecimal maxPrice) {
+  static List<Product> searchProducts(
+      JPAQueryFactory factory, String dtype, BigDecimal minPrice, BigDecimal maxPrice) {
     QProduct p = QProduct.product;
     BooleanBuilder builder = new BooleanBuilder();
 
@@ -97,10 +96,10 @@ public class App2 {
       builder.and(p.dtype.eq(dtype));
     }
     if (minPrice != null) {
-      builder.and(p.price.goe(minPrice));  // >= minPrice
+      builder.and(p.price.goe(minPrice)); // >= minPrice
     }
     if (maxPrice != null) {
-      builder.and(p.price.loe(maxPrice));  // <= maxPrice
+      builder.and(p.price.loe(maxPrice)); // <= maxPrice
     }
     return factory.selectFrom(p).where(builder).orderBy(p.price.asc()).fetch();
   }

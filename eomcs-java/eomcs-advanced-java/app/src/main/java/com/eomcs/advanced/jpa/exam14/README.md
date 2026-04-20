@@ -153,10 +153,11 @@ List<Category> children = em.createQuery(
     .getResultList();
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam14.App
-```
+- `WHERE c.parent IS NULL`로 루트 카테고리만 조회할 수 있다. `parent` 필드가 자기 자신과 같은 타입의 엔티티이므로, 일반 연관관계와 동일하게 JPQL 경로 표현식을 사용한다.
+- `gaming.getParent()`로 부모를 LAZY 로딩하고, 부모의 `getParent()`를 다시 호출해 조상까지 탐색할 수 있다. 트리 깊이만큼 SELECT가 실행되므로, 깊은 트리에서는 재귀 CTE 쿼리(exam20 참고)가 더 효율적이다.
+- `CascadeType.PERSIST` 덕분에 루트 카테고리에만 `em.persist()`를 호출해도 `children` 컬렉션에 추가된 자식과 손자까지 모두 자동으로 INSERT된다.
+- `WHERE c.parent.id = :parentId`는 특정 부모의 직계 자식만 조회한다. 모든 하위 계층을 한꺼번에 조회하려면 재귀 CTE(Native Query)를 사용해야 한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam14.App
+  ```

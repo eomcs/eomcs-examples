@@ -171,6 +171,14 @@ List<Order> orders = em.createQuery(
     Order.class).getResultList();
 ```
 
+- `JOIN FETCH o.customer`는 `Order`와 `Customer`를 단 1번의 INNER JOIN 쿼리로 한꺼번에 로드한다. 이후 `o.getCustomer().getName()` 호출 시 추가 SELECT가 발생하지 않는다.
+- 컬렉션 `JOIN FETCH`(`JOIN FETCH o.orderItems`)는 1:N 관계이므로 ORDER 당 ORDER_ITEM 수만큼 결과 행이 중복된다. `DISTINCT`를 함께 사용해 Order 객체 중복을 제거한다.
+- `@NamedQuery`는 EMF 기동 시 JPQL을 파싱·검증하므로 오타가 있으면 애플리케이션 시작 시점에 즉시 발견된다. 런타임 오류로 이어지는 것을 방지한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App1
+  ```
+
 ---
 
 ## App2 - 서브쿼리
@@ -188,6 +196,14 @@ em.createQuery("SELECT p FROM Product p"
     + " ORDER BY p.price DESC", Product.class);
 ```
 
+- `EXISTS` 서브쿼리는 서브쿼리 결과가 하나라도 존재하면 조건이 참이다. "주문이 있는 고객"처럼 연관 데이터의 존재 여부로 필터링할 때 사용한다.
+- `NOT EXISTS`는 서브쿼리 결과가 없을 때 참이다. "주문이 한 건도 없는 고객"처럼 연관 데이터가 없는 엔티티를 찾을 때 사용한다.
+- 스칼라 서브쿼리는 단일 값을 반환하는 서브쿼리를 WHERE 절 비교값으로 사용한다. `WHERE p.price > (SELECT AVG(p2.price) FROM Product p2)`처럼 동적으로 계산된 기준값과 비교할 수 있다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App2
+  ```
+
 ---
 
 ## App3 - Named Query
@@ -204,12 +220,11 @@ em.createNamedQuery("Customer.findByCity", Customer.class)
     .getResultList();
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App1
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App2
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App3
-```
+- `@NamedQuery`는 엔티티 클래스 상단에 선언하며, EMF가 초기화될 때 JPQL이 파싱·검증된다. 오타가 있으면 애플리케이션 시작 시점에 즉시 오류가 발생한다.
+- `createNamedQuery(이름, 클래스)`로 호출하며, 이름은 관례적으로 `엔티티클래스명.메서드명` 형식을 사용한다.
+- 파싱 결과가 캐시되므로, 같은 Named Query를 반복 호출할 때 `createQuery()`보다 빠르다.
+- `@NamedQuery`의 파라미터 바인딩은 일반 JPQL과 동일하게 `setParameter()`로 처리한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam18.App3
+  ```

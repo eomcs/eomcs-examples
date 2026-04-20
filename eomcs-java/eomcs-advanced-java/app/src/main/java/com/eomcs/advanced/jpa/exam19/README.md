@@ -125,12 +125,12 @@ countCq.select(cb.count(countCq.from(Customer.class)));
 Long count = em.createQuery(countCq).getSingleResult();
 ```
 
-> **QueryDSL**: Criteria API의 장황함을 해소한 오픈소스 라이브러리다. 엔티티를 기반으로 Q클래스를 생성하여 `QCustomer.customer.city.eq("서울")` 처럼 간결하고 타입 안전한 쿼리를 작성할 수 있다.
-
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam19.App
-```
+- `CriteriaBuilder`는 `em.getCriteriaBuilder()`로 얻으며, Predicate·Expression·Order를 생성하는 팩토리 역할을 한다.
+- 동적 쿼리에서 `null` 파라미터는 `predicates` 리스트에 추가하지 않으면 자동으로 제외된다. 문자열 연결 방식(`if (city != null) jpql += "..."`)보다 훨씬 안전하고 간결하다.
+- `cb.and(predicates.toArray(new Predicate[0]))`는 리스트의 조건을 모두 AND로 연결한다. 조건이 없으면 WHERE 절 자체가 생략된다.
+- COUNT 조회는 `cb.createQuery(Long.class)`로 반환 타입을 `Long`으로 지정하고, `select(cb.count(root))`로 COUNT 집계를 선언한다.
+- Criteria API는 타입 안전하고 동적 쿼리에 적합하지만 코드가 장황해지는 단점이 있다. Querydsl은 이 단점을 Q클래스 자동 생성으로 해결한 라이브러리다 (exam23 참고).
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam19.App
+  ```

@@ -204,6 +204,15 @@ managed.getCategories().clear();
 // DELETE FROM shop_product_category WHERE product_id = ?
 ```
 
+- `product.getCategories()`를 최초 접근하면 LAZY 로딩으로 `shop_product_category`를 JOIN해 카테고리 목록을 로드한다.
+- `getCategories()`에 `Category` 객체를 추가하면 `commit()` 시 `shop_product_category`에 INSERT가 실행된다. 단, `Product.categories`가 연관관계 주인(`@JoinTable` 선언 쪽)이므로, 역방향(`category.getProducts().add(product)`)만 추가해서는 DB에 반영되지 않는다.
+- `clear()`로 컬렉션을 비우면 `commit()` 시 중간 테이블의 해당 상품 행이 전부 삭제된다. 상품·카테고리 엔티티 자체는 삭제되지 않는다.
+- `@ManyToMany`는 중간 테이블에 FK 두 개만 저장할 수 있다. 연결 시각(`created_at`) 같은 추가 속성이 필요하면 App2처럼 연결 엔티티로 전환해야 한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam13.App1
+  ```
+
 ---
 
 ## App2 - 연결 엔티티(ProductCategory)로 리팩토링
@@ -231,11 +240,11 @@ em.remove(toRemove);
 // DELETE FROM shop_product_category WHERE product_id=? AND category_id=?
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam13.App1
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam13.App2
-```
+- 연결 엔티티 `ProductCategory`는 `@EmbeddedId`의 복합 PK(`productId`, `categoryId`)를 가진다. `@MapsId`로 `@ManyToOne` FK와 복합 PK 필드가 연동되어, `product.id`와 `category.id`만 설정해도 PK가 자동으로 채워진다.
+- `em.persist(pc)`로 연결 엔티티를 직접 저장하면 `created_at` 같은 추가 속성도 함께 INSERT된다. `@ManyToMany`로는 이 정보를 저장할 수 없다.
+- JPQL에서 `SELECT pc FROM ProductCategory pc`로 연결 엔티티 자체를 조회할 수 있어, `pc.getCreatedAt()` 등 추가 속성에 접근할 수 있다. `@ManyToMany`에서는 불가능했던 부분이다.
+- 복합 PK로 단건 조회 시 `new ProductCategoryId(productId, categoryId)`처럼 PK 객체를 만들어 `em.find()`에 전달한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam13.App2
+  ```

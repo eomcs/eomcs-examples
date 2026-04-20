@@ -162,6 +162,15 @@ tx.commit(); // UPDATE 자동 실행
 em.remove(em.find(OrderItem.class, new OrderItemId(3L, 1L)));
 ```
 
+- `@IdClass` 방식은 PK 필드(`orderId`, `productId`)가 엔티티에 직접 노출된다. JPQL에서 `oi.orderId`처럼 일반 필드처럼 바로 접근할 수 있어 쿼리 작성이 간결하다.
+- 복합 PK로 단건 조회 시 `new OrderItemId(orderId, productId)` PK 객체를 만들어 `em.find()`에 전달한다.
+- 수량 변경처럼 PK가 아닌 일반 필드 수정은 Dirty Checking이 정상적으로 작동해 `commit()` 시 UPDATE가 자동 실행된다.
+- `@IdClass`에서 PK 클래스(`OrderItemId`)는 엔티티의 `@Id` 필드명과 반드시 일치하는 필드를 가져야 한다. `equals()`와 `hashCode()` 구현도 필수다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam15.App1
+  ```
+
 ---
 
 ## App2 - @EmbeddedId 방식 INSERT/SELECT/DELETE
@@ -192,14 +201,11 @@ em.createQuery(
 em.remove(em.find(OrderItemV2.class, new OrderItemPK(3L, 5L)));
 ```
 
----
-
-## 실행 방법
-
-```bash
-# @IdClass 방식
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam15.App1
-
-# @EmbeddedId 방식
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam15.App2
-```
+- `@EmbeddedId` 방식은 PK가 하나의 객체(`OrderItemPK`)로 묶인다. JPQL에서는 `oi.id.orderId`처럼 PK 객체를 거쳐 필드에 접근한다.
+- INSERT 시 `newItem.setId(new OrderItemPK(orderId, productId))`로 복합 PK 전체를 한 번에 설정한다. `@IdClass`처럼 각 필드를 따로 설정하는 것과 대비된다.
+- PK 클래스(`OrderItemPK`)에 `@Embeddable`이 선언되어 있으며, 컬럼 매핑(`@Column`)이 PK 클래스 내부에서 이루어진다.
+- `@IdClass`와 달리 PK 객체를 별도 변수로 다루거나 다른 엔티티에서 재사용하기 편리하다. 복잡한 복합 PK를 여러 엔티티에서 공유하는 경우에 유리하다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam15.App2
+  ```

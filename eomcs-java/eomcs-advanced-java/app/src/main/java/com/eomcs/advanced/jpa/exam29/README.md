@@ -113,6 +113,15 @@ for (int i = 1; i <= 100; i++) {
 int deleted = repo.bulkDeleteByEmailPattern("batch_%");
 ```
 
+- Bulk UPDATE는 JPQL 1번으로 조건에 맞는 모든 행을 변경한다. 개별 엔티티를 조회한 뒤 루프로 변경하는 방식보다 훨씬 빠르다. `bulkUpdateCity("서울", "수원")` 실행 후 `bulkUpdateCity("수원", "서울")`로 원복하는 패턴으로 테스트 데이터를 관리한다.
+- JDBC 배치 INSERT에서 `em.persist()`를 반복 호출하면 `hibernate.jdbc.batch_size` 설정값만큼 SQL을 모아 한 번에 DB로 전송한다. 100건을 batch_size=50으로 처리하면 2번의 `executeBatch()`만 실행된다.
+- `em.flush()`는 1차 캐시의 변경 사항을 DB에 동기화하고, `em.clear()`는 1차 캐시를 비운다. 대량 처리 시 `clear()`를 주기적으로 호출하지 않으면 1차 캐시가 계속 커져 `OutOfMemoryError`가 발생할 수 있다.
+- `Bulk DELETE`는 이메일 패턴(`LIKE 'batch_%'`)으로 조건을 지정해 테스트 데이터를 일괄 삭제한다. 배치 INSERT로 삽입한 100건이 1번의 DELETE 쿼리로 제거된다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam29.App
+  ```
+
 ---
 
 ## App2 - StatelessSession 배치 처리
@@ -127,14 +136,12 @@ try (StatelessSession ss = sf.openStatelessSession()) {
 }
 ```
 
----
-
-## 실행 방법
-
-```bash
-# Bulk 연산 & JDBC 배치
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam29.App
-
-# StatelessSession 배치
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam29.App2
-```
+- `StatelessSession`은 영속성 컨텍스트(1차 캐시)가 없어 `ss.insert()` 호출 즉시 DB에 INSERT가 실행된다. `flush()`나 `clear()` 없이 대량 처리가 가능하다.
+- `EntityManager` 방식과 달리 Dirty Checking이 없으므로, 엔티티 필드를 변경해도 자동 UPDATE가 발생하지 않는다. 수정이 필요하면 `ss.update(entity)`를 명시적으로 호출해야 한다.
+- `@PrePersist` 같은 엔티티 라이프사이클 이벤트도 발생하지 않는다. Auditing(`@CreatedDate` 등)이 동작하지 않으므로, Auditing이 필요한 경우에는 `StatelessSession`을 사용하면 안 된다.
+- `StatelessSession`에서도 JPQL `createMutationQuery().executeUpdate()`로 벌크 UPDATE·DELETE를 실행할 수 있다. 1차 캐시가 없으므로 `clearAutomatically`는 고려할 필요가 없다.
+- 대용량 데이터 마이그레이션, ETL 작업, 배치 잡처럼 Auditing이나 이벤트 없이 순수하게 빠른 INSERT·UPDATE가 필요한 상황에 적합하다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam29.App2
+  ```

@@ -134,6 +134,10 @@ tx.commit();                   // DELETE 실행
 em.find(Customer.class, id);   // null
 ```
 
+- `em.contains(c)`로 해당 엔티티가 현재 영속성 컨텍스트에서 관리되는지 확인할 수 있다. 영속 상태이면 `true`, 비영속·준영속·삭제 상태이면 `false`를 반환한다.
+- `detach()` 후 필드를 수정해도 Dirty Checking이 작동하지 않아 DB에 반영되지 않는다. 변경 내용을 DB에 반영하려면 반드시 `merge()`로 영속성 컨텍스트에 다시 등록해야 한다.
+- `merge(detached)`는 넘겨받은 준영속 인스턴스를 그대로 영속으로 바꾸지 않고, DB에서 조회하거나 1차 캐시에서 꺼낸 **새로운 영속 인스턴스**를 반환한다. 반환된 인스턴스를 사용해야 한다.
+- `clear()`는 영속성 컨텍스트 전체를 초기화한다. 이후 `find()`를 호출하면 1차 캐시가 비어 있으므로 DB SELECT가 다시 실행된다.
 - 실행 명령:
   ```
   ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam10.App

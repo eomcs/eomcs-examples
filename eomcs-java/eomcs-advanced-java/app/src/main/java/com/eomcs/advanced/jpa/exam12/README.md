@@ -177,7 +177,11 @@ List<Customer> result = em.createQuery(
 // → 내부적으로 WHERE city = '서울' 로 변환
 ```
 
-- 실행 방법:
-  ```bash
+- `@Embedded` 필드(`address`)는 별도 테이블이 생성되지 않는다. `Address`의 `city`, `street`, `zipcode` 컬럼이 `shop_customer` 테이블에 그대로 저장된다.
+- `address = null`로 설정하면 `city`, `street`, `zipcode` 컬럼이 모두 `NULL`로 저장된다. 이 상태에서 `getAddress()`를 호출하면 `null`이 반환되므로 NPE에 주의해야 한다.
+- Address 수정은 새 `Address` 객체를 `setAddress()`로 교체하거나 기존 객체의 필드를 수정하면 된다. 어느 방식이든 Dirty Checking이 작동해 `commit()` 시 해당 컬럼들이 UPDATE된다.
+- JPQL에서 임베디드 필드는 `c.address.city`처럼 **점 경로 표현식**으로 접근한다. Hibernate가 이를 컬럼명(`city`)으로 변환해 WHERE 절에 적용한다.
+- 실행 명령:
+  ```
   ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam12.App
   ```

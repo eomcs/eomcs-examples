@@ -146,6 +146,14 @@ em.createQuery("SELECT c.city, COUNT(c) FROM Customer c WHERE c.city IS NOT NULL
     + " GROUP BY c.city HAVING COUNT(c) >= 1");
 ```
 
+- JPQL에서 테이블명 대신 **엔티티 클래스명**, 컬럼명 대신 **Java 필드명**을 사용한다. `shop_customer` 대신 `Customer`, `created_at` 대신 `createdAt`을 쓴다.
+- 집계 함수(`COUNT`, `AVG`, `MIN`, `MAX`)의 반환 타입은 각각 `Long`, `Double`, `Object` 타입이다. 여러 집계를 한 쿼리에서 조회하면 `Object[]`로 반환된다.
+- `BETWEEN :low AND :high`처럼 이름 기반 파라미터를 사용하면 순서에 관계없이 바인딩할 수 있어 가독성이 높다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App1
+  ```
+
 ---
 
 ## App2 - 파라미터 바인딩
@@ -166,6 +174,14 @@ em.createQuery("SELECT p FROM Product p ORDER BY p.id", Product.class)
     .setFirstResult(0)    // 시작 위치 (0-based)
     .setMaxResults(2);    // 최대 건수
 ```
+
+- 이름 기반 파라미터(`:name`)는 파라미터명을 문자열로 지정하므로 순서가 달라도 문제없다. 가독성과 유지보수 측면에서 위치 기반(`?1`)보다 권장된다.
+- 위치 기반 파라미터 인덱스는 JPQL에서 **1부터 시작**한다. JDBC의 `PreparedStatement`와 동일하다.
+- `setFirstResult(0)`은 0번째 행부터 시작(0-based)하고, `setMaxResults(2)`는 최대 2건을 가져온다. Hibernate가 DB 방언에 맞는 페이징 SQL(`FETCH FIRST`, `ROWNUM`, `LIMIT` 등)을 자동 생성한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App2
+  ```
 
 ---
 
@@ -189,12 +205,11 @@ List<CustomerNameCityDto> dtos = em.createQuery(
     .getResultList();
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App1
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App2
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App3
-```
+- 단일 컬럼 프로젝션(`SELECT c.name`)은 `List<String>`처럼 해당 컬럼 타입의 리스트로 바로 반환된다.
+- 다중 컬럼 프로젝션(`SELECT c.id, c.name, c.city`)은 `List<Object[]>`로 반환된다. `row[0]`, `row[1]`처럼 인덱스로 접근하므로 타입 캐스팅이 필요하고 실수하기 쉽다.
+- 생성자 표현식(`SELECT new 패키지.DTO(...)`)을 사용하면 결과가 DTO 인스턴스의 리스트로 반환되어 타입 안전하게 사용할 수 있다. DTO 클래스에 해당 시그니처의 생성자가 반드시 있어야 한다.
+- 엔티티 프로젝션으로 조회된 엔티티는 영속 상태(managed)가 되어 Dirty Checking이 작동한다. 단일/다중 컬럼·DTO 프로젝션은 영속 상태가 아니다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam17.App3
+  ```

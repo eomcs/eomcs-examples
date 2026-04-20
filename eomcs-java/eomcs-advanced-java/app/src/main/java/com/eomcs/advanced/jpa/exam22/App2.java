@@ -2,6 +2,7 @@ package com.eomcs.advanced.jpa.exam22;
 
 import java.time.LocalDateTime;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.domain.Pageable;
 
 // exam22 - @Query & Paging: @Modifying (UPDATE / DELETE)
 //
@@ -40,7 +41,7 @@ public class App2 {
       repo.save(c2);
 
       System.out.println("=== 테스트 데이터 저장 ===");
-      repo.findByCity("대전").forEach(c -> System.out.println("  " + c));
+      repo.findByCity("대전", Pageable.unpaged()).forEach(c -> System.out.println("  " + c));
 
       // ── 1. @Modifying UPDATE - 벌크 도시 변경 ─────────────────────────
       System.out.println("\n=== 1. @Modifying UPDATE - 도시 일괄 변경 ===");
@@ -48,7 +49,7 @@ public class App2 {
       // clearAutomatically=true → UPDATE 후 1차 캐시 초기화 → 이후 조회 시 DB에서 재조회
       int updated = repo.updateCity("대전", "광주");
       System.out.println("  변경된 행 수: " + updated);
-      repo.findByCity("광주").forEach(c -> System.out.println("  변경 후: " + c));
+      repo.findByCity("광주", Pageable.unpaged()).forEach(c -> System.out.println("  변경 후: " + c));
 
       // ── 2. @Modifying DELETE - 이메일 패턴으로 삭제 ───────────────────
       System.out.println("\n=== 2. @Modifying DELETE - 이메일 패턴 삭제 ===");

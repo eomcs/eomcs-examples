@@ -114,10 +114,12 @@ repo.findAll(
 repo.count(CustomerSpecs.hasCity("서울"));
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam24.App
-```
+- 각 조건은 `CustomerSpecs`의 정적 팩토리 메서드로 독립적으로 생성된다. 조건 객체를 재사용할 수 있어 동일한 조건이 여러 쿼리에서 반복 작성되는 것을 막는다.
+- `spec.and(spec2)` / `spec.or(spec2)`로 두 조건을 조합하면 새로운 Specification이 반환된다. 세 조건 이상은 체이닝을 이어가면 된다.
+- 조건 팩토리 메서드에서 파라미터가 `null`이면 `null`을 반환하도록 구현한다. Spring Data JPA는 `null` Specification을 자동으로 무시하므로, 이것이 동적 쿼리를 구현하는 핵심이다.
+- `Specification.where(null)`은 조건이 없는 Specification으로, 전체 조회를 의미한다. 동적 검색에서 모든 파라미터가 `null`일 때의 시작점으로 사용한다.
+- `count(Specification)`은 조건에 맞는 건수만 반환하므로, `findAll()`로 전체 목록을 가져오지 않아도 된다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam24.App
+  ```

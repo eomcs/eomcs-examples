@@ -110,6 +110,16 @@ slice.hasNext();           // 다음 페이지 여부만
 repo.searchByCity("서울", PageRequest.of(0, 5, Sort.by("name").ascending()));
 ```
 
+- `@Query`로 선언한 JPQL은 메서드 이름 파생 쿼리가 표현하기 어려운 집계(`GROUP BY`)나 복잡한 조건을 직접 작성할 때 사용한다.
+- `Page<T>` 반환 메서드는 내부적으로 COUNT 쿼리를 추가 실행해 `getTotalElements()`(전체 건수)와 `getTotalPages()`(전체 페이지 수)를 제공한다.
+- `Slice<T>`는 COUNT 쿼리를 실행하지 않고 `hasNext()`(다음 페이지 존재 여부)만 제공하므로, 무한 스크롤처럼 전체 건수가 불필요한 경우에 성능상 유리하다.
+- `PageRequest.of(page, size, Sort)`를 사용하면 페이지 번호·크기·정렬 기준을 한 번에 지정할 수 있다. 페이지 번호는 0-based이다.
+- `page.nextPageable()`은 다음 페이지를 요청하는 `Pageable` 객체를 반환하므로, 루프 없이 페이지를 순차적으로 탐색할 수 있다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam22.App
+  ```
+
 ---
 
 ## App2 - @Modifying (UPDATE / DELETE)
@@ -124,11 +134,12 @@ int updated = repo.updateCity("대전", "광주");   // 변경된 행 수 반환
 int deleted = repo.deleteByEmailPattern("bulk_%");
 ```
 
----
-
-## 실행 방법
-
-```bash
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam22.App
-./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam22.App2
-```
+- `@Modifying`은 SELECT가 아닌 쿼리(UPDATE·DELETE)를 실행할 때 반드시 선언해야 한다. 없으면 런타임 예외가 발생한다.
+- 벌크 연산은 영속성 컨텍스트(1차 캐시)를 거치지 않고 DB를 직접 수정하므로, 실행 후 1차 캐시에 남아 있는 엔티티와 DB 데이터가 불일치하는 stale 상태가 된다.
+- `clearAutomatically = true`를 설정하면 벌크 연산 직후 1차 캐시가 자동으로 초기화되어, 이후 조회 시 DB에서 최신 데이터를 다시 읽는다.
+- 반환값 `int`는 영향받은 행 수이다. 결과가 없을 때는 0을 반환한다.
+- `@Transactional`이 없으면 벌크 연산이 트랜잭션 없이 실행되어 예외가 발생한다. 리포지토리 메서드에 명시적으로 선언해야 한다.
+- 실행 명령:
+  ```
+  ./gradlew -q run -PmainClass=com.eomcs.advanced.jpa.exam22.App2
+  ```
