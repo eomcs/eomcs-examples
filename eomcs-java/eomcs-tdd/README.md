@@ -83,11 +83,70 @@ tasks.named('test') {
     useJUnitPlatform()
 
     testLogging {
-        events "failed"
-        exceptionFormat "full"
-        showExceptions true
-        showCauses true
-        showStackTraces false  // 스택트레이스 생략, 오류 메시지만 출력
+        events = ["failed"]
+        exceptionFormat = "full"
+        showExceptions = true
+        showCauses = true
+        showStackTraces = false  // 스택트레이스 생략, 오류 메시지만 출력
     }
 }
 ```
+
+## 교육 준비
+
+### macOS 패키지 관리자 설치
+
+0. Xcode Command Line Tools (Homebrew 설치에 필요)
+    ```bash
+    xcode-select --install
+    ```
+
+1. Homebrew 설치 (macOS 패키지 관리자,JDK + SDK 포함)
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+2. SDKMAN 설치 (JDK, SDK 전용 패키지 관리자) - JDK 패키지 관리가 Homebrew보다 더 편리함
+    ```bash
+    curl -s "https://get.sdkman.io" | bash
+    ```
+
+### Git 설치
+
+- macOS:
+    - Xcode Command Line Tools을 설치하면 Git이 기본 설치됨
+- Windows:
+    - [Git 공식 웹사이트](https://git-scm.com/download/win)에서 다운로드해서 설치
+
+### JDK 21 이상 설치
+
+- macOS:
+    ```bash
+    sdk install java 21.0.10-tem
+    ```
+- Windows:
+    - [Oracle JDK 21 다운로드](https://www.oracle.com/java/technologies/downloads/#java21)
+
+### Gradle 설치
+
+- macOS:
+    ```bash
+    sdk install gradle
+    ```
+- Windows:
+    - [Gradle 공식 웹사이트](https://gradle.org/install/)에서 다운로드해서 설치
+
+### VSCode 설치
+
+- [VSCode 공식 웹사이트](https://code.visualstudio.com/)에서 다운로드해서 설치
+- 기본 확장 프로그램:
+    - Extension Pack for Java (Microsoft 제공)
+    - Gradle for Java (Microsoft 제공)
+    - Checkstyle for Java (ShengChen 제공)
+    - Google Java Format for VS Code (Jose V Sebastian 제공)
+    - SonarQube for IDE (SonarSource 제공)
+    - Korean Language Pack for Visual Studio Code (Microsoft 제공)
+    - Oracle SQL Developer Extension for VSCode (Oracle 제공)
+- AI 코드 어시스턴트 확장 프로그램:
+    - GitHub Copilot Chat (GitHub 제공)
+    - Claude Code for VS Code (Anthropic 제공)
+    - Codex - OpenAI's Code Assistant (OpenAI 제공)
