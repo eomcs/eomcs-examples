@@ -27,3 +27,9 @@ application {
 ./gradlew -q run -PmainClass=com.eomcs.advanced.App3 --args="홍길동 20"
 ```
 
+## DB 접속 정보
+
+- username: KNB101
+- password: oqGTg2743
+- host: 193.123.247.105
+- service: srvkbi.sub01081722130.dbcsvcn.oraclevcn.com
