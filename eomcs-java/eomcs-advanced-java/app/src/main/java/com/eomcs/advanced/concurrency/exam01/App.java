@@ -35,6 +35,8 @@ public class App {
 
     @Override
     public void run() {
+      System.out.println("========>" + Thread.currentThread().getName());
+
       for (int i = 1; i <= 3; i++) {
         System.out.println(getName() + " 실행 중: " + i);
         try {
@@ -59,6 +61,7 @@ public class App {
 
     @Override
     public void run() {
+      System.out.println(">>>>>>>>>>>>>>>>" + Thread.currentThread().getName());
       for (int i = 1; i <= 3; i++) {
         System.out.println(name + " 실행 중: " + i);
         try {
@@ -73,12 +76,13 @@ public class App {
   }
 
   public static void main(String[] args) throws InterruptedException {
+    System.out.println(Thread.currentThread().getName());
 
     // 1. Thread 클래스 상속으로 스레드 생성
     System.out.println("[1. Thread 클래스 상속]");
     MyThread t1 = new MyThread("Thread-A");
     t1.start(); // 새 스레드 시작. run()을 직접 호출하면 안 된다.
-    t1.join();  // t1이 종료될 때까지 현재 스레드(main) 대기
+    t1.join(); // t1이 종료될 때까지 현재 스레드(main) 대기
 
     // 2. Runnable 인터페이스 구현으로 스레드 생성
     System.out.println("\n[2. Runnable 인터페이스 구현]");
@@ -88,33 +92,32 @@ public class App {
 
     // 3. 람다로 Runnable 구현 (Java 8+)
     System.out.println("\n[3. 람다로 Runnable 구현]");
-    Thread t3 = new Thread(() -> {
-      for (int i = 1; i <= 3; i++) {
-        System.out.println(Thread.currentThread().getName() + " 실행 중: " + i);
-        try {
-          Thread.sleep(100);
-        } catch (InterruptedException e) {
-          return;
-        }
-      }
-      System.out.println(Thread.currentThread().getName() + " 종료");
-    }, "Thread-C");
+    Thread t3 =
+        new Thread(
+            () -> {
+              for (int i = 1; i <= 3; i++) {
+                System.out.println(Thread.currentThread().getName() + " 실행 중: " + i);
+                try {
+                  Thread.sleep(100);
+                } catch (InterruptedException e) {
+                  return;
+                }
+              }
+              System.out.println(Thread.currentThread().getName() + " 종료");
+            },
+            "Thread-C");
     t3.start();
     t3.join();
 
     // 4. 여러 스레드 동시 실행
     System.out.println("\n[4. 여러 스레드 동시 실행]");
-    Thread[] threads = {
-        new MyThread("T1"),
-        new MyThread("T2"),
-        new MyThread("T3")
-    };
+    Thread[] threads = {new MyThread("T1"), new MyThread("T2"), new MyThread("T3")};
 
     for (Thread t : threads) {
       t.start(); // 세 스레드가 동시에 실행됨 - 출력 순서가 섞일 수 있다
     }
     for (Thread t : threads) {
-      t.join();  // 모든 스레드가 종료될 때까지 대기
+      t.join(); // 모든 스레드가 종료될 때까지 대기
     }
 
     // 5. 스레드 기본 정보 확인

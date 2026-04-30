@@ -31,6 +31,7 @@ public class App {
     list.add("바나나");
     list.add("딸기");
     list.add("바나나"); // 중복 허용
+
     System.out.println(list); // [사과, 바나나, 딸기, 바나나]
 
     // 2. get() / set() - 인덱스로 접근

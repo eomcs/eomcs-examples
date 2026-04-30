@@ -38,7 +38,7 @@ public class App {
     // 명령형: 루프와 조건문으로 직접 제어
     System.out.print("  명령형: ");
     for (int n : numbers) {
-      if (n % 2 == 0) {       // 짝수 조건을 개발자가 직접 if로 작성
+      if (n % 2 == 0) { // 짝수 조건을 개발자가 직접 if로 작성
         System.out.print(n + " ");
       }
     }
@@ -46,9 +46,9 @@ public class App {
 
     // 선언형: "짝수인 것을 출력한다"는 의도가 코드에 그대로 드러난다.
     System.out.print("  선언형: ");
-    numbers.stream()
-        .filter(n -> n % 2 == 0) // 중간 연산: 짝수만 통과
-        .forEach(n -> System.out.print(n + " ")); // 최종 연산: 출력
+
+    numbers.stream().filter(n -> n % 2 == 0).forEach(n -> System.out.print(n + " "));
+
     System.out.println();
 
     System.out.println();
@@ -69,9 +69,7 @@ public class App {
 
     // 선언형
     System.out.print("  선언형: ");
-    numbers.stream()
-        .filter(n -> n > 5)
-        .forEach(n -> System.out.print(n + " "));
+    numbers.stream().filter(n -> n > 5).forEach(n -> System.out.print(n + " "));
     System.out.println();
 
     System.out.println();
@@ -96,7 +94,7 @@ public class App {
     System.out.print("  선언형: ");
     numbers.stream()
         .filter(n -> n % 2 == 0) // 짝수 필터
-        .filter(n -> n > 5)      // 5 초과 필터 (filter를 이어 붙인다)
+        .filter(n -> n > 5) // 5 초과 필터 (filter를 이어 붙인다)
         .forEach(n -> System.out.print(n + " "));
     System.out.println();
 
