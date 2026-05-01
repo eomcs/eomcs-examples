@@ -1,8 +1,5 @@
-package com.eomcs.tdd.step11.refactor3;
+package com.eomcs.tdd.step10.refactor7;
 
-// 하위 클래스 제거
-//
-// - 테스트에서 하위 클래스를 사용하기 않기 때문에 제거한다.
 class Money {
 
   protected int amount;
@@ -13,6 +10,7 @@ class Money {
     this.currency = currency;
   }
 
+  // Dollar 객체를 생성하는 대신에 Money 객체를 생성하여 리턴
   static Money dollar(int amount) {
     return new Money(amount, "USD");
   }
@@ -32,6 +30,6 @@ class Money {
   @Override
   public boolean equals(Object obj) {
     Money other = (Money) obj;
-    return amount == other.amount && currency().equals(other.currency());
+    return amount == other.amount && currency.equals(other.currency);
   }
 }

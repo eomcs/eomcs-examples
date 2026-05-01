@@ -9,6 +9,7 @@
 TDD의 핵심 사고 방식은 '어떻게 구현할 것인가?'를 고민하기 전에 '어떻게 테스트할 것인가?'를 먼저 묻고 생각하는 것이다. 예를 들어, `Dollar`과 `Franc`이라는 두 하위 클래스를 제거하는 큰 설계 문제에 직면했을 때, 단번에 모든 문제를 해결하려고 하기보다는, '통화'라는 개념을 도입하는 **작은 테스트부터 시작**하여 점진적으로 문제를 풀어나가는 접근법을 사용한다.
 
 ### TDD의 보폭(Step Size)
+
 TDD는 정해진 보폭만 고집하는 것이 아니라 지속적인 '조향(steering)' 과정이다. 확신이 부족할 때는 아주 작은 단계로 기어를 낮추고, 구조가 명확할 때는 한 번에 큰 단계(One swell foop)로 도약하는 유연함을 발휘해야 한다.
 
 ## 실습
@@ -31,7 +32,7 @@ TDD는 정해진 보폭만 고집하는 것이 아니라 지속적인 '조향(st
 
 ### Green 단계 - currency() 메서드 추가
 
-테스트를 통과하는 currency()를 추가한다. 각 하위 클래스가 통화 코드를 하드코딩으로 직접 반환하는 단순한 구현이다.
+테스트를 통과하는 currency()를 추가한다. 각 하위 클래스가 반환할 값을 하드코딩하는 단순한 구현이다.
 
 **프로덕션 코드:**
 ```
@@ -65,16 +66,99 @@ Dollar 클래스 변경:
 
 ### Refactor 단계 2 - currency 필드 및 currency() 메서드 pull up
 
-**상위 클래스로 필드와 메서드 밀어 올리기(Push up):** Dollar과 Franc에서 공통적으로 사용하는 currency 필드와 currency() 메서드를 Money로 pull up하여 중복을 제거한다. 이 과정에서 Money의 생성자 시그니처가 변경되어, Dollar과 Franc이 super(amount, "USD") / super(amount, "CHF")를 호출하도록 수정한다. 이렇게 하면 통화 정보가 하위 클래스에 하드코딩되지 않고 상위 클래스에서 관리되며, 향후 새로운 통화 추가 시에도 일관된 구조를 유지할 수 있다.
+**상위 클래스로 필드와 메서드 밀어 올리기(Push up):** Dollar과 Franc에서 공통적으로 사용하는 currency 필드와 currency() 메서드를 Money로 pull up하여 중복을 제거한다.
 
 **프로덕션 코드:**
 ```
 Dollar와 Franc 클래스:
   - currency 필드와 currency() 메서드를 Money로 pull up
-  - 생성자 변경: super(amount, currency) 호출로 통화 정보를 상위 클래스에 전달
 
 Money 클래스:
-  - Money() → Money(int amount, String currency) 변경
-
+  - currency 필드와 currency() 메서드를 추가
 ```
-currency의 중복이 제거되고 Money에서 통합 관리된다.
+Dollar와 Franc의 currency 필드와 currency() 메서드의 중복이 제거되고 Money에서 통합 관리된다.
+
+
+### Refactor 단계 3 - Dollar/Franc의 생성자에서 하드코딩 제거
+
+**하드코딩 제거:** Dollar과 Franc의 생성자에서 currency 필드 값을 하드코딩("USD"/"CHF")하는 대신, 생성자의 파라미터로 통화 코드를 받아 초기화하도록 변경한다. 
+
+**프로덕션 코드:**
+```
+Dollar와 Franc 클래스:
+  - 생성자에 currency 파라미터 추가
+  - currency 필드를 생성자의 currency 파라미터 값으로 초기화
+  - times() 메서드에서 객체를 생성할 때 currency 파라미터의 값을 전달
+
+Money 클래스:
+  - 팩토리 메서드에서 Dollar과 Franc 객체를 생성할 때 currency 값을 전달
+```
+Dollar/Franc 생성자에서 하드 코딩을 제거하고, 두 클래스의 생성자를 동일하게 맞춘다.
+
+### Refactor 단계 4 - Dollar/Franc 의 생성자 코드가 중복되므로 상위 클래스의 생성자로 pull up
+
+**하위 클래스 생성자에 중복된 코드 제거:** Dollar과 Franc의 생성자에서 amount와 currency를 초기화하는 코드가 중복되므로, 이 부분을 Money 클래스의 생성자로 pull up하여 중복을 제거한다.
+
+**프로덕션 코드:**
+```
+Dollar와 Franc 클래스:
+  - 생성자의 코드를 상위 클래스 Money의 생성자로 pull up하여 중복 제거
+  - 생성자에서 super(amount, currency) 호출
+
+Money 클래스:
+  - 하위 클래스의 생성자에서 중복된 코드를 제거하기 위해 amount와 currency를 초기화하는 생성자 추가
+```
+
+### Refactor 단계 5 - Dollar/Franc의 times() 메서드에서 Money 객체 생성하여 리턴
+
+금액과 통화 정보가 모두 Money 클래스에서 관리되므로, Dollar과 Franc의 times() 메서드에서 객체를 생성할 때 Money 객체를 생성하여 반환하도록 변경한다.
+이렇게 하면 Dollar와 Franc의 times() 메서드가 동일해지기 때문에 times() 메서드를 상위 클래스 Money로 pull up하여 중복을 제거할 수 있다.
+
+**프로덕션 코드:**
+```
+Dollar와 Franc 클래스:
+  - times() 메서드에서 Money 객체를 생성하여 반환
+  - 리턴 타입을 Money로 변경
+
+Money 클래스:
+  - Money 클래스의 객체를 생성할 수 있도록 추상 클래스에서 concrete 클래스로 변경
+  - times() 메서드를 임시로 구현
+  - testDollarMultiplication()에서 팩토리의 리턴 값은 Dollar이고 times()의 리턴 값은 Money 이므로 값 비교 오류가 발생한다.
+    이를 해결하기 위해 Money 클래스의 equals() 메서드를 오버라이딩하여 값을 비교할 때 객체의 타입이 아닌 currency를 비교하도록 변경한다.
+```
+
+### Refactor 단계 6 - Dollar/Franc의 times()를 상위 클래스 Money로 pull up하여 중복 제거
+
+Dollar과 Franc의 times() 메서드가 동일해졌으므로, 이 메서드를 상위 클래스 Money로 pull up하여 중복을 제거한다.
+
+**프로덕션 코드:**
+```
+Dollar와 Franc 클래스:
+  - times() 메서드를 상위 클래스 Money로 pull up하여 중복 제거
+
+Money 클래스:
+  - Dollar와 Franc의 times() 메서드가 중복되므로, 이 부분을 Money 클래스의 메서드로 pull up
+```
+
+### Refactor 단계 7 - 팩토리 메서드의 리턴 타입을 Money로 변경
+
+금액과 통화 정보가 모두 Money 클래스에서 관리되므로, 팩토리 메서드의 리턴 타입을 Dollar/Franc에서 Money로 변경한다.
+이제 Dollar과 Franc 클래스는 더 이상 고유한 행위를 가지지 않으므로, 이 두 클래스를 제거한다.
+
+**프로덕션 코드:**
+```
+Money 클래스:
+  - 팩토리 메서드에서 Money객체를 생성하여 리턴하도록 변경
+
+Dollar와 Franc 클래스:
+  - Money 클래스로 금액과 통화를 다룰 수 있으므로 Dollar과 Franc 클래스 제거
+```
+
+**테스트 코드:**
+```
+testDollarMultiplication()과 testFrancMultiplication()를 testMultiplication()으로 통합
+  - 금액과 통화는 모두 Money 클래스에서 관리되므로, 두 테스트를 하나로 통합
+
+testEquality()에서 잉여 테스트 제거
+  - 달러와 프랑의 동등성 검증을 하나로 합치고, 다른 통화 간의 동등성 검증은 유지
+```

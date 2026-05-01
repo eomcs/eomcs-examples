@@ -1,26 +1,21 @@
-package com.eomcs.tdd.step11.refactor1;
+package com.eomcs.tdd.step10.refactor4;
 
-// 하위 클래스 제거 준비
-//
-// Money 클래스의 팩토리에서 생성자에 currency 값을 전달하기
-//
 abstract class Money {
 
   protected int amount;
   protected String currency;
 
+  // 하위 클래스의 생성자에서 중복된 코드를 제거하기 위해 상위 클래스의 생성자로 pull up
   Money(int amount, String currency) {
     this.amount = amount;
     this.currency = currency;
   }
 
   static Money dollar(int amount) {
-    // 여기서 currency 값을 생성자에 전달하도록 변경한다.
     return new Dollar(amount, "USD");
   }
 
   static Money franc(int amount) {
-    // 여기서 currency 값을 생성자에 전달하도록 변경한다.
     return new Franc(amount, "CHF");
   }
 

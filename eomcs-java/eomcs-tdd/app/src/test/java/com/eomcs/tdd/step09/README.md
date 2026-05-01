@@ -74,6 +74,7 @@ testEquality() 변경
   - `new Dollar(5)` → `Money.dollar(5)`
   - `new Franc(5)` → `Money.franc(5)`
 ```
+
 ### Green 단계 - 팩토리 메서드 적용
 
 `Money` 클래스에 `static Money dollar(int amount)`와 `static Money franc(int amount)` 팩토리 메서드를 추가한다.

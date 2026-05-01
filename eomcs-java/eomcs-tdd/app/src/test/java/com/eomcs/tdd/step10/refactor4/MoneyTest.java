@@ -1,4 +1,4 @@
-package com.eomcs.tdd.step11.refactor1;
+package com.eomcs.tdd.step10.refactor4;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,9 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-// 하위 클래스 제거 준비
-//
-// 테스트는 변경 사항이 없다.
 class MoneyTest {
 
   @Test

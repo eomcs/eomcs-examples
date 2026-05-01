@@ -1,25 +1,22 @@
-package com.eomcs.tdd.step10.refactor2;
+package com.eomcs.tdd.step10.refactor3;
 
-// Dollar와 Franc의 currency 필드와 currency() → Money로 이동 (pull up)
-//
 abstract class Money {
 
   protected int amount;
-
-  // 하위 클래스의 공통 필드를 상위 클래스로 이동
   protected String currency;
 
   static Money dollar(int amount) {
-    return new Dollar(amount);
+    // 생성자가 변경되었으므로 currency 값을 전달
+    return new Dollar(amount, "USD");
   }
 
   static Money franc(int amount) {
-    return new Franc(amount);
+    // 생성자가 변경되었으므로 currency 값을 전달
+    return new Franc(amount, "CHF");
   }
 
   abstract Money times(int multiplier);
 
-  // 하위 클래스의 공통 메서드를 상위 클래스로 이동
   String currency() {
     return currency;
   }

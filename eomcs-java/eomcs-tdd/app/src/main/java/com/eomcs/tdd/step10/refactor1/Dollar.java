@@ -7,7 +7,7 @@ class Dollar extends Money {
 
   Dollar(int amount) {
     this.amount = amount;
-    this.currency = "USD";
+    this.currency = "USD"; // 생성자에서 currency 필드 초기화
   }
 
   // 인스턴스 필드를 반환하도록 currency() 메서드 변경
