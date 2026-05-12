@@ -24,12 +24,32 @@
 
 > 객체의 동치성 검사
 
-### Red 단계 - testEquality(): 동치성 검사하기
+### Red - `testEquality()` 동치성 검사하기
 
 `equals()`가 재정의되지 않은 상태에서 `new Dollar(5).equals(new Dollar(5))`가 `true`여야 한다는 테스트를 추가한다. 자바 기본 `equals()`는 참조를 비교하므로 서로 다른 인스턴스는 `false`를 반환해 테스트가 실패한다.
 
-### Green 단계
+**테스트 코드:**
+```java
+@Test
+void testEquality() {
+  assertTrue(new Dollar(5).equals(new Dollar(5)));
+}
+```
+- 같은 값을 가진 Dollar는 동등해야 한다.
+- Dollar 클래스의 기본 equals()는 참조를 비교하므로, 서로 다른 인스턴스는 false → 테스트 실패
+
+
+### Green - `equals()` 재정의하기
 
 `equals()`를 `return true;`로 하드코딩하여 테스트를 통과시킨다.
 테스트 케이스가 하나뿐이므로 Fake It 전략으로도 통과할 수 있다.
 이것이 **Green** 상태다.
+
+**프로덕션 코드:**
+```java
+  @Override
+  public boolean equals(Object obj) {
+    return true; // 일단 하드 코딩으로 테스트를 통과시킨다. (Fake It)
+  }
+```
+- equals()를 재정의하여 동치성 검사를 통과시킨다.

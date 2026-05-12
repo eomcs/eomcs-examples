@@ -15,6 +15,7 @@ class Money {
     return new Money(amount, "USD");
   }
 
+  // Franc 객체를 생성하는 대신에 Money 객체를 생성하여 리턴
   static Money franc(int amount) {
     return new Money(amount, "CHF");
   }

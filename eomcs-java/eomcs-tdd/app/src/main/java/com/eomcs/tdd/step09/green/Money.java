@@ -1,6 +1,7 @@
 package com.eomcs.tdd.step09.green;
 
-class Money {
+// times() 추상 메서드가 추가되었기 때문에 Money 클래스를 추상 클래스로 선언한다.
+abstract class Money {
 
   protected int amount;
 
@@ -17,11 +18,10 @@ class Money {
   }
 
   // 테스트 코드에서 times() 메서드를 사용할 수 있도록 추가한다.
-  // 리턴 타입은 Money로 선언한다. 그래야 테스트 코드에서 Dollar, Franc 클래스의 존재를 몰라도 된다.
-  Money times(int multiplier) {
-    // 단 구체적인 구현은 하위 클래스에서 할 것이므로, 여기서는 그냥 null을 반환한다.
-    return null;
-  }
+  // 리턴 타입은 Money로 선언하여 Dollar나 Franc과 같은
+  // Money의 하위 클래스를 리턴할 수 있도록 한다.
+  // 하위 클래스에서 구체적인 구현을 할 것이므로 추상 메서드로 선언한다.
+  abstract Money times(int multiplier);
 
   @Override
   public boolean equals(Object obj) {

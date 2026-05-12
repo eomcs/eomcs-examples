@@ -1,6 +1,6 @@
 # 의심되는 부분이 있다면 테스트로 확인하라! 
 
-이 단계에서는 의심되는 부분을 테스트로 확인해보는 과정을 다룬다. 
+이 단계에서는 테스트를 이용하여 의심되는 부분을 확인해보는 과정을 다룬다. 
 
 ## 개념
 
@@ -44,25 +44,45 @@ public boolean equals(Object obj) {
 
 > 교차 통화 비교 테스트를 추가한다.
 
-### Red 단계 - 버그를 드러내는 테스트
+### Red - 버그를 드러내는 테스트
 
 교차 통화 비교 테스트 `assertFalse(new Dollar(5).equals(new Franc(5)))`를 추가한다. `Money.equals()`가 클래스 검사 없이 `amount`만 비교하므로 `5 == 5`가 되어 `true`를 반환하고 테스트가 실패한다.
 
 **테스트 코드:**
+```java
+@Test
+void testEquality() {
+  assertTrue(new Dollar(5).equals(new Dollar(5)));
+  assertFalse(new Dollar(5).equals(new Dollar(6)));
+  assertTrue(new Franc(5).equals(new Franc(5)));
+  assertFalse(new Franc(5).equals(new Franc(6)));
+
+  // 교차 통화 비교: Dollar(5) 와 Franc(5) 는 달라야 한다.
+  assertFalse(new Dollar(5).equals(new Franc(5))); // ← Red: 실패
+}
 ```
 - testEquality()에 교차 통화 비교 테스트 추가
-```
 
-### Green 단계 - getClass()로 클래스 검사 추가
+
+### Green - `getClass()`로 클래스 검사 추가
 
 `Money.equals()`에 `getClass() != obj.getClass()` 검사를 추가하여 버그를 수정한다.
 `Dollar.class`와 `Franc.class`는 서로 다른 클래스이므로 `false`를 반환하여 테스트가 통과한다.
 
 **프로덕션 코드:**
 
+```java
+@Override
+public boolean equals(Object obj) {
+  // 클래스 검사 추가
+  if (obj == null || getClass() != obj.getClass()) {
+    return false;
+  }
+  Money other = (Money) obj;
+  return amount == other.amount;
+}
 ```
-- Money.equals()에 getClass() 검사 추가
-```
+- Money.equals()에 같은 클래스인지 검사하는 코드 추가
 
 **instanceof vs getClass():**
 

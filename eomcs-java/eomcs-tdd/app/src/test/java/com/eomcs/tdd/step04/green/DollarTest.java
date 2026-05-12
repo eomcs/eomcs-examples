@@ -24,8 +24,6 @@ class DollarTest {
     assertTrue(new Dollar(5).equals(new Dollar(5)));
 
     // Triangulation 기법
-    // - 이 테스트를 추가하면 return true; 는 더 이상 통과하지 못한다.
-    // - 이제 amount 값을 실제로 비교하는 일반적인 구현이 필요해진다.
     assertFalse(new Dollar(5).equals(new Dollar(6)));
   }
 }
