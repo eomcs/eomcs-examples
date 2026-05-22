@@ -19,4 +19,3 @@
 - [문제 영역에서 가져온 이름을 사용하라(Use Problem Domain Names)](exam14/README.md)
 - [의미 있는 맥락을 추가하라(Add Meaningful Context)](exam15/README.md)
 - [불필요한 맥락을 추가하지 마라(Don’t Add Gratuitous Context)](exam16/README.md)
-- [최종 단어(Final Words)](exam17/README.md)
