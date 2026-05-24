@@ -1,5 +1,9 @@
 # Chapter 2. Meaningful Names (의미 있는 이름 짓기)
 
+이 장에서는 이름을 잘 짓는 간단한 규칙을 소개한다. 좋은 이름은 읽기 쉽고, 이해하기 쉽고, 검색하기 쉽다.
+
+## 예제
+
 - [의도를 분명히 밝혀라(Use Intention-Revealing Names)](exam01/README.md)
 - [그릇된 정보를 피하라(Avoid Disinformation)](exam02/README.md)
 - [의미있게 구분하라(Make Meaningful Distinctions)](exam03/README.md)
