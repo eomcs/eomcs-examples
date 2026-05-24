@@ -1,6 +1,6 @@
 # Chapter 4. Comments (주석)
 
-이 장은 주석을 잘 다는 법을 소개한다. 
+이 장은 주석을 잘 다는 법을 소개한다.
 
 ## 주석은 왜 필요한가?
 
@@ -80,9 +80,9 @@ int total = calculateTotalPrice(items);
 
 ## 예제
 
-- 주석은 나쁜 코드를 보완하지 못한다 (Comments Do Not Make Up for Bad Code)
-- 코드로 의도를 표현하라 (Explain Yourself in Code)
-- 좋은 주석 (Good Comments)
+- [주석은 나쁜 코드를 보완하지 못한다 (Comments Do Not Make Up for Bad Code)](exam01/README.md)
+- [코드로 의도를 표현하라 (Explain Yourself in Code)](exam02/README.md)
+- [좋은 주석 (Good Comments)](exam03/README.md)
     - 법적인 주석 (Legal Comments)
     - 정보를 제공하는 주석 (Informative Comments)
     - 의도를 설명하는 주석 (Explanation of Intent)
@@ -91,7 +91,7 @@ int total = calculateTotalPrice(items);
     - TODO 주석 (TODO Comments)
     - 중요성을 강조하는 주석 (Amplification)
     - 공개 API의 Javadocs (Javadocs in Public APIs)
-- 나쁜 주석 (Bad Comments)
+- [나쁜 주석 (Bad Comments)](exam04/README.md)
     - 주절거리는 주석 (Mumbling)
     - 같은 이야기를 중복하는 주석 (Redundant Comments)
     - 오해할 여지가 있는 주석 (Misleading Comments)
