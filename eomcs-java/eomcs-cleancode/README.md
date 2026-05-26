@@ -6,29 +6,29 @@
 
 클린 코드를 작성하는 방법을 설명하는 핵심 이론 파트다.
 
-- [Chapter 1: Clean Code — 클린 코드란 무엇인가](app/src/main/java/com/eomcs/cleancode/ch01/README.md)
-- [Chapter 2: Meaningful Names — 의미 있는 이름 짓기](app/src/main/java/com/eomcs/cleancode/ch02/README.md)
-- [Chapter 3: Functions — 함수 설계 원칙](app/src/main/java/com/eomcs/cleancode/ch03/README.md)
-- [Chapter 4: Comments — 주석을 잘 쓰는 법](app/src/main/java/com/eomcs/cleancode/ch04/README.md)
-- [Chapter 5: Formatting — 코드 형식](app/src/main/java/com/eomcs/cleancode/ch05/README.md)
-- [Chapter 6: Objects and Data Structures](app/src/main/java/com/eomcs/cleancode/ch06/README.md)
-- [Chapter 7: Error Handling](app/src/main/java/com/eomcs/cleancode/ch07/README.md)
-- [Chapter 8: Boundaries](app/src/main/java/com/eomcs/cleancode/ch08/README.md)
-- [Chapter 9: Unit Tests & TDD](app/src/main/java/com/eomcs/cleancode/ch09/README.md)
-- [Chapter 10: Classes](app/src/main/java/com/eomcs/cleancode/ch10/README.md)
-- [Chapter 11: Systems](app/src/main/java/com/eomcs/cleancode/ch11/README.md)
-- [Chapter 12: Emergence](app/src/main/java/com/eomcs/cleancode/ch12/README.md)
-- [Chapter 13: Concurrency](app/src/main/java/com/eomcs/cleancode/ch13/README.md)
+- [Chapter 1: 깨끗한 코드 (Clean Code)](app/src/main/java/com/eomcs/cleancode/ch01/README.md)
+- [Chapter 2: 의미있는 이름 짓기 (Meaningful Names)](app/src/main/java/com/eomcs/cleancode/ch02/README.md)
+- [Chapter 3: 함수 (Functions)](app/src/main/java/com/eomcs/cleancode/ch03/README.md)
+- [Chapter 4: 주석 (Comments)](app/src/main/java/com/eomcs/cleancode/ch04/README.md)
+- [Chapter 5: 형식 맞추기 (Formatting)](app/src/main/java/com/eomcs/cleancode/ch05/README.md)
+- [Chapter 6: 객체와 자료구조 (Objects and Data Structures)](app/src/main/java/com/eomcs/cleancode/ch06/README.md)
+- [Chapter 7: 오류 처리 (Error Handling)](app/src/main/java/com/eomcs/cleancode/ch07/README.md)
+- [Chapter 8: 경계 (Boundaries)](app/src/main/java/com/eomcs/cleancode/ch08/README.md)
+- [Chapter 9: 단위 테스트 (Unit Tests)](app/src/main/java/com/eomcs/cleancode/ch09/README.md)
+- [Chapter 10: 클래스 (Classes)](app/src/main/java/com/eomcs/cleancode/ch10/README.md)
+- [Chapter 11: 시스템 (Systems)](app/src/main/java/com/eomcs/cleancode/ch11/README.md)
+- [Chapter 12: 창발성 (Emergence)](app/src/main/java/com/eomcs/cleancode/ch12/README.md)
+- [Chapter 13: 동시성 (Concurrency)](app/src/main/java/com/eomcs/cleancode/ch13/README.md)
 
 ### 2부 — 케이스 스터디 (Chapters 14–16)
 
 실제 코드를 직접 리팩터링하는 과정을 단계별로 보여준다. 
 
-- [Chapter 14: Successive Refinement (Args 파서 리팩터링)](app/src/main/java/com/eomcs/cleancode/ch14/README.md)
-- [Chapter 15: JUnit Internals](app/src/main/java/com/eomcs/cleancode/ch15/README.md)
-- [Chapter 16: Refactoring SerialDate](app/src/main/java/com/eomcs/cleancode/ch16/README.md)
+- [Chapter 14: 점진적 개선 (Successive Refinement)](app/src/main/java/com/eomcs/cleancode/ch14/README.md)
+- [Chapter 15: JUnit 들여다보기 (JUnit Internals)](app/src/main/java/com/eomcs/cleancode/ch15/README.md)
+- [Chapter 16: SerialDate 리팩터링 (Refactoring SerialDate)](app/src/main/java/com/eomcs/cleancode/ch16/README.md)
 
-### 3부 — 냄새와 휴리스틱 (Chapter 17)
+### 3부 — 냄새와 휴리스틱 (Chapter 17 - Smells and Heuristics)
 
 케이스 스터디를 진행하며 도출한 코드 스멜(bad smells) 과 휴리스틱(판단 기준) 목록이다. 주석(C), 환경(E), 함수(F), 일반(G), 자바(J), 이름(N), 테스트(T) 등 카테고리별로 정리되어 있다.
 
