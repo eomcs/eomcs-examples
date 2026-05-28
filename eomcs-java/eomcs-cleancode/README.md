@@ -40,7 +40,7 @@
 ./gradlew compileJava 2>&1 | tail -10
 ```
 
-## 교육 준비
+## 도구 준비
 
 ### macOS 패키지 관리자 설치
 
@@ -98,3 +98,105 @@
     - GitHub Copilot Chat (GitHub 제공)
     - Claude Code for VS Code (Anthropic 제공)
     - Codex - OpenAI's Code Assistant (OpenAI 제공)
+
+## 단위 테스트 준비
+
+### 의존 라이브러리 추가
+
+**libs.versions.toml:**
+
+```toml
+[versions]
+junit-jupiter = "6.1.0"
+jackson = "2.21.3"
+log4j = "2.26.0"
+
+[libraries]
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+
+```
+
+**build.gradle:**
+
+```groovy
+dependencies {
+    testImplementation libs.junit.jupiter
+    testImplementation libs.jackson.databind
+    testImplementation libs.log4j.core
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+```
+
+### 단위 테스트 실행
+
+```zsh
+./gradlew test --rerun-tasks  --tests "com.eomcs.cleancode.ch09.examXX.*" 2>&1
+```
+
+### 단위 테스트 소스 코드 위치
+
+`app/src/test/java/com/eomcs/cleancode/ch09/examXX`
+
+## Spring Framework AOP + AspectJ 준비
+
+### 의존 라이브러리 추가
+
+**libs.versions.toml:**
+
+```toml
+[versions]
+spring = "7.0.7"
+aspectjweaver = "1.9.24"
+
+[libraries]
+spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
+aspectjweaver = { module = "org.aspectj:aspectjweaver", version.ref = "aspectjweaver" }
+```
+
+**build.gradle:**
+
+```groovy
+dependencies {
+    implementation libs.spring.context
+    implementation libs.aspectjweaver
+}
+```
+
+## 예제 실행
+
+### `gradle.build` 설정
+
+```groovy
+application {
+    mainClass = project.findProperty('mainClass') ?: 'com.eomcs.cleancode.App'
+}
+```
+
+### 애플리케이션 실행 
+빌드 스크립트 파일에 설정된 기본 메인 클래스 실행:
+```bash
+./gradlew -q run
+```
+
+특정 클래스 실행:
+```bash
+./gradlew -q run -PmainClass=com.eomcs.cleancode.App2
+```
+
+프로그램 아규먼트 넘기기:
+```bash
+./gradlew -q run -PmainClass=com.eomcs.cleancode.App3 --args="홍길동 20"
+```

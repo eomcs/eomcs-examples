@@ -2,9 +2,15 @@
 # https://docs.gradle.org/current/userguide/version_catalogs.html#sec::toml-dependencies-format
 
 [versions]
-guava = "33.5.0-jre"
-junit-jupiter = "6.0.1"
+junit-jupiter = "6.1.0"
+jackson = "2.21.3"
+log4j = "2.26.0"
+spring = "7.0.7"
+aspectjweaver = "1.9.24"
 
 [libraries]
-guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+spring-context = { module = "org.springframework:spring-context", version.ref = "spring" }
+aspectjweaver = { module = "org.aspectj:aspectjweaver", version.ref = "aspectjweaver" }

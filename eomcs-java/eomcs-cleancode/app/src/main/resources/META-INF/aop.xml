@@ -1,0 +1,17 @@
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "https://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+    <!--
+        위빙 대상을 exam05 패키지로 한정한다.
+        - BankImpl: 로깅 어드바이스가 삽입될 대상
+        - LoggingAspect: 위버가 aspectOf() 등 인프라 메서드를 주입해야 하는 Aspect 클래스
+        이 설정이 없으면 클래스패스의 모든 클래스를 위빙하려 해서 성능이 저하된다.
+    -->
+    <weaver>
+        <include within="com.eomcs.cleancode.ch11.exam05.*"/>
+    </weaver>
+
+    <!-- 적용할 Aspect 클래스를 등록한다 -->
+    <aspects>
+        <aspect name="com.eomcs.cleancode.ch11.exam05.LoggingAspect"/>
+    </aspects>
+</aspectj>
