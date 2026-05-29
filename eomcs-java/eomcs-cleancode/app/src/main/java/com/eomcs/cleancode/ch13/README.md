@@ -1,0 +1,33 @@
+# Chapter 13: 동시성 (Concurrency)
+
+이번 장에서는 여러 스레드를 동시에 돌리는 이유와 그 난관을 살펴보고, 이런 어려움에 대처하는 방법을 알아본다. 또한 동시성 문제를 테스트하는 방법도 소개한다.
+
+## 예제
+
+- [동시성이 필요한 이유? (Why Concurrency?)](./exam01/README.md)
+  - 미신과 오해 (Myths and Misconceptions)
+- [난관 (Challenges)](./exam02/README.md)
+- [동시성 방어 원칙 (Concurrency Defense Principles)](./exam03/README.md)
+  - 단일 책임 원칙 (Single Responsibility Principle)
+  - 따름 정리: 자료 범위를 제한하라 (Corollary: Limit the Scope of Data)
+  - 따름 정리: 자료 사본을 사용하라 (Corollary: Use Copies of Data)
+  - 따름 정리: 스레드는 가능한 독립적으로 구현하라 (Corollary: Threads Should Be as Independent as Possible)
+- [라이브러리를 이해하라 (Know Your Library)](./exam04/README.md)
+  - 스레드 환경에 안전한 컬렉션 (Thread-Safe Collections)
+- [실행 모델을 이해하라 (Know Your Execution Models)](./exam05/README.md)
+  - 생산자-소비자 (Producer-Consumer)
+  - 읽기-쓰기 (Readers-Writers)
+  - 식사하는 철학자들 (Dining Philosophers)
+- [동기화하는 메서드 사이에 존재하는 의존성을 이해하라 (Beware Dependencies Between Synchronized Methods)](./exam06/README.md)
+- [동기화하는 부분을 작게 만들어라 (Keep Synchronized Sections Small)](./exam07/README.md)
+- [올바른 종료는 구현하기 어렵다 (Writing Correct Shut-Down Code Is Hard)](./exam08/README.md)
+- [스레드 코드 테스트하기 (Testing Threaded Code)](./exam09/README.md)
+  - 말이 안 안되는 실패는 잠정적인 스레드 문제로 취급하라 (Treat Spurious Failures as Candidate Threading Issues)
+  - 다중 스레드를 고려하지 않은 순차 코드부터 제대로 돌게 만들자 (Get Your Nonthreaded Code Working First)
+  - 다중 스레드를 쓰는 코드 부분을 다양한 환경에 쉽게 끼워 넣을 수 있게 스레드 코드를 구현하라 (Make Your Threaded Code Pluggable)
+  - 다중 스레드를 쓰는 코드 부분을 상황에 맞게 조율할 수 있게 작성하라 (Make Your Threaded Code Tunable)
+  - 프로세서 수보다 많은 스레드를 돌려보라 (Run with More Threads Than Processors)
+  - 다른 플랫폼에서 돌려보라 (Run on Different Platforms)
+  - 코드에 보조 코드를 넣어 돌려라. 강제로 실패를 일으키게 해보라 (Instrument Your Code to Try and Force Failures)
+  - 직접 구현하기 (Hand-Coded)
+  - 자동화 (Automated)
