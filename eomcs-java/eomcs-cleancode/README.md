@@ -2,10 +2,6 @@
 
 ## 책 구성
 
-### 1부 — 원칙, 패턴, 실천법 (Chapters 1–13)
-
-클린 코드를 작성하는 방법을 설명하는 핵심 이론 파트다.
-
 - [Chapter 1: 깨끗한 코드 (Clean Code)](app/src/main/java/com/eomcs/cleancode/ch01/README.md)
 - [Chapter 2: 의미있는 이름 짓기 (Meaningful Names)](app/src/main/java/com/eomcs/cleancode/ch02/README.md)
 - [Chapter 3: 함수 (Functions)](app/src/main/java/com/eomcs/cleancode/ch03/README.md)
@@ -19,19 +15,10 @@
 - [Chapter 11: 시스템 (Systems)](app/src/main/java/com/eomcs/cleancode/ch11/README.md)
 - [Chapter 12: 창발성 (Emergence)](app/src/main/java/com/eomcs/cleancode/ch12/README.md)
 - [Chapter 13: 동시성 (Concurrency)](app/src/main/java/com/eomcs/cleancode/ch13/README.md)
-
-### 2부 — 케이스 스터디 (Chapters 14–16)
-
-실제 코드를 직접 리팩터링하는 과정을 단계별로 보여준다. 
-
 - [Chapter 14: 점진적 개선 (Successive Refinement)](app/src/main/java/com/eomcs/cleancode/ch14/README.md)
 - [Chapter 15: JUnit 들여다보기 (JUnit Internals)](app/src/main/java/com/eomcs/cleancode/ch15/README.md)
 - [Chapter 16: SerialDate 리팩터링 (Refactoring SerialDate)](app/src/main/java/com/eomcs/cleancode/ch16/README.md)
-
-### 3부 — 냄새와 휴리스틱 (Chapter 17 - Smells and Heuristics)
-
-케이스 스터디를 진행하며 도출한 코드 스멜(bad smells) 과 휴리스틱(판단 기준) 목록이다. 주석(C), 환경(E), 함수(F), 일반(G), 자바(J), 이름(N), 테스트(T) 등 카테고리별로 정리되어 있다.
-
+- [Chapter 17: 냄새와 휴리스틱 (Smells and Heuristics)](app/src/main/java/com/eomcs/cleancode/ch17/README.md)
 
 ## 실행 
 
