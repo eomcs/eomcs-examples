@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es2024", "dom"],
+    "module": "NodeNext",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2024",
+    "types": ["node"]
+  }
+}
