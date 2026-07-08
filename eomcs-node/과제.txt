@@ -1,0 +1,22 @@
+과제1. app04/App.jsx를 편집하여 다음과 같이 계좌 입출금 내역이 출력되게 변경하시오.
+
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+YYYY.MM.DD  메시지  +1,000,000   120,000,000 
+
+과제 제출: App.jsx, 실행 결과 캡쳐 화면 
+과제 제출 마감일: 2026-07-08 23:59까지
+구글드라이브: https://drive.google.com/drive/folders/1N1JYy2GKSM-XYLkU97AFNyc9W_N5EXsY?usp=sharing 
+제출 형식: 과제1_이름.zip
+ 
+
+과제2. 과제1에서 작성한 app04/App.jsx를 Search와 List 컴포넌트로 분리하시오.
+
+과제 제출: App.jsx, 실행 결과 캡쳐 화면 
+과제 제출 마감일: 2026-07-08 23:59까지
+구글드라이브: https://drive.google.com/drive/folders/1N1JYy2GKSM-XYLkU97AFNyc9W_N5EXsY?usp=sharing 
+제출 형식: 과제2_이름.zip
