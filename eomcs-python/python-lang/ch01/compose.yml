@@ -1,0 +1,15 @@
+services:
+  python-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: python-lab
+
+    working_dir: /workspace
+
+    volumes:
+      - ~/python-workspace:/workspace
+
+    stdin_open: true
+    tty: true

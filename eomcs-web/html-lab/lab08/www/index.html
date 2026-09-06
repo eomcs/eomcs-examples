@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 수업 문의 실습</title>
+</head>
+<body>
+  <header>
+    <h1>HTML 수업 문의 실습</h1>
+    <nav aria-label="주요 메뉴">
+      <ul>
+        <li><a href="../lab05/index.html">학습 소개</a></li>
+        <li><a href="../lab06/index.html">학습 시간표</a></li>
+        <li><a href="index.html">문의 실습</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <p>필수 항목을 입력하고 제출 데이터의 구성을 확인하세요.</p>
+    <p>실습용 폼입니다. 문의를 저장하거나 이메일을 발송하지 않습니다.</p>
+
+    <form action="result.html" method="get">
+      <fieldset>
+        <legend>문의자 정보</legend>
+        <p>
+          <label for="user-name">이름 (필수)</label>
+          <input type="text" id="user-name" name="userName"
+                 autocomplete="name" required maxlength="40">
+        </p>
+        <p>
+          <label for="user-email">이메일 (필수)</label>
+          <input type="email" id="user-email" name="email"
+                 autocomplete="email" placeholder="student@example.com" required>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>관심 분야 (선택, 여러 개 선택 가능)</legend>
+        <input type="checkbox" id="interest-html" name="interest" value="html">
+        <label for="interest-html">HTML</label>
+        <input type="checkbox" id="interest-css" name="interest" value="css">
+        <label for="interest-css">CSS</label>
+        <input type="checkbox" id="interest-js" name="interest" value="javascript">
+        <label for="interest-js">JavaScript</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>문의 정보</legend>
+        <p>
+          <label for="category">문의 유형 (필수)</label>
+          <select id="category" name="category" required>
+            <option value="">선택하세요</option>
+            <option value="course">수업 문의</option>
+            <option value="practice">실습 문의</option>
+            <option value="other">기타 문의</option>
+          </select>
+        </p>
+        <p>
+          <label for="message">문의 내용 (필수)</label><br>
+          <textarea id="message" name="message" rows="6" cols="40"
+                    required minlength="10" maxlength="500"
+                    aria-describedby="message-help"></textarea>
+        </p>
+        <p id="message-help">10~500자로 작성하세요. 실습 파일 이름과 질문 내용을 포함해 주세요.</p>
+      </fieldset>
+
+      <p><button type="submit">입력값 확인</button></p>
+    </form>
+  </main>
+
+  <footer>
+    <p><small>&copy; 2026 홍길동. HTML 수업 실습 자료입니다.</small></p>
+  </footer>
+</body>
+</html>
