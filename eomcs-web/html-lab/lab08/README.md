@@ -2,6 +2,42 @@
 
 - Docker를 이용한 웹 서버 구축과 배포 실습
 
+## Windows 11에서 준비
+
+WSL 설치 상태 확인:
+
+```bash
+wsl --status
+```
+
+WSL 설치:
+
+```bash
+wsl --install
+```
+
+Windows OS 환경이 준비되었는지 확인:
+
+```bash
+dism.exe /online /get-features /format:table | findstr /i "Microsoft-Windows-Subsystem-Linux VirtualMachinePlatform"
+```
+
+준비가 된 상태:
+```text
+Microsoft-Windows-Subsystem-Linux    Enabled
+VirtualMachinePlatform                Enabled
+```
+
+준비가 안되었다면:
+
+```bash
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+```
+
+
 ## Docker Desktop 설치
 
 Docker Desktop 설치는 [Docker 공식 홈페이지](https://www.docker.com/products/docker-desktop/)에서 운영체제에 맞는 설치 파일을 다운로드하여 설치한다.
