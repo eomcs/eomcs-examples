@@ -25,13 +25,28 @@ const todoItems = [
     }
 ];
 
-const todoItemTag = `<article>
-  <input id="work${todoItem.workId}" type="checkbox">
-  <label for="work${todoItem.workId}">${todoItem.title}</label>
-</article>`;
+for (const todoItem of todoItems) {
+    const todoItemTag = createTodoArticle(todoItem);
+    console.log(todoItemTag);
+    workingListTag.innerHTML = workingListTag.innerHTML + todoItemTag;
+}
 
-console.log(todoItemTag);
+function createTodoArticle(todoItem) {
+    const todoItemTag = `<article>
+        <input id="work${todoItem.workId}" type="checkbox">
+        <label for="work${todoItem.workId}">${todoItem.title}</label>
+        </article>`;
+    return todoItemTag;
+}
 
-workingListTag.innerHTML = workingListTag.innerHTML + todoItemTag;
-
-
+/*
+<h2>진행 중(<span id="working-length">5</span>)</h2>
+<article>
+    <input id="work100" type="checkbox">
+    <label for="work100">객체 만들기</label>
+    </article>
+<article>
+    <input id="work101" type="checkbox">
+    <label for="work101">배열 만들기</label>
+    </article>
+*/

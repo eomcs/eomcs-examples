@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>메서드</h1>
+<p>객체에 소속되어 객체를 다루는 함수</p>
+
+<script>
+"use strict"
+
+// 일반 함수를 사용해서 객체를 다룰 경우:
+const score = {
+    name: "홍길동",
+    kor: 100,
+    eng: 90,
+    math: 80
+};
+
+function sum(s) {
+    return s.kor + s.eng + s.math;
+}
+
+function aver(s) {
+    return sum(s) / 3;
+}
+
+const r = sum(score);
+console.log(r);
+
+console.log(aver(score));
+
+console.log('-----------------------------------');
+
+// 메서드를 통해 객체를 다루는 경우:
+const score2 = {
+    name: "홍길동",
+    kor: 100,
+    eng: 90,
+    math: 80,
+    sum: function() {
+        // this는 메서드를 호출할 때 넘겨 받은 객체를 저장하는 내장 변수이다.
+        return this.kor + this.eng + this.math;
+    },
+    aver: function() {
+        return this.sum() / 3;
+    },
+};
+
+const r2 = score2.sum();
+console.log(r2);
+console.log(score2.aver());
+
+// 객체에 함수를 담는 더 단순한 문법
+const score3 = {
+    name: "홍길동",
+    kor: 100,
+    eng: 90,
+    math: 80,
+    sum() {
+        return this.kor + this.eng + this.math;
+    },
+    aver() {
+        return this.sum() / 3;
+    },
+    greeting() {
+        return "Hello!";
+    }
+};
+
+const r3 = score3.sum();
+console.log(r3);
+console.log(score3.aver());
+console.log(score3.greeting())
+</script>
+</body>
+</html>

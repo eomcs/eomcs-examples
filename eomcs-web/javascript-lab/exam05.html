@@ -45,6 +45,22 @@
     v4 = [100, 200, true];
     console.log(typeof v4);
 
+    const x1 = 100;
+    // const x1 = 200; // 중복 선언 오류
+
+    let x2 = 100;
+    // let x2 = 100; // 중복 선언 오류
+
+    var x3 = 100;
+    var x3 = 100; // 중복 선언 허용
+
+    console.log(window.x1); // undefined
+    console.log(window.x2); // undefined
+    console.log(window.x3); // 100
+    // var 로 변수를 선언하면 window 객체에 생성된다.
+    // 즉 어디에서나 접근할 수 있는 글로벌 변수가 된다.
+    // 단 함수 안에서 선언할 때는 함수 안에서만 사용 가능.
+
 </script>
 </body>
 </html>

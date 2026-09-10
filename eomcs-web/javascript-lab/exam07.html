@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>함수</h1>
+<p>여러 개의 명령을 묶는 문법</p>
+
+<script>
+"use strict"
+
+// 함수 정의
+function f1() {
+    console.log("Hello!");
+    console.log("World!");
+}
+
+f1();
+
+// 함수 리터럴
+
+const f2 = function() {
+    console.log("Hello!2");
+    console.log("World!2");
+};
+
+f2();
+
+// 애로우 함수(arrow function)
+const f3 = () => {
+    console.log("Hello!3");
+    console.log("World!3");
+};
+
+f3();
+
+
+let f4 = f1;
+f4();
+
+f4 = f2;
+f4();
+
+// 아규먼트(argument)와 파라미터(parameter)
+function plus(a, b) {
+    return a + b;
+}
+
+const r = plus(100, 200);
+console.log(r);
+
+const plus2 = function(a, b) {
+    return a + b;
+};
+
+const r2 = plus2(1000, 2000);
+console.log(r2);
+
+const plus3 = (a, b) => {
+    return a + b;
+};
+
+const r3 = plus3(10000, 20000);
+console.log(r3);
+
+</script>
+</body>
+</html>
