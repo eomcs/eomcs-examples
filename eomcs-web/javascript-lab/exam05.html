@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>변수</h1>
+<p>데이터를 저장하는 메모리를 가리킨다.</p>
+<script>
+    "use strict"
+   
+    {
+        const v1 = "Hello";
+        let v2 = 100;
+        var v3 = 100;
+
+        // v1 = "Hello2"; // 오류
+        v2 = 200;
+        v3 = 300;
+    }
+
+    // console.log(v1); // 생성된 블록을 벗어나면 소멸
+    // console.log(v2); // 생성된 블록을 벗어나면 소멸
+    console.log(v3);
+
+    let sum = 0;
+    for (let i = 1; i <= 10; i++) {
+        sum = sum + i;
+    }
+    console.log(sum);
+
+    // dynamic type binding
+    let v4 = "Hello";
+    console.log(typeof v4);
+
+    v4 = 100;
+    console.log(typeof v4);
+
+    v4 = true;
+    console.log(typeof v4);
+
+    v4 = [100, 200, true];
+    console.log(typeof v4);
+
+</script>
+</body>
+</html>

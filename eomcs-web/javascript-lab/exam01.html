@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function f1() {
+        const t1 = document.getElementById("t1");
+        console.log(t1);
+    }
+    //document.addEventListener('DOMContentLoaded', f1);
+    window.addEventListener('load', f1);
+    console.log("Hello!-1");
+    </script>
+</head>
+<body>
+<script>
+    console.log("Hello!-2");
+</script>
+
+<h1 id="t1">Hello!</h1>
+
+<script>
+    console.log("Hello!-3");
+</script>
+</body>
+</html>

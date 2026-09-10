@@ -1,0 +1,20 @@
+body {
+    font-size: small;
+}
+
+#page-header {
+    background-color:darkblue;
+    color: white;
+}
+
+#page-footer {
+    background-color: gray;
+}
+
+#working-length {
+    color: red;
+}
+
+#completed-length {
+    color: blue;
+}
