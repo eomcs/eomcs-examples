@@ -33,3 +33,39 @@ body {
 .completed-todo input[type=checkbox] {
     accent-color: darkgray;
 }
+
+.completed-todo button {
+    display: none;
+}
+
+.tab-btn {
+    border-width: 1px;
+    border-bottom-style: hidden;
+}
+
+#todo-list {
+    position: relative;
+    height: 200px;
+    border: 1px solid black;
+}
+
+#working-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    border: 1px dotted red;
+}
+
+#completed-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px;
+    border: 1px dotted blue;
+}

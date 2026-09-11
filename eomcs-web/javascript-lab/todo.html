@@ -14,7 +14,7 @@
     
     <main>
         <section>
-            <form>
+            <form id="todo-form">
                 <label>할 일</label>
                 <input id="todo-title" type="text">
                 <button id="add-btn" type="button">추가</button>
@@ -23,15 +23,18 @@
 
         <hr>
         
-        <section id="working-list">
-            <h2>진행 중(<span id="working-length">5</span>)</h2>
-        </section>
+        <button id="working-tab" type="button" class="tab-btn">진행중</button>
+        <button id="completed-tab" type="button" class="tab-btn">완료</button>
         
-        <hr>
+        <div id="todo-list">
+            <section id="working-list">
+                <h2>진행 중(<span id="working-length">0</span>)</h2>
+            </section>
 
-        <section id="completed-list">
-            <h2>완료(<span id="completed-length">7</span>)</h2>
-        </section>
+            <section id="completed-list">
+                <h2>완료(<span id="completed-length">0</span>)</h2>
+            </section>
+        </div>
     </main>
     
     <footer id="page-footer">
