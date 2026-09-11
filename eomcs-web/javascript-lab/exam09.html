@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>이벤트와 리스너</h1>
+<p>이벤트가 발생했을 때 특정 작성을 수행하는 방법</p>
+
+<!-- 이벤트 처리 방법 1: inline 코드 삽입 -->
+<button 
+  type="button" 
+  onclick="let name = '홍길동'; console.log(`${name}님 환영합니다!`)">버튼1</button>
+
+<!-- 이벤트 처리 방법 2: 태그 객체에 직접 함수 등록 -->
+<button id="btn2" type="button" >버튼2</button>
+<button id="btn3" type="button" >버튼3</button>
+<button id="btn4" type="button" >버튼4</button>
+
+<!-- 이벤트 처리 방법 3: addEventListener()로 함수 등록 -->
+<button id="btn5" type="button" >버튼5</button>
+
+<script>
+"use strict"
+
+function btn2Click() {
+    let name = '임꺽정'; 
+    console.log(`${name}님 환영합니다!`)
+}
+const btn2 = document.getElementById('btn2');
+btn2.onclick = btn2Click;
+
+// 함수 리터럴 문법 사용하기
+const btn3 = document.getElementById('btn3');
+btn3.onclick = function() {
+    let name = '유관순'; 
+    console.log(`${name}님 환영합니다!`)
+};
+
+// 애로우 함수 사용하기
+const btn4 = document.getElementById('btn4');
+btn4.onclick = () => {
+    let name = '안중근'; 
+    console.log(`${name}님 환영합니다!`)
+};
+
+// addEventListener() : 여러 개의 이벤트 리스너를 등록할 수 있다.
+const btn5 = document.getElementById('btn5');
+btn5.addEventListener('click', () => {
+    const name = '김구';
+    console.log(`${name}님 환영합니다!`);
+});
+btn5.addEventListener('click', () => {
+    const name = '윤봉길';
+    console.log(`${name}님 환영합니다!`);
+});
+
+</script>
+
+</body>
+</html>

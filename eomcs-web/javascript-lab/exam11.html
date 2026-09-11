@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>이벤트 단계 - Capturing 단계에서 처리하기</h1>
+<p>이벤트가 발생하면 부모 태그에서 대상 태그까지 정보가 전달된다.
+    대상 태그까지 내려가는 단계에서 이벤트 리스너를 호출하는 방법
+</p>
+<pre>
+Capturing Phase ==> Target Phase ==> Bubbling Phase
+</pre>
+
+<div id="d1">
+    <div id="d11">
+        <button id="btn1">버튼1</button>
+    </div>
+    <div id="d12">
+        <button id="btn2">버튼2</button>
+    </div>
+</div>
+
+<script>
+"use strict"
+
+const html = document.documentElement;
+const body = document.body;
+const d1 = document.getElementById("d1");
+const d11 = document.getElementById("d11");
+const d12 = document.getElementById("d12");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+
+html.addEventListener('click', () => {console.log('html')}, true);
+body.addEventListener('click', () => {console.log('body')}, true);
+d1.addEventListener('click', () => {console.log('d1')}, true);
+d11.addEventListener('click', () => {console.log('d11')}, true);
+d12.addEventListener('click', () => {console.log('d12')}, true);
+btn1.addEventListener('click', () => {console.log('btn1')}, true);
+btn2.addEventListener('click', () => {console.log('btn2')}, true);
+/*
+html
+  ㄴ body
+       ㄴ div.d1
+            ㄴ div.d11
+                 ㄴ button.btn1
+            ㄴ div.d12
+                 ㄴ button.btn1
+*/
+</script>
+
+</body>
+</html>

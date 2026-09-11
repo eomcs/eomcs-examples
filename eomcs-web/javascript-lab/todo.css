@@ -18,3 +18,18 @@ body {
 #completed-length {
     color: blue;
 }
+
+.working-todo {
+}
+
+.completed-todo {
+    color: darkgray;
+}
+
+.completed-todo label {
+    text-decoration: line-through;
+}
+
+.completed-todo input[type=checkbox] {
+    accent-color: darkgray;
+}
