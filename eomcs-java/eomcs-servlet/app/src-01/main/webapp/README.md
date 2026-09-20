@@ -1,1 +1,0 @@
-# HTML, CSS, JavaScript, Image 파일 등 웹 관련 정적 자원 파일과 JSP 파일을 두는 폴더 

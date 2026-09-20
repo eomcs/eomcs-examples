@@ -1,2 +1,0 @@
-<%@ page pageEncoding="UTF-8"%>
-<footer>꼬리말</footer>

@@ -1,2 +1,0 @@
-<%@ page pageEncoding="UTF-8"%>
-<header>머리말</header>

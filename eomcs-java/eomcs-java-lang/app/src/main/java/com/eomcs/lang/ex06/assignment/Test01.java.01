@@ -1,9 +1,0 @@
-package com.eomcs.basic.ex06.assignment;
-
-public class Test01 {
-
-  public static void main(String[] args) {
-
-  }
-
-}
